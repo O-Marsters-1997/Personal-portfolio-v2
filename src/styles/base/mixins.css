@@ -1,0 +1,9 @@
+.test {
+  color: blue;
+}
+
+@layer components {
+  .another-test {
+    @apply text-red-500;
+  }
+}
