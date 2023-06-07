@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:astro/recommended",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "plugins": ["astro"],
+      "env": {
+        // Enables global variables available in Astro components.
+        "node": true,
+        "astro/astro": true,
+        "es2020": true
+      },
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"],
+        // The script of Astro components uses ESM.
+        "sourceType": "module"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-console": "warn"
+  }
+}
