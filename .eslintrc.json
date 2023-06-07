@@ -23,7 +23,6 @@
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"],
-        // The script of Astro components uses ESM.
         "sourceType": "module"
       }
     }
@@ -40,6 +39,10 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
-    "no-console": "warn"
+    "no-console": "warn",
+
+    // Configured off
+    // Prefer use typescript version
+    "no-unused-vars": "off"
   }
 }
