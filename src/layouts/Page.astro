@@ -1,10 +1,12 @@
 ---
 import Layout from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+import BaseHead from "../components/head/BaseHead.astro";
 ---
 
 <Layout>
-  <Header slot="header">
-    <span>hello</span>
-  </Header>
+  <Header slot="header" />
+  <div id="page">
+    <slot />
+  </div>
 </Layout>
