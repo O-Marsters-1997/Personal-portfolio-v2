@@ -11,7 +11,9 @@ export const useMobileLayout = (viewport: number) => {
 
     window.addEventListener("resize", handleResize);
 
-    return (): void => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [viewport]);
 
   return isMobileView;

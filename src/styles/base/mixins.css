@@ -7,3 +7,7 @@
     @apply text-red-500;
   }
 }
+
+.testing {
+  color: blue;
+}
