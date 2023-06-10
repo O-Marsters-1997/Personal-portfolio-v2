@@ -14,16 +14,27 @@
       super();
 
       const getIsMobile = () => {
-        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        // Decalring elements
         const mobileEl = this.getElementsByClassName("mobile")[0];
         const desktopEl = this.getElementsByClassName("desktop")[0];
+        const variants = [mobileEl, desktopEl];
 
-        mediaQuery.addEventListener("change", (event) => {
-          const variants = [mobileEl, desktopEl];
-          const hiddenEl = event.target.matches ? desktopEl : mobileEl;
+        // Defining media query
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+        const chekViewportSize = (query) => {
+          const hiddenEl = query.matches ? desktopEl : mobileEl;
           variants.forEach((variant) => {
             variant.style.display = variant == hiddenEl ? "none" : "block";
           });
+        };
+
+        // First check on page load
+        chekViewportSize(mediaQuery);
+
+        // Subsequent checks fire on an onchange event listener
+        mediaQuery.addEventListener("change", (event) => {
+          chekViewportSize(event.target);
         });
       };
 
