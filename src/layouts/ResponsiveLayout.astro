@@ -1,0 +1,56 @@
+---
+---
+
+<mobile-layout>
+  <div class="slot__mobile">
+    <slot name="mobile" />
+  </div>
+  <div class="slot__desktop">
+    <slot name="desktop" />
+  </div>
+</mobile-layout>
+
+<script is:inline>
+  class MobileLayout extends HTMLElement {
+    constructor() {
+      super();
+
+      const getIsMobile = () => {
+        // Decalring elements
+        const variantsArr = document.querySelectorAll('[class*="slot"]');
+        const variantsMap = Array.from(variantsArr).reduce((obj, element) => {
+          const className = element.className.replace("slot__", "");
+          obj[className] = element;
+          return obj;
+        }, {});
+
+        // Defining media query
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+        const chekViewportSize = (query) => {
+          const hiddenEl = query.matches
+            ? variantsMap["desktop"]
+            : variantsMap["mobile"];
+          variantsArr.forEach((variant) => {
+            variant.style.display = variant == hiddenEl ? "none" : "block";
+          });
+        };
+
+        // First check on page load
+        chekViewportSize(mediaQuery);
+
+        // if not then there will only be one layout
+        if (variantsArr.length > 1) {
+          // Subsequent checks fire on an onchange event listener
+          mediaQuery.addEventListener("change", (event) => {
+            chekViewportSize(event.target);
+          });
+        }
+      };
+
+      getIsMobile();
+    }
+  }
+
+  customElements.define("mobile-layout", MobileLayout);
+</script>
