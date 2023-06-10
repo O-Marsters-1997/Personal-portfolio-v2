@@ -1,28 +1,50 @@
 ---
-// Mobile always included
-type Viewport = "tablet" | "desktop";
+type Viewport = "mobile" | "small-tablet" | "tablet" | "desktop";
 
 type Props = {
-  viewports: Viewport[];
+  includedViewports?: Viewport[];
 };
 
-const { viewports } = Astro.props;
-const viewportsString = viewports.join(", ");
+const { includedViewports = ["mobile", "desktop"] } = Astro.props;
+
+// Important needs to be in the right order to work
+const customSort = (array?: Viewport[]) => {
+  if (!array) return;
+  const sortOrder = ["small-tablet", "tablet", "desktop"];
+  array.sort((a: string, b: string) => {
+    return sortOrder.indexOf(a) - sortOrder.indexOf(b);
+  });
+
+  return array;
+};
+
+!includedViewports?.includes("desktop") && includedViewports?.push("desktop");
+
+const included = customSort(includedViewports) ?? [];
+const viewportsString = included.join(", ");
 ---
 
 <mobile-layout data-viewports={viewportsString}>
   <div class="slot__mobile">
     <slot name="mobile" />
   </div>
+
   {
-    viewports.includes("tablet") && (
+    included.includes("small-tablet") && (
+      <div class="slot__small-tablet">
+        <slot name="small-tablet" />
+      </div>
+    )
+  }
+  {
+    included.includes("tablet") && (
       <div class="slot__tablet">
         <slot name="tablet" />
       </div>
     )
   }
   {
-    viewports.includes("desktop") && (
+    included.includes("desktop") && (
       <div class="slot__desktop">
         <slot name="desktop" />
       </div>
@@ -37,21 +59,32 @@ const viewportsString = viewports.join(", ");
 
       const getIsMobile = () => {
         const screen = {
-          mobile: null,
-          tablet: window.matchMedia("(min-width: 400px)"),
-          desktop: window.matchMedia("(min-width: 768px)"),
+          mobile: window.matchMedia("(min-width: 0px)"),
+          "small-tablet": window.matchMedia("(min-width: 500px)"),
+          tablet: window.matchMedia("(min-width: 650px)"),
+          desktop: window.matchMedia("(min-width: 868px)"),
         };
         const variantsArr = document.querySelectorAll('[class*="slot"]');
+        const included = this.dataset.viewports.split(", ");
+        included.unshift("mobile");
 
         const checkViewportSize = () => {
           let size = null;
-          for (let [scr, mq] of Object.entries(screen)) {
-            if (!mq || mq.matches) size = scr;
+
+          for (let i = included.length - 1; i >= 0; i--) {
+            const viewport = included[i];
+            const mq = screen[viewport];
+
+            if (!mq || mq.matches) {
+              size = viewport;
+              break;
+            }
           }
 
           for (let i = 0; i < variantsArr.length; i++) {
             const element = variantsArr[i];
-            if (element.className.includes(size)) {
+
+            if (element.className == `slot__${size}`) {
               element.style.display = "block";
             } else {
               element.style.display = "none";
