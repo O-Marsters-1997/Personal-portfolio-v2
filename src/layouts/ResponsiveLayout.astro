@@ -1,16 +1,33 @@
 ---
+// Mobile always included
+type Viewport = "tablet" | "desktop";
+
+type Props = {
+  viewports: Viewport[];
+};
+
+const { viewports } = Astro.props;
+const viewportsString = viewports.join(", ");
 ---
 
-<mobile-layout>
+<mobile-layout data-viewports={viewportsString}>
   <div class="slot__mobile">
     <slot name="mobile" />
   </div>
-  <div class="slot__tablet">
-    <slot name="tablet" />
-  </div>
-  <div class="slot__desktop">
-    <slot name="desktop" />
-  </div>
+  {
+    viewports.includes("tablet") && (
+      <div class="slot__tablet">
+        <slot name="tablet" />
+      </div>
+    )
+  }
+  {
+    viewports.includes("desktop") && (
+      <div class="slot__desktop">
+        <slot name="desktop" />
+      </div>
+    )
+  }
 </mobile-layout>
 
 <script is:inline>
@@ -38,8 +55,12 @@
           },
         ];
 
+        const viewports = this.dataset.viewports.split(", ");
+
         const selectedQuery = testQueries.find((mq) => {
-          return window.matchMedia(mq.query).matches;
+          if (viewports.includes(mq.layout)) {
+            return window.matchMedia(mq.query).matches;
+          }
         });
 
         const selectedLayout = selectedQuery ? selectedQuery.layout : "mobile";

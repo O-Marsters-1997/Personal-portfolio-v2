@@ -5,7 +5,7 @@ import ResponsiveLayout from "@layouts/ResponsiveLayout.astro";
 
 <Layout>
   <div class="testing">hello</div>
-  <ResponsiveLayout>
+  <ResponsiveLayout viewports={["tablet", "desktop"]}>
     <p slot="mobile">This is a mobile</p>
     <p slot="desktop">This is a desktop</p>
   </ResponsiveLayout>
