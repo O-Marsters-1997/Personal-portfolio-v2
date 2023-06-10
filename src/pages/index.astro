@@ -1,7 +1,11 @@
 ---
-import Layout from "../layouts/Page.astro";
+import Layout from "@layouts/Page.astro";
+import MobileLayout from "@layouts/MobileLayout.astro";
 ---
 
 <Layout>
   <div class="testing">hello</div>
+  <MobileLayout>
+    <p>after</p>
+  </MobileLayout>
 </Layout>

@@ -1,0 +1,35 @@
+---
+---
+
+<mobile-layout>
+  <div class="mobile">I am mobile</div>
+  <div class="desktop">I am desktop</div>
+  <button id="test-button">Click me</button>
+  <slot />
+</mobile-layout>
+
+<script is:inline>
+  class MobileLayout extends HTMLElement {
+    constructor() {
+      super();
+
+      const getIsMobile = () => {
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const mobileEl = this.getElementsByClassName("mobile")[0];
+        const desktopEl = this.getElementsByClassName("desktop")[0];
+
+        mediaQuery.addEventListener("change", (event) => {
+          const variants = [mobileEl, desktopEl];
+          const hiddenEl = event.target.matches ? desktopEl : mobileEl;
+          variants.forEach((variant) => {
+            variant.style.display = variant == hiddenEl ? "none" : "block";
+          });
+        });
+      };
+
+      getIsMobile();
+    }
+  }
+
+  customElements.define("mobile-layout", MobileLayout);
+</script>
