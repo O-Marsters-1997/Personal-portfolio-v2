@@ -55,40 +55,46 @@ const viewportsString = viewports.join(", ");
           },
         ];
 
-        const viewports = this.dataset.viewports.split(", ");
+        const enabledViewports = this.dataset.viewports.split(", ");
 
         const selectedQuery = testQueries.find((mq) => {
-          if (viewports.includes(mq.layout)) {
+          if (enabledViewports.includes(mq.layout)) {
             return window.matchMedia(mq.query).matches;
           }
         });
 
         const selectedLayout = selectedQuery ? selectedQuery.layout : "mobile";
 
-        console.log(selectedLayout);
-
         // Defining media query
-        const mediaQuery = window.matchMedia("(min-width: 768px)");
+        // const mediaQuery = window.matchMedia("(min-width: 768px)");
 
-        const chekViewportSize = (query) => {
-          const selectedEl = query.matches
-            ? variantsMap["desktop"]
-            : variantsMap["mobile"];
+        const checkViewportSize = () => {
+          // const selectedEl = query.matches
+          //   ? variantsMap["desktop"]
+          //   : variantsMap["mobile"];
+          // variantsArr.forEach((variant) => {
+          //   variant.style.display = variant == selectedEl ? "block" : "none";
+          // });
+
           variantsArr.forEach((variant) => {
-            variant.style.display = variant == selectedEl ? "block" : "none";
+            if (variant.className.includes(selectedLayout)) {
+              variant.style.display = "block";
+            } else {
+              variant.style.display = "none";
+            }
           });
         };
 
         // First check on page load
-        chekViewportSize(mediaQuery);
+        checkViewportSize();
 
-        // if not then there will only be one layout
-        if (variantsArr.length > 1) {
-          // Subsequent checks fire on an onchange event listener
-          mediaQuery.addEventListener("change", (event) => {
-            chekViewportSize(event.target);
-          });
-        }
+        // // if not then there will only be one layout
+        // if (variantsArr.length > 1) {
+        //   // Subsequent checks fire on an onchange event listener
+        //   mediaQuery.addEventListener("change", (event) => {
+        //     checkViewportSize(event.target);
+        //   });
+        // }
       };
 
       getIsMobile();
