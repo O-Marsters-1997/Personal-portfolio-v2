@@ -5,6 +5,9 @@
   <div class="slot__mobile">
     <slot name="mobile" />
   </div>
+  <div class="slot__tablet">
+    <slot name="tablet" />
+  </div>
   <div class="slot__desktop">
     <slot name="desktop" />
   </div>
@@ -24,15 +27,34 @@
           return obj;
         }, {});
 
+        const testQueries = [
+          {
+            query: "(min-width: 768px)",
+            layout: "desktop",
+          },
+          {
+            query: "(min-width: 500px)",
+            layout: "tablet",
+          },
+        ];
+
+        const selectedQuery = testQueries.find((mq) => {
+          return window.matchMedia(mq.query).matches;
+        });
+
+        const selectedLayout = selectedQuery ? selectedQuery.layout : "mobile";
+
+        console.log(selectedLayout);
+
         // Defining media query
-        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const mediaQuery = window.matchMedia("(min-width: 768px)");
 
         const chekViewportSize = (query) => {
-          const hiddenEl = query.matches
+          const selectedEl = query.matches
             ? variantsMap["desktop"]
             : variantsMap["mobile"];
           variantsArr.forEach((variant) => {
-            variant.style.display = variant == hiddenEl ? "none" : "block";
+            variant.style.display = variant == selectedEl ? "block" : "none";
           });
         };
 
