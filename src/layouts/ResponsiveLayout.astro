@@ -36,65 +36,36 @@ const viewportsString = viewports.join(", ");
       super();
 
       const getIsMobile = () => {
-        // Decalring elements
+        const screen = {
+          mobile: null,
+          tablet: window.matchMedia("(min-width: 400px)"),
+          desktop: window.matchMedia("(min-width: 768px)"),
+        };
         const variantsArr = document.querySelectorAll('[class*="slot"]');
-        const variantsMap = Array.from(variantsArr).reduce((obj, element) => {
-          const className = element.className.replace("slot__", "");
-          obj[className] = element;
-          return obj;
-        }, {});
-
-        const testQueries = [
-          {
-            query: "(min-width: 768px)",
-            layout: "desktop",
-          },
-          {
-            query: "(min-width: 500px)",
-            layout: "tablet",
-          },
-        ];
-
-        const enabledViewports = this.dataset.viewports.split(", ");
-
-        const selectedQuery = testQueries.find((mq) => {
-          if (enabledViewports.includes(mq.layout)) {
-            return window.matchMedia(mq.query).matches;
-          }
-        });
-
-        const selectedLayout = selectedQuery ? selectedQuery.layout : "mobile";
-
-        // Defining media query
-        // const mediaQuery = window.matchMedia("(min-width: 768px)");
 
         const checkViewportSize = () => {
-          // const selectedEl = query.matches
-          //   ? variantsMap["desktop"]
-          //   : variantsMap["mobile"];
-          // variantsArr.forEach((variant) => {
-          //   variant.style.display = variant == selectedEl ? "block" : "none";
-          // });
+          let size = null;
+          for (let [scr, mq] of Object.entries(screen)) {
+            if (!mq || mq.matches) size = scr;
+          }
 
-          variantsArr.forEach((variant) => {
-            if (variant.className.includes(selectedLayout)) {
-              variant.style.display = "block";
+          for (let i = 0; i < variantsArr.length; i++) {
+            const element = variantsArr[i];
+            if (element.className.includes(size)) {
+              element.style.display = "block";
             } else {
-              variant.style.display = "none";
+              element.style.display = "none";
             }
-          });
+          }
         };
 
-        // First check on page load
+        // Runs once on load
         checkViewportSize();
 
-        // // if not then there will only be one layout
-        // if (variantsArr.length > 1) {
-        //   // Subsequent checks fire on an onchange event listener
-        //   mediaQuery.addEventListener("change", (event) => {
-        //     checkViewportSize(event.target);
-        //   });
-        // }
+        // Adds event listener for subsequent refires
+        for (let [scr, mq] of Object.entries(screen)) {
+          if (mq) mq.addEventListener("change", checkViewportSize);
+        }
       };
 
       getIsMobile();
