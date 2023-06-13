@@ -1,13 +1,17 @@
 ---
 import Layout from "@layouts/Page.astro";
 // import ResponsiveLayout from "@layouts/ResponsiveLayout.astro";
+import Resposive from "@components/ResponsiveLayout";
 import Test from "@components/Test";
 // import Duplicate from "@layouts/Duplicate.astro";
 ---
 
 <Layout>
-  <Test breakpoint={630} client:only>
+  <!-- <Resposive breakpoints={[800]} client:only>
     <div>hello there matey</div>
+  </Resposive> -->
+  <Test breakpoints={[300, 900]} client:only>
+    <div>second hello</div>
   </Test>
   <!-- <Duplicate viewports={["mobile", "desktop"]}>
     <div slot="mobile">hdddd</div>

@@ -1,19 +1,33 @@
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
 interface Props {
+  breakpoints: [number, number?];
   children: ReactNode;
-  breakpoint: number;
 }
 
-export default function MySidebar({ breakpoint, children }: Props) {
-  const [width, setWidth] = useState(0);
+const ResponsiveLayout = ({ children, breakpoints }: Props) => {
+  const mediaQuery = breakpoints[1]
+    ? window.matchMedia(
+        `(min-width: ${breakpoints[0]}px) and (max-width: ${breakpoints[1]}px)`
+      )
+    : window.matchMedia(`(min-width: ${breakpoints[0]}px)`);
+
+  const [isMatched, setIsMatched] = useState(mediaQuery.matches);
 
   useEffect(() => {
-    const handleResize = () => { setWidth(window.innerWidth); };
-    window.addEventListener("resize", handleResize);
+    const handleViewportChange = () => {
+      console.log("hello");
+      setIsMatched(mediaQuery.matches);
+    };
 
-    return () => { window.removeEventListener("resize", handleResize); };
+    mediaQuery.addEventListener("change", handleViewportChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleViewportChange);
+    };
   }, []);
 
-  return <aside>{width > breakpoint && <main>{children}</main>}</aside>;
-}
+  return <>{isMatched && children}</>;
+};
+
+export default ResponsiveLayout;
