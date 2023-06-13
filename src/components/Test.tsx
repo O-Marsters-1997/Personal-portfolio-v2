@@ -1,22 +1,27 @@
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect, ReactNode, Children, createElement } from "react";
 
 interface Props {
   breakpoints: [number, number?];
   children: ReactNode;
+  matchElement: any;
+  queryMatchesComponent: any;
+  matchSlot: any;
+  fallbackSlot: any;
 }
 
-const ResponsiveLayout = ({ children, breakpoints }: Props) => {
-  const mediaQuery = breakpoints[1]
+const ResponsiveLayout = (props: Props) => {
+  console.log(props);
+
+  const mediaQuery = props.breakpoints[1]
     ? window.matchMedia(
-        `(min-width: ${breakpoints[0]}px) and (max-width: ${breakpoints[1]}px)`
+        `(min-width: ${props.breakpoints[0]}px) and (max-width: ${props.breakpoints[1]}px)`
       )
-    : window.matchMedia(`(min-width: ${breakpoints[0]}px)`);
+    : window.matchMedia(`(min-width: ${props.breakpoints[0]}px)`);
 
   const [isMatched, setIsMatched] = useState(mediaQuery.matches);
 
   useEffect(() => {
     const handleViewportChange = () => {
-      console.log("hello");
       setIsMatched(mediaQuery.matches);
     };
 
@@ -27,7 +32,7 @@ const ResponsiveLayout = ({ children, breakpoints }: Props) => {
     };
   }, []);
 
-  return <>{isMatched && children}</>;
+  return <>{isMatched ? props.matchSlot : props.fallbackSlot}</>;
 };
 
 export default ResponsiveLayout;
