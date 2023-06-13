@@ -1,17 +1,3 @@
-const viewports = {
-  small: 0,
-  medium: 400,
-  large: 800,
-};
+import { useState } from "react";
 
-export const useMobileLayout = (viewport: number) => {
-  window.addEventListener("resize", resizeHandler);
-
-  function resizeHandler() {
-    const { innerWidth } = window;
-
-    return viewport > innerWidth;
-  }
-
-  return window.removeEventListener("resize", resizeHandler);
-};
+export const [mine, setMine] = useState("hello");

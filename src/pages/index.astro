@@ -1,14 +1,21 @@
 ---
 import Layout from "@layouts/Page.astro";
 import ResponsiveLayout from "@layouts/ResponsiveLayout.astro";
+import Test from "@components/Test";
+import Duplicate from "@layouts/Duplicate.astro";
 ---
 
 <Layout>
-  <div class="testing">hello</div>
-  <ResponsiveLayout>
+  <Test breakpoint={630} client:only>
+    <div>hello there matey</div>
+  </Test>
+  <!-- <Duplicate viewports={["mobile", "desktop"]}>
+    <div slot="mobile">hdddd</div>
+  </Duplicate> -->
+  <!-- <ResponsiveLayout includedViewports={["tablet"]}>
     <p slot="mobile">This is a mobile</p>
     <p slot="tablet">This is a tablet</p>
     <p slot="small-tablet">This is a small tablet</p>
     <p slot="desktop">This is a desktop</p>
-  </ResponsiveLayout>
+  </ResponsiveLayout> -->
 </Layout>

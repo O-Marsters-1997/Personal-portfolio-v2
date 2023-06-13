@@ -6,25 +6,33 @@ type Props = {
 };
 
 const { includedViewports = ["mobile", "desktop"] } = Astro.props;
+let numeral = 11;
 
 // Important needs to be in the right order to work
-const customSort = (array?: Viewport[]) => {
+const customSort = (array: Viewport[]) => {
   if (!array) return;
   const sortOrder = ["small-tablet", "tablet", "desktop"];
-  array.sort((a: string, b: string) => {
+  array.sort((a: Viewport, b: Viewport) => {
     return sortOrder.indexOf(a) - sortOrder.indexOf(b);
   });
 
+  const checkMandatoryViewports = (array: Viewport[]) => {
+    // adds desktop if doesn't exist
+    !array.includes("desktop") && includedViewports.push("desktop");
+
+    // adds mobile if doesn't exist
+    !array.includes("mobile") && array.unshift("mobile");
+  };
+
+  checkMandatoryViewports(array);
   return array;
 };
-
-!includedViewports?.includes("desktop") && includedViewports?.push("desktop");
 
 const included = customSort(includedViewports) ?? [];
 const viewportsString = included.join(", ");
 ---
 
-<mobile-layout data-viewports={viewportsString}>
+<mobile-layout data-viewports={viewportsString} data-numeral={numeral}>
   <div class="slot__mobile">
     <slot name="mobile" />
   </div>
@@ -57,7 +65,7 @@ const viewportsString = included.join(", ");
     constructor() {
       super();
 
-      const getIsMobile = () => {
+      const getLayoutByViewport = () => {
         const screen = {
           mobile: window.matchMedia("(min-width: 0px)"),
           "small-tablet": window.matchMedia("(min-width: 500px)"),
@@ -66,7 +74,8 @@ const viewportsString = included.join(", ");
         };
         const variantsArr = document.querySelectorAll('[class*="slot"]');
         const included = this.dataset.viewports.split(", ");
-        included.unshift("mobile");
+
+        this.dataset.numeral++;
 
         const checkViewportSize = () => {
           let size = null;
@@ -101,7 +110,7 @@ const viewportsString = included.join(", ");
         }
       };
 
-      getIsMobile();
+      getLayoutByViewport();
     }
   }
 

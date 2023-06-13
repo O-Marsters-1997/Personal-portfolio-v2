@@ -1,0 +1,76 @@
+---
+type Viewport = "mobile" | "small-tablet" | "tablet" | "desktop";
+
+type Props = {
+  viewports: Viewport[];
+};
+
+const { viewports } = Astro.props;
+
+// Important needs to be in the right order to work
+---
+
+<script is:inline>
+  class Hello extends HTMLElement {
+    constructor() {
+      super();
+
+      const viewports = this.dataset.viewports;
+
+      const viewportMap = {
+        mobile: 0,
+        "small-tablet": 500,
+        tablet: 650,
+        desktop: 868,
+      };
+
+      const getLayoutByViewport = () => {
+        const screen = {
+          mobile: window.matchMedia("(min-width: 0px)"),
+          "small-tablet": window.matchMedia("(min-width: 500px)"),
+          tablet: window.matchMedia("(min-width: 650px)"),
+          desktop: window.matchMedia("(min-width: 868px)"),
+        };
+        // const mediaQuery = window.matchMedia(
+        //   `(min-width: ${viewportMap[viewports.find((item) => item)]} px)`
+        // );
+
+        const checkViewportSize = (viewportOne, viewportTwo) => {
+          const { innerWidth } = window;
+          const isLarger = viewportTwo
+            ? innerWidth > viewportOne && innerWidth < viewportTwo
+            : innerWidth > viewportOne;
+
+          return isLarger;
+        };
+
+        // Runs once on load
+        checkViewportSize(screen.desktop.media.match(/\d+/)[0]);
+
+        const recheck = checkViewportSize(screen.mobile.media.match(/\d+/)[0]);
+
+        // Adds event listener for subsequent refires
+        for (let [scr, mq] of Object.entries(screen)) {
+          if (mq)
+            mq.addEventListener("change", () => {
+              checkViewportSize(screen.desktop.media.match(/\d+/)[0]);
+            });
+        }
+      };
+
+      getLayoutByViewport();
+    }
+  }
+
+  customElements.define("greeting-component", Hello);
+</script>
+
+<greeting-component data-viewports={viewports}>
+  {
+    (
+      <div class="slot__met">
+        <slot name="met" />
+      </div>
+    )
+  }
+</greeting-component>
