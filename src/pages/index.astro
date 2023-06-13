@@ -1,17 +1,13 @@
 ---
 import Layout from "@layouts/Page.astro";
-// import ResponsiveLayout from "@layouts/ResponsiveLayout.astro";
-import Resposive from "@components/ResponsiveLayout";
 import Test from "@components/Test";
 import { responsiveSlotTypes } from "@utils/constants";
-// import Duplicate from "@layouts/Duplicate.astro";
 
-const testing = `<div></div>`;
 const { matchSlot, fallbackSlot } = responsiveSlotTypes;
 ---
 
 <Layout>
-  <Test breakpoints={[500]} client:only>
+  <Test breakpoints={[600, 800]} client:only>
     <div slot={matchSlot}>oh here we go agian</div>
     <div slot={fallbackSlot}>this is a fallback</div>
   </Test>
