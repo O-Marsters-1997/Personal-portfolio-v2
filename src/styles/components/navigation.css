@@ -1,0 +1,3 @@
+.navigation {
+  @apply flex justify-end align-middle m-5;
+}

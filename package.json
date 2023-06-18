@@ -10,7 +10,8 @@
     "astro": "astro",
     "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx,astro}'",
     "prettify": "npx prettier --write './src/**/*.{js,jsx,ts,tsx,astro,css,json}'",
-    "format": "npm run prettify && npm run format"
+    "format": "npm run prettify && npm run format",
+    "generate-tailwind": "node src/scripts/generateTailwindTheme.cjs"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
@@ -25,6 +26,7 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",

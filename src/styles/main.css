@@ -1,4 +1,5 @@
 @import "./base/mixins.css";
+@import "./components";
 
 @tailwind base;
 @tailwind components;

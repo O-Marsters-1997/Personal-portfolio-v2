@@ -3,9 +3,15 @@ import { useState, useEffect, FC, ReactNode } from "react";
 interface Props {
   breakpoints: [number, number?];
   children: ReactNode;
-  matchSlot: ReactNode;
-  fallbackSlot: ReactNode;
+  matchSlot?: ReactNode;
+  fallbackSlot?: ReactNode;
 }
+
+export const breakpointsMap = {
+  mobile: 0,
+  tablet: 768,
+  desktop: 1200,
+};
 
 const ResponsiveLayout: FC<Props> = ({
   breakpoints,

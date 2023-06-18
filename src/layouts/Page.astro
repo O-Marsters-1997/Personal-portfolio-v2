@@ -1,10 +1,24 @@
 ---
 import Layout from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+import Responsive, { breakpointsMap } from "@layouts/ResponsiveLayout";
+import { responsiveSlotTypes } from "@utils/constants";
+import colors from "tailwindcss/colors";
+
+const { matchSlot, fallbackSlot } = responsiveSlotTypes;
+
+console.log(colors);
 ---
 
 <Layout>
-  <Header slot="header" />
+  {
+    (
+      <Responsive breakpoints={[breakpointsMap.tablet]} client:only>
+        <Header slot={matchSlot} />
+        <div slot={fallbackSlot}>Mobile header</div>
+      </Responsive>
+    )
+  }
   <div id="page">
     <slot />
   </div>
