@@ -6,12 +6,20 @@ const path = require("path");
 const tailwindConfig = require("../../tailwind.config.cjs");
 
 const { theme } = resolveConfig(tailwindConfig);
-const themeStr = JSON.stringify(theme.colors);
-const ts = `
-// Make sure the TailwindColors type is defined
-const theme : TailwindColors  = ${themeStr}
-export default theme
+const argument = process.argv[2];
+console.log(argument);
+
+const getTheme = () => {
+  const themeStr = JSON.stringify(theme.colors);
+  const ts = `
+  // Make sure the TailwindColors type is defined
+  const theme : TailwindColors  = ${themeStr}
+  export default theme
 `;
+  return { ts };
+};
+
+const { ts } = getTheme();
 
 try {
   // write the file using fs
