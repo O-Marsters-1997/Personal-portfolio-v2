@@ -1,5 +1,8 @@
 ---
 import Layout from "@layouts/Page.astro";
+import Canvas from "@components/canvas/Canvas";
 ---
 
-<Layout />
+<Layout>
+  <Canvas client:only />
+</Layout>

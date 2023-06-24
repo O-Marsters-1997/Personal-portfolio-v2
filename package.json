@@ -11,7 +11,8 @@
     "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx,astro}'",
     "prettify": "npx prettier --write './src/**/*.{js,jsx,ts,tsx,astro,css,json}'",
     "format": "npm run prettify && npm run format",
-    "generate-tailwind": "node src/scripts/generateTailwindTheme.cjs"
+    "generate-tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
+    "generate-tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
+    "@types/prettier": "^2.7.3",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",

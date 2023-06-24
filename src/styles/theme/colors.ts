@@ -300,3 +300,4 @@ export const colors: TailwindColors = {
   secondary: "rgba(236, 150, 51, 1)",
   tertiary: "rgba(234, 99, 139, 1)",
 };
+export default colors;

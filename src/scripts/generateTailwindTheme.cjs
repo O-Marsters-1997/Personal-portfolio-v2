@@ -7,15 +7,31 @@ const tailwindConfig = require("../../tailwind.config.cjs");
 
 const { theme } = resolveConfig(tailwindConfig);
 const argument = process.argv[2];
-console.log(argument);
+
+const themeMap = {
+  colors: "colors",
+  fontFamily: "typography",
+};
 
 const getTheme = () => {
-  const themeStr = JSON.stringify(theme.colors);
-  const ts = `
+  console.log(themeMap[argument]);
+
+  const themeStr = JSON.stringify(theme[argument]);
+  // determine ts based on npm argument
+
+  const ts =
+    argument === "typography"
+      ? `
+  // Make sure the TailwindTypography type is defined
+  export const typography : TailwindColors  = ${themeStr}
+  export default typography
+`
+      : `
   // Make sure the TailwindColors type is defined
-  const theme : TailwindColors  = ${themeStr}
-  export default theme
+  export const colors : TailwindColors  = ${themeStr}
+  export default colors
 `;
+
   return { ts };
 };
 
@@ -24,7 +40,7 @@ const { ts } = getTheme();
 try {
   // write the file using fs
   fs.writeFileSync(
-    path.resolve(process.cwd(), "./src/styles/theme.ts"),
+    path.resolve(process.cwd(), `./src/styles/theme/${themeMap[argument]}.ts`),
     prettier.format(ts, { parser: "babel" }),
     "utf-8"
   );
