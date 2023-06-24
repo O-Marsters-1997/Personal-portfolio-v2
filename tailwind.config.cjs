@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],
-        heading: ["Epilogue", ...defaultTheme.fontFamily.sans],
+        heading: ["Epilogue"],
       },
       colors: {
         base: {
