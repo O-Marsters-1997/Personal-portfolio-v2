@@ -11,9 +11,10 @@
     "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx,astro}'",
     "prettify": "npx prettier --write './src/**/*.{js,jsx,ts,tsx,astro,css,json}'",
     "format": "npm run prettify && npm run format",
-    "generate-tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
-    "generate-tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
-    "generate-tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing"
+    "generate:tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
+    "generate:tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
+    "generate:tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing",
+    "generate:icons": "node src/scripts/generateIcons.js"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",
@@ -25,6 +26,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "svgo": "^3.0.2",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
