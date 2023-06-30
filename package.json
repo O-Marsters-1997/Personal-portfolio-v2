@@ -12,7 +12,8 @@
     "prettify": "npx prettier --write './src/**/*.{js,jsx,ts,tsx,astro,css,json}'",
     "format": "npm run prettify && npm run format",
     "generate-tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
-    "generate-tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily"
+    "generate-tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
+    "generate-tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing"
   },
   "dependencies": {
     "@astrojs/react": "^2.2.1",

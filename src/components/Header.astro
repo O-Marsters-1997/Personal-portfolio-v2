@@ -1,12 +1,21 @@
 ---
+import myImage from "@assets/images/logo.png";
 ---
 
 <nav class="navigation">
-  <img src="" alt="logo" class="ml-0 mr-auto" />
-  <ul class="flex justify-center gap-2 text-base font-body font-light">
-    <li class="naviation-item">About</li>
-    <li class="naviation-item">Projects</li>
-    <li class="naviation-item">Writing</li>
-    <li class="naviation-item">Contact</li>
+  <img src={myImage} alt="logo" class="ml-0 mr-auto w-16" />
+  <ul class="flex justify-center gap-5 text-base link">
+    <a href="#about">
+      <li class="naviation-item">About</li>
+    </a>
+    <a href="#projects">
+      <li class="naviation-item">Projects</li>
+    </a>
+    <a href="#writing">
+      <li class="naviation-item">Writing</li>
+    </a>
+    <a href="#contact">
+      <li class="naviation-item">Contact</li>
+    </a>
   </ul>
 </nav>

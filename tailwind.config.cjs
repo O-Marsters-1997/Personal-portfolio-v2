@@ -4,10 +4,15 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    letterSpacing: {
+      normal: "0.06rem",
+    },
+
     extend: {
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],
-        heading: ["Epilogue"],
+        headingBold: ["Epilogue"],
+        headingLight: ["Lato"],
       },
       colors: {
         base: {
@@ -21,11 +26,12 @@ module.exports = {
         },
         secondary: "rgba(236, 150, 51, 1)",
         tertiary: "rgba(234, 99, 139, 1)",
-      },
-      grey: {
-        main: "rgba(198, 198, 198, 1)",
-        lighter: "rgba(226, 232, 240, 1)",
-        dark: "rgba(72, 72, 72, 1)",
+
+        grey: {
+          main: "rgba(198, 198, 198, 1)",
+          lighter: "rgba(226, 232, 240, 1)",
+          dark: "rgba(72, 72, 72, 1)",
+        },
       },
     },
   },

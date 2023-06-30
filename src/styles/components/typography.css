@@ -1,0 +1,63 @@
+@layer components {
+  h1,
+  .h1 {
+    @apply font-headingBold font-semibold;
+  }
+
+  h2,
+  .h2 {
+    @apply font-headingBold font-semibold;
+  }
+
+  h3,
+  .h3 {
+    @apply font-headingBold font-normal;
+  }
+
+  h4,
+  .h4 {
+    @apply font-headingLight font-normal;
+  }
+
+  h5,
+  .h5 {
+    @apply font-headingLight font-medium;
+  }
+
+  h6,
+  .h6 {
+    @apply font-headingLight font-light;
+  }
+
+  /*  */
+
+  .body1 {
+    @apply font-body font-normal;
+  }
+
+  .body2 {
+    @apply font-body font-light;
+  }
+
+  a,
+  .link {
+    @apply font-body font-light text-grey-lighter tracking-normal cursor-pointer;
+  }
+
+  .action {
+    @apply font-body font-light;
+  }
+
+  button,
+  .button {
+    @apply font-body font-semibold;
+  }
+
+  .subtitle {
+    @apply font-body font-medium italic text-grey-lighter;
+  }
+}
+
+img {
+  @apply subtitle;
+}

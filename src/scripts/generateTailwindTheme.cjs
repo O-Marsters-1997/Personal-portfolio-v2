@@ -11,27 +11,36 @@ const argument = process.argv[2];
 const themeMap = {
   colors: "colors",
   fontFamily: "typography",
+  spacing: "spacing",
 };
 
-const getTheme = () => {
-  console.log(themeMap[argument]);
-
-  const themeStr = JSON.stringify(theme[argument]);
-  // determine ts based on npm argument
-
-  const ts =
-    argument === "typography"
-      ? `
+const propertyMap = (themeStr, argument) => {
+  switch (argument) {
+    case "fontFamily":
+      return `
   // Make sure the TailwindTypography type is defined
   export const typography : TailwindColors  = ${themeStr}
   export default typography
-`
-      : `
+`;
+    case "spacing":
+      return `
+  // Make sure the TailwindSpacing type is defined
+  export const spacing : TailwindColors  = ${themeStr}
+  export default spacing
+`;
+    default:
+      return `
   // Make sure the TailwindColors type is defined
   export const colors : TailwindColors  = ${themeStr}
   export default colors
 `;
+  }
+};
 
+const getTheme = () => {
+  const themeStr = JSON.stringify(theme[argument]);
+  // determine ts based on npm argument
+  const ts = propertyMap(themeStr, argument);
   return { ts };
 };
 

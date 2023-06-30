@@ -8,7 +8,8 @@
       "@content": ["./src/content/*"],
       "@layouts": ["./src/layouts/*"],
       "@pages": ["./src/pages/*"],
-      "@utils": ["./src/utils/*"]
+      "@utils": ["./src/utils/*"],
+      "@assets": ["./src/assets/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

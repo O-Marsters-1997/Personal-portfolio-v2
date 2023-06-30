@@ -25,7 +25,7 @@ const Canvas = () => {
       y: window.innerHeight / 2,
     };
 
-    const colors = [
+    const canvasColors = [
       myColors.first,
       myColors.second,
       myColors.third,
@@ -33,9 +33,6 @@ const Canvas = () => {
     ];
 
     window.addEventListener("resize", () => {
-      const el = document.getElementsByClassName("header")[0];
-      console.log(el.innerHTML);
-
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
@@ -81,7 +78,8 @@ const Canvas = () => {
         const y = Math.random() * canvasHeight - canvasHeight / 2;
         const radius = 2 * Math.random();
 
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        const color =
+          canvasColors[Math.floor(Math.random() * canvasColors.length)];
         particles.push(new Particle(x, y, radius, color));
       }
     }
@@ -90,11 +88,9 @@ const Canvas = () => {
     let radians = 0;
     function animate() {
       requestAnimationFrame(animate);
-      c.fillStyle = "#1C202D";
+      c.fillStyle = colors.base.main;
       c.fillRect(0, 0, canvas.width, canvas.height);
-
       c.fillText("HTML CANVAS BOILERPLATE", mouse.x, mouse.y);
-
       c.save();
       c.translate(canvas.width / 2, canvas.height / 2);
       c.rotate(radians);
