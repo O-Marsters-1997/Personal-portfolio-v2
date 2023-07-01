@@ -29,11 +29,12 @@ module.exports = {
 
         grey: {
           main: "rgba(198, 198, 198, 1)",
-          lighter: "rgba(226, 232, 240, 1)",
+          lighter: "rgba(198, 198, 198, 0.773)",
+          lightest: "rgba(198, 198, 198, 1)",
           dark: "rgba(72, 72, 72, 1)",
         },
       },
     },
   },
-  plugins: [],
+  plugins: ["postcss-nesting"],
 };

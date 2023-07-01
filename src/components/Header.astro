@@ -1,10 +1,11 @@
 ---
+import Icon from "@components/base/Icon";
 import myImage from "@assets/images/logo.png";
 ---
 
 <nav class="navigation">
-  <img src={myImage} alt="logo" class="ml-0 mr-auto w-16" />
-  <ul class="flex justify-center gap-7 text-base link">
+  <img src={myImage} alt="logo" class="logo" />
+  <ul class="flex justify-center items-center gap-12 link">
     <a href="#about">
       <li class="naviation-item">About</li>
     </a>
@@ -17,8 +18,7 @@ import myImage from "@assets/images/logo.png";
     <a href="#contact">
       <li class="naviation-item">Contact</li>
     </a>
-    <a href="#contact">
-      <li class="naviation-item">Contact</li>
-    </a>
+    <Icon icon="download" />
+    <Icon icon="light_mode" />
   </ul>
 </nav>

@@ -1,3 +1,22 @@
 .navigation {
-  @apply flex justify-end items-center align-middle px-8 py-10 fixed w-full;
+  @apply flex justify-end items-center align-middle px-14 py-10 fixed w-full;
+}
+
+.logo {
+  @apply ml-0 mr-auto w-16;
+}
+
+/* hamburger icon */
+
+.hamburger {
+  @apply flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer;
+
+  &-line {
+    @apply bg-grey-lightest h-[.165rem] w-6 rounded-sm;
+
+    &:last-of-type {
+      height: 0.17rem;
+      width: calc(1.5rem / 1.55);
+    }
+  }
 }

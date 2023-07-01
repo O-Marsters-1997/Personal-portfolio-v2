@@ -60,7 +60,8 @@ async function run() {
           .replace(/stroke-width/g, "strokeWidth")
           .replace(/clip-rule/g, "clipRule")
           .replace(/fill-rule/g, "fillRule")
-          .replace(/fill-opacity/g, "fillOpacity"),
+          .replace(/fill-opacity/g, "fillOpacity")
+          .replace(/stroke-opacity/g, "strokeOpacity"),
       });
       result.processed.push(iconFileName);
     } catch (error) {
