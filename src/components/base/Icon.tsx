@@ -3,11 +3,14 @@ import { IconDefinition, IconSvg } from "../../styles/theme/IconSvg";
 interface Props {
   icon: IconDefinition;
   class?: string;
+  width?: string;
 }
 
-const Icon = ({ icon, class: className }: Props) => {
+const Icon = ({ icon, class: className, width }: Props) => {
   return (
-    <div className={`w-5 ${icon} ${className || ""}`}>{IconSvg[icon]}</div>
+    <div className={`${width ?? "w-5"} ${icon} ${className || ""}`}>
+      {IconSvg[icon]}
+    </div>
   );
 };
 

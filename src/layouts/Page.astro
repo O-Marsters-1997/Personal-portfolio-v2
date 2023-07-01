@@ -11,7 +11,7 @@ const { matchSlot, fallbackSlot } = responsiveSlotTypes;
 <Layout>
   <Responsive breakpoints={[breakpointsMap.tablet]} client:only>
     <Header slot={matchSlot} />
-    <MobileHeader slot={fallbackSlot} />
+    <MobileHeader slot={fallbackSlot} client:only />
   </Responsive>
   <div id="page">
     <slot />

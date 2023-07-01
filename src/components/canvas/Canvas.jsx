@@ -7,7 +7,7 @@ const Canvas = () => {
   }, []);
 
   const myColors = {
-    first: colors.secondary,
+    first: colors.main,
     second: colors.tertiary,
     third: colors.red[500],
     fourth: colors.green[500],

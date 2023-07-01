@@ -44,6 +44,14 @@
     @apply font-body font-light text-grey-lighter tracking-normal cursor-pointer;
   }
 
+  .mobile-link {
+    @apply link text-2xl tracking-mobileLink;
+
+    &.active {
+      @apply text-secondary-dark;
+    }
+  }
+
   .action {
     @apply font-body font-light;
   }

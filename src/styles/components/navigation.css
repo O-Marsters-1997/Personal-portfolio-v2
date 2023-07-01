@@ -33,3 +33,10 @@
     }
   }
 }
+
+/* Mobile navigation */
+.mobile-navigation {
+  @apply bg-primary-dark h-[100vh] flex flex-col justify-center
+  w-4/5 
+  fixed right-0;
+}

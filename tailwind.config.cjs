@@ -5,7 +5,8 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     letterSpacing: {
-      normal: "0.06rem",
+      normal: ".06rem",
+      mobileLink: ".1rem",
     },
 
     extend: {
@@ -24,7 +25,10 @@ module.exports = {
           transparent: "rgba(60, 68, 92, .85)",
           dark: "rgba(29, 34, 47, 1)",
         },
-        secondary: "rgba(236, 150, 51, 1)",
+        secondary: {
+          main: "rgba(236, 150, 51, 1)",
+          dark: "rgba(183, 140, 90, 1)",
+        },
         tertiary: "rgba(234, 99, 139, 1)",
 
         grey: {
