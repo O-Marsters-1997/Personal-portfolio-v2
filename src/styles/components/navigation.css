@@ -7,16 +7,29 @@
 }
 
 /* hamburger icon */
+.hamburger-line {
+  @apply bg-grey-lightest h-[.165rem] w-6 rounded-sm;
 
-.hamburger {
-  @apply flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer;
+  &:last-of-type {
+    height: 0.17rem;
+    width: calc(1.5rem / 1.55);
+  }
+}
+
+/* Cross icon for when mobile nav is open */
+
+.cross-nav {
+  @apply flex flex-col justify-center;
 
   &-line {
-    @apply bg-grey-lightest h-[.165rem] w-6 rounded-sm;
+    @apply bg-grey-lightest h-[.165rem] w-7 rounded-sm;
 
-    &:last-of-type {
-      height: 0.17rem;
-      width: calc(1.5rem / 1.55);
+    &.top-left {
+      transform: rotate(45deg) translate(3px, 1px);
+    }
+
+    &.top-right {
+      transform: rotate(-45deg) translate(1px, 1px);
     }
   }
 }
