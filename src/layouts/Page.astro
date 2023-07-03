@@ -2,6 +2,7 @@
 import Layout from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
 import MobileHeader from "@components/mobile/Header";
+import Footer from "@components/Footer.astro";
 import Responsive, { breakpointsMap } from "@layouts/ResponsiveLayout";
 import { responsiveSlotTypes } from "@utils/constants";
 
@@ -16,4 +17,5 @@ const { matchSlot, fallbackSlot } = responsiveSlotTypes;
   <div id="page">
     <slot />
   </div>
+  <Footer />
 </Layout>

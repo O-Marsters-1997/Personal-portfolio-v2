@@ -1,19 +1,31 @@
 import { useState } from "react";
+import { useStore } from "@nanostores/react";
 import Icon from "@components/base/Icon";
 import myImage from "@assets/images/logo.png";
+import { storeMap } from "@utils/nanostore";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
 
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
-
   const navlinks: Navlink[] = ["about", "projects", "writing", "contact"];
+
+  const $storeMap = useStore(storeMap);
+
+  const handleOpenMobileNavigation = () => {
+    setMobileNavOpen(!mobileNavOpen);
+    storeMap.set({
+      ...storeMap,
+      mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
+    });
+    console.log(storeMap.get().mobileNavigationOpen);
+  };
 
   return (
     <>
       {mobileNavOpen && (
-        <div className="mobile-navigation ">
+        <div className="mobile-navigation">
           <ul className="flex flex-col items-start justify-between ml-14 h-80">
             {navlinks.map((navlink, index) => {
               const capitalised =
@@ -45,14 +57,20 @@ const Header = () => {
       )}
       <div className="navigation">
         <img src={myImage} alt="logo" className="logo" />
-        <div onClick={() => setMobileNavOpen(!mobileNavOpen)}>
+        <div>
           {mobileNavOpen ? (
-            <div className="cross-nav" onClick={() => setSelectedLink(null)}>
+            <div
+              className="cross-nav cursor-pointer"
+              onClick={handleOpenMobileNavigation}
+            >
               <span className="cross-nav-line top-left"></span>
               <span className="cross-nav-line top-right"></span>
             </div>
           ) : (
-            <div className="flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer">
+            <div
+              className="flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
+              onClick={handleOpenMobileNavigation}
+            >
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>

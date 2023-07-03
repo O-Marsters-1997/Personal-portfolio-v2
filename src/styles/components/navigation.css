@@ -40,3 +40,8 @@
   w-4/5 
   fixed right-0;
 }
+
+/* Disables scroll if mobile navigation is open */
+.disable-scroll {
+  overflow: hidden;
+}

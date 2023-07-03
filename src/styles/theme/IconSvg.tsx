@@ -30,7 +30,7 @@ export const IconSvg = {
         stroke="#F5F5F5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        stroke-opacity=".83"
+        strokeOpacity=".83"
         strokeWidth="2"
         d="M15 5.625V2.812M8.37 8.372 6.384 6.382M5.625 15H2.812M15 27.188v-2.813m8.617-.758L21.63 21.63M27.187 15h-2.812M8.371 21.63l-1.989 1.988M23.619 6.383 21.63 8.37M20.625 15a5.625 5.625 0 1 1-11.25 0 5.625 5.625 0 0 1 11.25 0Z"
       />

@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/head/BaseHead.astro";
 import "../styles/main.css";
+import ScrollProvider from "@context/ScrollProvider";
 ---
 
 <!DOCTYPE html>
@@ -8,7 +9,9 @@ import "../styles/main.css";
   <head>
     <BaseHead title="hello world" />
   </head>
+
   <body>
+    <ScrollProvider client:only />
     <slot name="header" />
     <main id="content">
       <slot />
