@@ -22,8 +22,8 @@ const Header = () => {
   return (
     <>
       {mobileNavOpen && (
-        <div className="bg-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0">
-          <ul className="flex flex-col items-start justify-between ml-14 h-80">
+        <div className="bg-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-10">
+          <ul className="flex flex-col items-start justify-between ml-14 h-80 last:mt-4">
             {navlinks.map((navlink, index) => {
               const capitalised =
                 navlink.charAt(0).toUpperCase() + navlink.slice(1);
