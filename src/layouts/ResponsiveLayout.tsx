@@ -26,6 +26,11 @@ const ResponsiveLayout: FC<Props> = ({
     : window.matchMedia(`(min-width: ${breakpoints[0]}px)`);
 
   const [isMatched, setIsMatched] = useState(mediaQuery.matches);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  });
 
   useEffect(() => {
     const handleViewportChange = () => {
@@ -37,7 +42,11 @@ const ResponsiveLayout: FC<Props> = ({
     return () => {
       mediaQuery.removeEventListener("change", handleViewportChange);
     };
-  }, []);
+  }, [isMounted]);
+
+  if (!isMounted) {
+    return <div>Loading</div>;
+  }
 
   return (
     <>

@@ -1,5 +1,7 @@
+@import "../base/mixins";
+
 .navigation {
-  @apply flex justify-end items-center align-middle px-14 py-10 fixed w-full;
+  @apply flex justify-end items-center align-middle px-14 py-10 fixed w-full z-10;
 }
 
 .logo {
@@ -32,13 +34,6 @@
       transform: rotate(-45deg) translate(1px, 1px);
     }
   }
-}
-
-/* Mobile navigation */
-.mobile-navigation {
-  @apply bg-primary-dark h-[100vh] flex flex-col justify-center
-  w-4/5 
-  fixed right-0;
 }
 
 /* Disables scroll if mobile navigation is open */

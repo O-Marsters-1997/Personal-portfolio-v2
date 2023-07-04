@@ -9,13 +9,11 @@ import { responsiveSlotTypes } from "@utils/constants";
 const { matchSlot, fallbackSlot } = responsiveSlotTypes;
 ---
 
-<Layout>
+<Layout class="relative">
   <Responsive breakpoints={[breakpointsMap.tablet]} client:only>
     <Header slot={matchSlot} />
     <MobileHeader slot={fallbackSlot} client:only />
   </Responsive>
-  <div id="page">
-    <slot />
-  </div>
+  <slot />
   <Footer />
 </Layout>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "@nanostores/react";
+import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import myImage from "@assets/images/logo.png";
 import { storeMap } from "@utils/nanostore";
@@ -11,21 +11,18 @@ const Header = () => {
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
   const navlinks: Navlink[] = ["about", "projects", "writing", "contact"];
 
-  const $storeMap = useStore(storeMap);
-
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
     storeMap.set({
       ...storeMap,
       mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
     });
-    console.log(storeMap.get().mobileNavigationOpen);
   };
 
   return (
     <>
       {mobileNavOpen && (
-        <div className="mobile-navigation">
+        <div className="bg-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0">
           <ul className="flex flex-col items-start justify-between ml-14 h-80">
             {navlinks.map((navlink, index) => {
               const capitalised =
@@ -56,7 +53,11 @@ const Header = () => {
         </div>
       )}
       <div className="navigation">
-        <img src={myImage} alt="logo" className="logo" />
+        <img
+          src={myImage}
+          alt="logo"
+          className={clsx("logo", { "opacity-0": mobileNavOpen })}
+        />
         <div>
           {mobileNavOpen ? (
             <div

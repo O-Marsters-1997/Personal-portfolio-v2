@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useStore } from "@nanostores/react";
-import type { ReactNode } from "react";
 import { storeMap } from "@utils/nanostore";
 
 const ScrollProvider = () => {

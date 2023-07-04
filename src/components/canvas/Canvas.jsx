@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { colors } from "../../styles/theme/colors";
 
 const Canvas = () => {
@@ -106,7 +106,9 @@ const Canvas = () => {
     animate();
   };
 
-  return <canvas id="hero-canvas"></canvas>;
+  return (
+    <canvas id="hero-canvas" className="absolute -z-10 h-full w-full"></canvas>
+  );
 };
 
 export default Canvas;

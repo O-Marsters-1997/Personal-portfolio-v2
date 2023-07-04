@@ -32,7 +32,7 @@
   /*  */
 
   .body1 {
-    @apply font-body font-normal;
+    @apply font-body font-normal text-grey-lightest;
   }
 
   .body2 {

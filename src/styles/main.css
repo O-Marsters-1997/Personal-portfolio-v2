@@ -4,8 +4,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-canvas {
-  width: 100vw;
-  height: 100vh;
-}
