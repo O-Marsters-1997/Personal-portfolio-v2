@@ -12,6 +12,7 @@ const themeMap = {
   colors: "colors",
   fontFamily: "typography",
   spacing: "spacing",
+  screens: "screens",
 };
 
 const propertyMap = (themeStr, argument) => {
@@ -28,6 +29,12 @@ const propertyMap = (themeStr, argument) => {
   export const spacing : TailwindColors  = ${themeStr}
   export default spacing
 `;
+    case "screens":
+      return `
+  // Make sure the TailwindScreens type is defined
+  export const screens : TailwindColors = ${themeStr}
+  export default screens
+      `;
     default:
       return `
   // Make sure the TailwindColors type is defined

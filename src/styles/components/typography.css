@@ -1,29 +1,36 @@
 @layer components {
+  /* h1 */
+
   h1,
   .h1 {
-    @apply font-headingBold font-semibold;
+    @apply font-headingBold font-normal text-white text-h1mobile md:text-h1tablet 2xl:text-h1desktop tracking-narrower;
   }
 
+  /* h2 */
   h2,
   .h2 {
     @apply font-headingBold font-semibold;
   }
 
+  /* h3 */
   h3,
   .h3 {
     @apply font-headingBold font-normal;
   }
 
+  /* h4 */
   h4,
   .h4 {
-    @apply font-headingLight font-normal;
+    @apply font-headingLight font-normal text-secondary-dark tracking-wider;
   }
 
+  /* h5 */
   h5,
   .h5 {
     @apply font-headingLight font-medium;
   }
 
+  /* h6 */
   h6,
   .h6 {
     @apply font-headingLight font-light;
@@ -31,41 +38,49 @@
 
   /*  */
 
+  /* body1 */
   .body1 {
     @apply font-body font-normal text-grey-lightest;
   }
 
+  /* body2 */
   .body2 {
-    @apply font-body font-light;
+    @apply font-body font-light text-grey-lightest;
   }
 
+  /* link */
   a,
   .link {
     @apply font-body font-light text-grey-lighter tracking-normal cursor-pointer;
   }
 
+  /* moile link */
   .mobile-link {
-    @apply link text-2xl tracking-mobileLink;
+    @apply link text-2xl tracking-wide;
 
     &.active {
       @apply text-secondary-dark;
     }
   }
 
+  /* action */
   .action {
     @apply font-body font-light;
   }
 
+  /* button */
   button,
   .button {
     @apply font-body font-semibold;
   }
 
+  /* subtitle */
   .subtitle {
     @apply font-body font-medium italic text-grey-lighter;
   }
 }
 
+/* image */
 img {
   @apply subtitle;
 }

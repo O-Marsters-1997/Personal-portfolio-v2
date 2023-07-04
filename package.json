@@ -14,6 +14,7 @@
     "generate:tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
     "generate:tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
     "generate:tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing",
+    "generate:tailwind-screens": "node src/scripts/generateTailwindTheme.cjs screens",
     "generate:icons": "node src/scripts/generateIcons.js"
   },
   "dependencies": {

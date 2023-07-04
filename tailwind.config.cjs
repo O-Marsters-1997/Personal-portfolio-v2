@@ -5,11 +5,19 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     letterSpacing: {
+      narrower: ".04rem",
       normal: ".06rem",
-      mobileLink: ".1rem",
+      wider: ".08rem",
+      wide: ".1rem",
     },
 
     extend: {
+      // Clamp sizes must be defined in the typography css as not supported yet by tailwind
+      fontSize: {
+        h1mobile: "2.25rem",
+        h1tablet: "4.5rem",
+        h1desktop: "5.75rem",
+      },
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],
         headingBold: ["Epilogue"],

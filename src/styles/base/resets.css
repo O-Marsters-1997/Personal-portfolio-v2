@@ -3,3 +3,7 @@
   box-sizing: border-box;
   font-size: 16px;
 }
+
+body {
+  @apply bg-base-main;
+}
