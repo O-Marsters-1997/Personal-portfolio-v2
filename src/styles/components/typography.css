@@ -3,7 +3,7 @@
 
   h1,
   .h1 {
-    @apply font-headingBold font-normal text-white text-h1mobile md:text-h1tablet 2xl:text-h1desktop tracking-narrower;
+    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop tracking-narrower;
   }
 
   /* h2 */
@@ -40,7 +40,7 @@
 
   /* body1 */
   .body1 {
-    @apply font-body font-normal text-grey-lightest;
+    @apply font-body font-normal text-grey-lightest tracking-normal;
   }
 
   /* body2 */
@@ -76,7 +76,7 @@
 
   /* subtitle */
   .subtitle {
-    @apply font-body font-medium italic text-grey-lighter;
+    @apply font-body font-medium italic text-grey-lightest tracking-normal text-subtitleMobile md:text-subtitleTablet 2xl:text-subtitleDesktop;
   }
 }
 

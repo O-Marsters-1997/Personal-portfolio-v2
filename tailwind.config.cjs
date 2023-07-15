@@ -14,9 +14,12 @@ module.exports = {
     extend: {
       // Clamp sizes must be defined in the typography css as not supported yet by tailwind
       fontSize: {
-        h1mobile: "2.25rem",
-        h1tablet: "4.5rem",
-        h1desktop: "5.75rem",
+        h1Mobile: "2.95rem",
+        h1Tablet: "4.75rem",
+        h1Desktop: "5.75rem",
+        subtitleMobile: ".75rem",
+        subtitleTablet: "1.13rem",
+        subtitleDesktop: "1.25rem",
       },
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],
