@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <>
       {mobileNavOpen && (
-        <div className="bg-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-10">
+        <div className="bg-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20">
           <ul className="flex flex-col items-start justify-between ml-14 h-80 last:mt-4">
             {navlinks.map((navlink, index) => {
               const capitalised =
@@ -52,7 +52,7 @@ const Header = () => {
           </ul>
         </div>
       )}
-      <div className="navigation">
+      <div className="navigation z-40">
         <img
           src={myImage}
           alt="logo"

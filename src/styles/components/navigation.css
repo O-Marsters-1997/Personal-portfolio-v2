@@ -1,7 +1,7 @@
 @import "../base/mixins";
 
 .navigation {
-  @apply flex justify-end items-center align-middle px-14 py-10 fixed w-full z-10;
+  @apply flex justify-end items-center align-middle page-padding py-10 fixed w-full z-10;
 }
 
 .logo {

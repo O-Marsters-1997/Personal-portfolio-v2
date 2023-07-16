@@ -14,12 +14,26 @@ module.exports = {
     extend: {
       // Clamp sizes must be defined in the typography css as not supported yet by tailwind
       fontSize: {
+        // h1
         h1Mobile: "2.95rem",
         h1Tablet: "4.75rem",
         h1Desktop: "5.75rem",
+        // h2
+        h2Mobile: "1.25rem",
+        h2Tablet: "1.5rem",
+        h2Desktop: "1.63rem",
+        // Subtitle
         subtitleMobile: ".75rem",
         subtitleTablet: "1.13rem",
         subtitleDesktop: "1.25rem",
+        // button
+        buttonMobile: ".75rem",
+        buttonTablet: ".88rem",
+        buttonDesktop: "1rem",
+        // Action
+        actionMobile: "1.63rem",
+        actionTablet: "1.5rem",
+        actionDesktop: "1.13rem",
       },
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],
@@ -42,12 +56,21 @@ module.exports = {
         },
         tertiary: "rgba(234, 99, 139, 1)",
 
+        button: {
+          gradientLight: "rgba(236, 150, 51, 1)",
+          gradientMedium: "rgba(184, 127, 42,1)",
+          gradientDark: "rgba(154, 106, 34, 1)",
+        },
+
         grey: {
           main: "rgba(198, 198, 198, 1)",
           lighter: "rgba(198, 198, 198, 0.773)",
           lightest: "rgba(198, 198, 198, 1)",
           dark: "rgba(72, 72, 72, 1)",
         },
+      },
+      screens: {
+        xs: "320px",
       },
     },
   },

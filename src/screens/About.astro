@@ -1,0 +1,14 @@
+---
+import Heading from "@components/Heading.astro";
+import Profile from "@assets/images/personal_profile.jpg";
+---
+
+<div class="page-padding">
+  <Heading title="About Me" />
+  <div class="about-content">
+    <div class="about-profile">
+      <img src={Profile} alt="personal profile" class="w-96 rounded-sm" />
+      <a class="action">Download CV</a>
+    </div>
+  </div>
+</div>

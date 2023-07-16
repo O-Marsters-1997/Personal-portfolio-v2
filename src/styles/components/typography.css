@@ -3,13 +3,13 @@
 
   h1,
   .h1 {
-    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop tracking-narrower;
+    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop tracking-narrower leading-snug;
   }
 
   /* h2 */
   h2,
   .h2 {
-    @apply font-headingBold font-semibold;
+    @apply font-headingBold font-semibold text-grey-lightest text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop tracking-narrower;
   }
 
   /* h3 */
@@ -65,13 +65,13 @@
 
   /* action */
   .action {
-    @apply font-body font-light;
+    @apply font-body font-light text-grey-main uppercase text-actionMobile md:text-actionTablet 2xl:text-actionDesktop;
   }
 
   /* button */
   button,
   .button {
-    @apply font-body font-semibold;
+    @apply font-body font-semibold bg-secondary-main text-white   text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
   }
 
   /* subtitle */

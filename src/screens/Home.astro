@@ -1,0 +1,11 @@
+---
+import Canvas from "@components/canvas/Canvas";
+import CanvasOverlay from "@components/canvas/CanvasOverlay.astro";
+---
+
+<div class="w-screen h-screen relative">
+  <Canvas client:only />
+  <div class="w-full h-full flex justify-center items-center px-4 md:px-14">
+    <CanvasOverlay />
+  </div>
+</div>
