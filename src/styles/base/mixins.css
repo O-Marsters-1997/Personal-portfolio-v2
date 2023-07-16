@@ -1,7 +1,7 @@
 /* Spacing */
 
 .screen {
-  @apply mt-16;
+  @apply mt-72;
 }
 
 .page-padding {

@@ -9,7 +9,9 @@ type Props = {
 const { title, padding } = Astro.props;
 ---
 
-<div class={clsx("flex items-center w-full py-8", { "page-padding": padding })}>
+<div
+  class={clsx("flex items-center w-full py-10", { "page-padding": padding })}
+>
   <h2 class="h2 w-fit">
     {title}
   </h2>

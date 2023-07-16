@@ -7,5 +7,5 @@
 }
 
 .about-description {
-  @apply max-w-4xl;
+  @apply max-w-2xl;
 }

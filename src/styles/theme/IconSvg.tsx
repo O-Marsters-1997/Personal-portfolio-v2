@@ -9,6 +9,7 @@
  */
 export type IconDefinition =
   | "astro"
+  | "copyright"
   | "download"
   | "external"
   | "github"
@@ -26,6 +27,7 @@ export type IconDefinition =
 
 export const availableIcons: IconDefinition[] = [
   "astro",
+  "copyright",
   "download",
   "external",
   "github",
@@ -60,6 +62,14 @@ export const IconSvg = {
           <path fill="#fff" d="M0 0h18v22H0z" />
         </clipPath>
       </defs>
+    </svg>
+  ),
+  copyright: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+      <path
+        fill="#E2E8F0"
+        d="M9 2.813A6.188 6.188 0 1 0 15.188 9 6.194 6.194 0 0 0 9 2.812Zm0 8.937a2.733 2.733 0 0 0 2.2-1.1.687.687 0 1 1 1.1.826 4.125 4.125 0 1 1 0-4.953.687.687 0 1 1-1.1.826A2.75 2.75 0 1 0 9 11.75ZM9 .062A8.937 8.937 0 1 0 17.938 9 8.947 8.947 0 0 0 9 .062Zm0 16.5A7.562 7.562 0 1 1 16.563 9 7.572 7.572 0 0 1 9 16.563Z"
+      />
     </svg>
   ),
   download: (
@@ -224,8 +234,8 @@ export const IconSvg = {
           y2="10.908"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".422" stopColor="#10172A" />
-          <stop offset="1" stopColor="#435074" />
+          <stop offset=".422" stop-color="#10172A" />
+          <stop offset="1" stop-color="#435074" />
         </linearGradient>
         <linearGradient
           id="d"
@@ -236,7 +246,7 @@ export const IconSvg = {
           gradientUnits="userSpaceOnUse"
         >
           <stop />
-          <stop offset="1" stopOpacity="0" />
+          <stop offset="1" stop-opacity="0" />
         </linearGradient>
         <clipPath id="a">
           <path fill="#fff" d="M0 0h18v18H0z" />

@@ -9,19 +9,27 @@
       "imgAlt": ""
     },
     {
-      "title": "Flask cricket app",
+      "title": "BBC Sleighride",
       "description": "an application",
       "category": "Full-stack",
       "technologiesUsed": ["python", "flask"],
-      "imgSrc": "python",
+      "imgSrc": "bbcSleighride",
       "imgAlt": ""
     },
     {
-      "title": "Flask cricket app",
+      "title": "Clanhub",
       "description": "an application",
       "category": "Full-stack",
       "technologiesUsed": ["python", "flask"],
-      "imgSrc": "python",
+      "imgSrc": "clanhub",
+      "imgAlt": ""
+    },
+    {
+      "title": "Personal Portfolio",
+      "description": "an application",
+      "category": "Design and Development",
+      "technologiesUsed": ["python", "flask"],
+      "imgSrc": "portfolio",
       "imgAlt": ""
     }
   ]

@@ -15,9 +15,13 @@ interface ProjectItem {
 const { projects } = base;
 ---
 
-<div class="projects-screen page-padding page-max-width screen">
+<div class="projects-screen page-padding page-max-width screen lg:mb-72">
   <Heading title="Projects" />
-  <div class="flex lg:justify-between flex-wrap lg:flex-nowrap gap-8">
+  <p class="body1 pb-10">
+    Click on the projects listed below to see information about each in further
+    detail
+  </p>
+  <div class="flex lg:justify-between flex-wrap gap-8">
     {
       projects.map((project: ProjectItem) => (
         <Project

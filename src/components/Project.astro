@@ -1,6 +1,9 @@
 ---
 import Icon from "@components/base/Icon";
 import flaskCricket from "../assets/images/flask_cricket.jpg";
+import bbcSleighride from "../assets/images/bbc_sleighride.jpg";
+import clanhub from "../assets/images/clanhub.jpg";
+import portfolio from "../assets/images/portfolio.jpg";
 
 type Props = {
   title: string;
@@ -15,20 +18,23 @@ const { title, category, src, alt } = Astro.props;
 
 const imgMap: any = {
   python: flaskCricket,
+  bbcSleighride,
+  clanhub,
+  portfolio,
 };
 ---
 
-<div class="flex flex-col lg:flex-1 w-full sm:w-auto">
-  <div class="relative cursor-pointer">
+<div class="flex flex-col max-w-full lg:flex-[0_0_31%]">
+  <div class="relative cursor-pointer md:h-[20rem] mb-4">
     <div class="flex gap-6 absolute top-6 right-6">
       <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
       <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
     </div>
     <div class="bg-overlay-primary absolute inset-0"></div>
-    <img src={imgMap[src]} class="rounded-sm pb-4 w-full" />
+    <img src={imgMap[src]} class="rounded-sm w-full h-full" alt="project" />
   </div>
   <div class="project-title">
     <h5 class="text-secondary-dark">{category}</h5>
-    <h3>{title}</h3>
+    <h3 class="pt-1">{title}</h3>
   </div>
 </div>

@@ -16,7 +16,6 @@ async function run() {
 
   for (const i in iconFiles) {
     const iconFileName = iconFiles[i];
-
     try {
       if (!iconFileName.match(/\.svg$/)) {
         throw new Error(`Only *.svg files allowed`);
@@ -62,10 +61,7 @@ async function run() {
           .replace(/clip-rule/g, "clipRule")
           .replace(/fill-rule/g, "fillRule")
           .replace(/fill-opacity/g, "fillOpacity")
-          .replace(/stroke-opacity/g, "strokeOpacity")
-          .replace(/stop-opacity/g, "stopOpacity")
-          .replace(/stop-color/g, "stopColor")
-          .replace("mask:type", "testing"),
+          .replace(/stroke-opacity/g, "strokeOpacity"),
       });
       result.processed.push(iconFileName);
     } catch (error) {
@@ -97,11 +93,16 @@ async function run() {
     icons.map((i) => `  '${i.icon}': ${i.svg},\n`).join(""),
     `};\n`,
   ];
-  fs.writeFileSync(
-    iconsGeneratedPath,
-    prettier.format(iconComponent.join(""), { parser: "babel" }),
-    "utf-8"
-  );
+
+  try {
+    fs.writeFileSync(
+      iconsGeneratedPath,
+      prettier.format(iconComponent.join(""), { parser: "babel" }),
+      "utf-8"
+    );
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 run();

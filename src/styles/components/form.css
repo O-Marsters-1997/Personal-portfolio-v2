@@ -1,6 +1,10 @@
 input,
 textarea {
-  @apply rounded-sm bg-base-dark mb-4;
+  @apply rounded-sm bg-base-dark;
+}
+
+textarea {
+  @apply h-72;
 }
 
 input:focus {
@@ -8,5 +12,5 @@ input:focus {
 }
 
 .input {
-  @apply body2 mt-2 mb-6 p-4;
+  @apply body2 mt-2 mb-8 p-4;
 }

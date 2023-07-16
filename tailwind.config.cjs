@@ -5,6 +5,7 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     letterSpacing: {
+      narrow: ".02rem",
       narrower: ".04rem",
       normal: ".06rem",
       wider: ".08rem",
@@ -19,17 +20,17 @@ module.exports = {
         h1Tablet: "4.75rem",
         h1Desktop: "5.75rem",
         // h2
-        h2Mobile: "1.25rem",
-        h2Tablet: "1.5rem",
-        h2Desktop: "1.63rem",
+        h2Mobile: "1.05rem",
+        h2Tablet: "1.25rem",
+        h2Desktop: "1.4rem",
         // h3
         h3Mobile: "1.25rem",
         h3Tablet: "1.5rem",
         h3Desktop: "1.63rem",
         // h5
-        h5Mobile: ".81rem",
-        h5Table: ".88rem",
-        h5Desktop: "1rem",
+        h5Mobile: ".91rem",
+        h5Table: "1rem",
+        h5Desktop: "1.1rem",
         // Body1
         body1Mobile: ".88rem",
         body1Desktop: "1.15rem",
@@ -46,6 +47,7 @@ module.exports = {
         actionTablet: "1.5rem",
         actionMobile: "1.13rem",
         // link
+        linkMobile: "1rem",
         linkTablet: "1.14rem",
         linkDesktop: "1.26rem",
       },
