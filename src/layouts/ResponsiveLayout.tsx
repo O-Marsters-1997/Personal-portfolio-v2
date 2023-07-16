@@ -1,11 +1,11 @@
 import { useState, useEffect, FC, ReactNode } from "react";
 
-interface Props {
+type Props = {
   breakpoints?: [number, number?];
   children: ReactNode;
   matchSlot?: ReactNode;
   fallbackSlot?: ReactNode;
-}
+};
 
 export const breakpointsMap = {
   mobile: 0,

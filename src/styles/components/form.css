@@ -1,0 +1,12 @@
+input,
+textarea {
+  @apply rounded-sm bg-base-dark mb-4;
+}
+
+input:focus {
+  @apply outline outline-[0.5px] outline-secondary-dark;
+}
+
+.input {
+  @apply body2 mt-2 mb-6 p-4;
+}

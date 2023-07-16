@@ -1,4 +1,9 @@
 /* Spacing */
+
+.screen {
+  @apply mt-16;
+}
+
 .page-padding {
   @apply px-6 xs:px-14;
 }
@@ -9,7 +14,7 @@
 
 /* Reusable components */
 .horizontal-line {
-  @apply border-grey-dark border flex-auto ml-4 xl:ml-8;
+  @apply border-grey-dark border-[.1px] flex-auto ml-4 xl:ml-8;
 
   &.line-pb {
     @apply mx-0 my-4;

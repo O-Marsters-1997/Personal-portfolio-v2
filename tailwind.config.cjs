@@ -22,6 +22,10 @@ module.exports = {
         h2Mobile: "1.25rem",
         h2Tablet: "1.5rem",
         h2Desktop: "1.63rem",
+        // h3
+        h3Mobile: "1.25rem",
+        h3Tablet: "1.5rem",
+        h3Desktop: "1.63rem",
         // h5
         h5Mobile: ".81rem",
         h5Table: ".88rem",
@@ -75,8 +79,12 @@ module.exports = {
         grey: {
           main: "rgba(198, 198, 198, 1)",
           lighter: "rgba(198, 198, 198, 0.773)",
-          lightest: "rgba(198, 198, 198, 1)",
+          lightest: "rgba(231, 231, 231, 1)",
           dark: "rgba(72, 72, 72, 1)",
+        },
+
+        overlay: {
+          primary: "rgba(0,0,0, .25)",
         },
       },
       screens: {

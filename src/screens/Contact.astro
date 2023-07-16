@@ -1,0 +1,25 @@
+---
+import Heading from "@components/Heading.astro";
+---
+
+<div class="contact page-padding page-max-width screen">
+  <Heading title="Contact" />
+  <div class="flex flex-col lg:flex-row gap-12">
+    <p class="body1 max-w-xl">
+      Whether you like my work and think I can help you with something, or you
+      just want to start a conversation about tech, don’t hesitate to contact me
+      at hello@ollymarsters.com or through the form.
+    </p>
+    <form class="flex flex-col flex-auto">
+      <label for="username" class="h5"> Username *</label>
+      <input type="text" id="username" name="username" required class="input" />
+
+      <label for="email" class="h5"> Email *</label>
+      <input type="text" id="email" name="email" required class="input" />
+
+      <label for="message" class="h5"> Message</label>
+      <textarea id="message" name="message" class="input"></textarea>
+      <button class="button w-fit">Send message</button>
+    </form>
+  </div>
+</div>

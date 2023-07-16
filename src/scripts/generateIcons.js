@@ -16,6 +16,7 @@ async function run() {
 
   for (const i in iconFiles) {
     const iconFileName = iconFiles[i];
+
     try {
       if (!iconFileName.match(/\.svg$/)) {
         throw new Error(`Only *.svg files allowed`);
@@ -62,7 +63,9 @@ async function run() {
           .replace(/fill-rule/g, "fillRule")
           .replace(/fill-opacity/g, "fillOpacity")
           .replace(/stroke-opacity/g, "strokeOpacity")
-          .replace(/stop-opacity/g, "stopOpacity"),
+          .replace(/stop-opacity/g, "stopOpacity")
+          .replace(/stop-color/g, "stopColor")
+          .replace("mask:type", "testing"),
       });
       result.processed.push(iconFileName);
     } catch (error) {

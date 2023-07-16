@@ -1,5 +1,5 @@
 .button {
-  @apply px-8 py-3
+  @apply px-8 py-2
   bg-gradient-to-r from-button-gradientLight from-5% via-button-gradientMedium via-40% to-button-gradientDark to-80%
   rounded-sm cursor-pointer;
 }

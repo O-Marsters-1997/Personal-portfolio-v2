@@ -15,7 +15,7 @@
   /* h3 */
   h3,
   .h3 {
-    @apply font-headingBold font-normal;
+    @apply font-headingBold font-normal text-grey-lightest text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop tracking-wider;
   }
 
   /* h4 */
@@ -76,7 +76,7 @@
   /* button */
   button,
   .button {
-    @apply font-body font-semibold bg-secondary-main text-white   text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
+    @apply font-body font-semibold text-white   text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
   }
 
   /* subtitle */

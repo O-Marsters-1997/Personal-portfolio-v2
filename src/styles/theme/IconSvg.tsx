@@ -10,6 +10,8 @@
 export type IconDefinition =
   | "astro"
   | "download"
+  | "external"
+  | "github"
   | "light_mode"
   | "linux"
   | "nextjs"
@@ -25,6 +27,8 @@ export type IconDefinition =
 export const availableIcons: IconDefinition[] = [
   "astro",
   "download",
+  "external",
+  "github",
   "light_mode",
   "linux",
   "nextjs",
@@ -67,6 +71,22 @@ export const IconSvg = {
       <path
         fill="#C6C6C6"
         d="M6.525 12.463a.935.935 0 0 1 1.325 0l6.212 6.21V3.439a.938.938 0 0 1 1.875 0v15.236l6.213-6.211a.937.937 0 0 1 1.325 1.325L15.662 21.6a.935.935 0 0 1-1.325 0l-7.812-7.813a.936.936 0 0 1 0-1.325Z"
+      />
+    </svg>
+  ),
+  external: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <path
+        fill="#E2E8F0"
+        d="M3.25.75a2.519 2.519 0 0 0-2.5 2.5v17.5c0 1.366 1.134 2.5 2.5 2.5h17.5c1.366 0 2.5-1.134 2.5-2.5V12h-2.5v8.75H3.25V3.25H12V.75H3.25Zm11.25 0v2.5h4.482L7.366 14.866l1.768 1.768L20.75 5.018V9.5h2.5V.75H14.5Z"
+      />
+    </svg>
+  ),
+  github: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25">
+      <path
+        fill="#E2E8F0"
+        d="M11.074.087C5.324.712.7 5.337.074 10.96c-.625 5.876 2.75 11.126 7.875 13.126.375.125.75-.125.75-.625v-2s-.5.125-1.125.125c-1.75 0-2.5-1.5-2.625-2.375-.125-.5-.375-.875-.75-1.25-.375-.125-.5-.125-.5-.25 0-.25.375-.25.5-.25.75 0 1.375.875 1.625 1.25.625 1 1.375 1.25 1.75 1.25.5 0 .875-.125 1.125-.25.125-.875.5-1.75 1.25-2.25-2.875-.625-5-2.25-5-5 0-1.376.625-2.75 1.5-3.75-.125-.25-.25-.875-.25-1.75 0-.5 0-1.25.375-2 0 0 1.75 0 3.5 1.625.625-.25 1.5-.375 2.375-.375s1.75.125 2.5.375c1.625-1.625 3.5-1.625 3.5-1.625.25.75.25 1.5.25 2 0 1-.125 1.5-.25 1.75.875 1 1.5 2.25 1.5 3.75 0 2.75-2.125 4.375-5 5 .75.625 1.25 1.75 1.25 2.875v3.25c0 .375.375.75.875.625 4.625-1.875 7.875-6.375 7.875-11.626 0-7.5-6.375-13.374-13.875-12.5Z"
       />
     </svg>
   ),
@@ -204,8 +224,8 @@ export const IconSvg = {
           y2="10.908"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".422" stop-color="#10172A" />
-          <stop offset="1" stop-color="#435074" />
+          <stop offset=".422" stopColor="#10172A" />
+          <stop offset="1" stopColor="#435074" />
         </linearGradient>
         <linearGradient
           id="d"
@@ -216,7 +236,7 @@ export const IconSvg = {
           gradientUnits="userSpaceOnUse"
         >
           <stop />
-          <stop offset="1" stop-opacity="0" />
+          <stop offset="1" stopOpacity="0" />
         </linearGradient>
         <clipPath id="a">
           <path fill="#fff" d="M0 0h18v18H0z" />

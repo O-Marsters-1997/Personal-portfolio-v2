@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "title": "Flask cricket app",
+      "description": "an application",
+      "category": "Full-stack",
+      "technologiesUsed": ["python", "flask"],
+      "imgSrc": "python",
+      "imgAlt": ""
+    },
+    {
+      "title": "Flask cricket app",
+      "description": "an application",
+      "category": "Full-stack",
+      "technologiesUsed": ["python", "flask"],
+      "imgSrc": "python",
+      "imgAlt": ""
+    },
+    {
+      "title": "Flask cricket app",
+      "description": "an application",
+      "category": "Full-stack",
+      "technologiesUsed": ["python", "flask"],
+      "imgSrc": "python",
+      "imgAlt": ""
+    }
+  ]
+}

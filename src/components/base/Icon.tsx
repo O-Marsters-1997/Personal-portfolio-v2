@@ -1,10 +1,10 @@
 import { IconDefinition, IconSvg } from "../../styles/theme/IconSvg";
 
-interface Props {
+type Props = {
   icon: IconDefinition;
   class?: string;
   width?: string;
-}
+};
 
 const Icon = ({ icon, class: className, width }: Props) => {
   return (

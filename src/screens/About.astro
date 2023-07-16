@@ -24,15 +24,15 @@ const technologies: IconDefinition[] = [
 ];
 ---
 
-<div class="page-padding page-max-width">
+<div class="page-padding page-max-width screen">
   <Heading title="About Me" />
   <div class="about-content">
     <div class="about-profile">
-      <img src={Profile} alt="personal profile" class="rounded-sm" />
+      <img src={Profile} alt="personal profile" class="rounded-sm pb-2" />
       <a class="action">Download CV</a>
     </div>
     <div class="about-description">
-      {myDescriptionParas.map((para) => <p class="body1 pb-4">{para}</p>)}
+      {myDescriptionParas.map((para) => <p class="body1 pb-6">{para}</p>)}
       <hr class="horizontal-line line-pb" />
       <h5>Tech I like</h5>
       <div

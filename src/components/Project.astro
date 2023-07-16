@@ -1,0 +1,34 @@
+---
+import Icon from "@components/base/Icon";
+import flaskCricket from "../assets/images/flask_cricket.jpg";
+
+type Props = {
+  title: string;
+  description: string;
+  category: string;
+  src: string;
+  alt: string;
+  tech: string[];
+};
+
+const { title, category, src, alt } = Astro.props;
+
+const imgMap: any = {
+  python: flaskCricket,
+};
+---
+
+<div class="flex flex-col lg:flex-1 w-full sm:w-auto">
+  <div class="relative cursor-pointer">
+    <div class="flex gap-6 absolute top-6 right-6">
+      <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
+      <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
+    </div>
+    <div class="bg-overlay-primary absolute inset-0"></div>
+    <img src={imgMap[src]} class="rounded-sm pb-4 w-full" />
+  </div>
+  <div class="project-title">
+    <h5 class="text-secondary-dark">{category}</h5>
+    <h3>{title}</h3>
+  </div>
+</div>
