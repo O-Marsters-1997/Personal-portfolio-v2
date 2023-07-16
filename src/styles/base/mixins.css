@@ -1,11 +1,17 @@
 /* Spacing */
-
 .page-padding {
   @apply px-6 xs:px-14;
 }
 
-/* Reusable components */
+.page-max-width {
+  @apply max-w-[110rem] mx-auto;
+}
 
+/* Reusable components */
 .horizontal-line {
   @apply border-grey-dark border flex-auto ml-4 xl:ml-8;
+
+  &.line-pb {
+    @apply mx-0 my-4;
+  }
 }

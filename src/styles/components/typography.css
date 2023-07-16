@@ -27,7 +27,7 @@
   /* h5 */
   h5,
   .h5 {
-    @apply font-headingLight font-medium;
+    @apply font-headingLight font-semibold text-grey-lightest;
   }
 
   /* h6 */
@@ -40,7 +40,12 @@
 
   /* body1 */
   .body1 {
-    @apply font-body font-normal text-grey-lightest tracking-normal;
+    @apply font-body font-normal text-grey-lightest tracking-normal leading-8;
+    font-size: clamp(
+      theme(fontSize.body1Mobile),
+      2.5vw,
+      theme(fontSize.body1Desktop)
+    );
   }
 
   /* body2 */
@@ -51,7 +56,7 @@
   /* link */
   a,
   .link {
-    @apply font-body font-light text-grey-lighter tracking-normal cursor-pointer;
+    @apply font-body font-light text-grey-lightest text-linkTablet 2xl:text-linkDesktop tracking-normal cursor-pointer;
   }
 
   /* moile link */

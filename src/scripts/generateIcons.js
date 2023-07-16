@@ -61,7 +61,8 @@ async function run() {
           .replace(/clip-rule/g, "clipRule")
           .replace(/fill-rule/g, "fillRule")
           .replace(/fill-opacity/g, "fillOpacity")
-          .replace(/stroke-opacity/g, "strokeOpacity"),
+          .replace(/stroke-opacity/g, "strokeOpacity")
+          .replace(/stop-opacity/g, "stopOpacity"),
       });
       result.processed.push(iconFileName);
     } catch (error) {

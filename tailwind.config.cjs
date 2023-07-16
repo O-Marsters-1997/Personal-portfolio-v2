@@ -22,6 +22,13 @@ module.exports = {
         h2Mobile: "1.25rem",
         h2Tablet: "1.5rem",
         h2Desktop: "1.63rem",
+        // h5
+        h5Mobile: ".81rem",
+        h5Table: ".88rem",
+        h5Desktop: "1rem",
+        // Body1
+        body1Mobile: ".88rem",
+        body1Desktop: "1.15rem",
         // Subtitle
         subtitleMobile: ".75rem",
         subtitleTablet: "1.13rem",
@@ -31,9 +38,12 @@ module.exports = {
         buttonTablet: ".88rem",
         buttonDesktop: "1rem",
         // Action
-        actionMobile: "1.63rem",
+        actionDesktop: "1.63rem",
         actionTablet: "1.5rem",
-        actionDesktop: "1.13rem",
+        actionMobile: "1.13rem",
+        // link
+        linkTablet: "1.14rem",
+        linkDesktop: "1.26rem",
       },
       fontFamily: {
         body: ["Lato", ...defaultTheme.fontFamily.sans],

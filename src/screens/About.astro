@@ -1,14 +1,45 @@
 ---
 import Heading from "@components/Heading.astro";
+import type { IconDefinition } from "@styles/theme/IconSvg";
+import Icon from "@components/base/Icon";
 import Profile from "@assets/images/personal_profile.jpg";
+
+const myDescriptionParas = [
+  "My name is Olly, I’m a full-stack developer, based in Edinburgh.",
+  "I am always looking for any opportunities I can find to improve my skillset and learn new things. I am particularly focused on frontend development as I find the constantly evolving landscape of technologies used in this space to be incredibly exciting.",
+  "I passionately believe that making tech more diverse is essential for enabling development teams to create digital experiences for everyone.",
+  "Whether you would like to find out what I can help you with or just want to start a conversation about tech, don’t hesitate to get in touch via the form below.    ",
+];
+
+const technologies: IconDefinition[] = [
+  "typescript",
+  "react",
+  "nextjs",
+  "sass",
+  "tailwind",
+  "sanity",
+  "supabase",
+  "trpc",
+  "linux",
+];
 ---
 
-<div class="page-padding">
+<div class="page-padding page-max-width">
   <Heading title="About Me" />
   <div class="about-content">
     <div class="about-profile">
-      <img src={Profile} alt="personal profile" class="w-96 rounded-sm" />
+      <img src={Profile} alt="personal profile" class="rounded-sm" />
       <a class="action">Download CV</a>
     </div>
+    <div class="about-description">
+      {myDescriptionParas.map((para) => <p class="body1 pb-4">{para}</p>)}
+      <hr class="horizontal-line line-pb" />
+      <h5>Tech I like</h5>
+      <div
+        class="flex justify-start items-center flex-wrap gap-5 max-w-md pt-4"
+      >
+        {technologies.map((tech) => <Icon icon={tech} width="w-5 md:w-7" />)}
+      </div>
+    </div>
   </div>
-</div>
+</div>s

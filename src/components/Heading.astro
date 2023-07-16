@@ -3,12 +3,13 @@ import clsx from "clsx";
 
 interface Props {
   title: string;
+  padding?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, padding } = Astro.props;
 ---
 
-<div class="flex items-center page-padding w-full">
+<div class={clsx("flex items-center w-full pb-8", { "page-padding": padding })}>
   <h2 class="h2 w-fit">
     {title}
   </h2>

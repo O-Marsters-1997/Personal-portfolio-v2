@@ -12,7 +12,9 @@ import ScrollProvider from "@context/ScrollProvider";
 
   <body>
     <ScrollProvider client:only />
-    <slot name="header" />
+    <div>
+      <slot name="header" />
+    </div>
     <main id="content">
       <slot />
     </main>
