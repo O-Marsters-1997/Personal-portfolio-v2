@@ -1,0 +1,33 @@
+---
+import type { ProjectItem } from "@types";
+import Layout from "@layouts/Page.astro";
+import base from "@/data/projects.json";
+
+export const getStaticPaths = () => {
+  return [
+    { params: { projectName: "flaskCricket" } },
+    { params: { projectName: "bbcSleighRide" } },
+    { params: { projectName: "clanhub" } },
+  ];
+};
+
+const { projectName } = Astro.params;
+const project: ProjectItem = base.projects.find(
+  (project: ProjectItem) => project.titleShort == projectName
+);
+const { title, description, category, imgSrc, imgAlt } = project;
+---
+
+<Layout>
+  <div class="flex w-screen h-screen items-center page-padding">
+    <div class="flex">
+      <div class="left flex-col">
+        <div class="project-heading">
+          <h5 class="text-secondary-dark">{category}</h5>
+          <h3 class="pt-1">{title}</h3>
+        </div>
+      </div>
+      <div class="right flex-col"></div>
+    </div>
+  </div>
+</Layout>
