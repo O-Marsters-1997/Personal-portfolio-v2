@@ -40,7 +40,7 @@
 
   /* body1 */
   .body1 {
-    @apply font-body font-normal text-grey-lightest tracking-normal leading-8;
+    @apply font-body font-light text-grey-lightest tracking-normal leading-8;
     font-size: clamp(
       theme(fontSize.body1Mobile),
       1.5vw,

@@ -5,6 +5,7 @@ import Heading from "@components/Heading.astro";
 
 interface ProjectItem {
   title: string;
+  titleShort: string;
   description: string;
   category: string;
   technologiesUsed: string[];
@@ -21,11 +22,12 @@ const { projects } = base;
     Click on the projects listed below to see information about each in further
     detail
   </p>
-  <div class="flex lg:justify-between flex-wrap gap-8">
+  <div class="flex 2xl:justify-between flex-wrap gap-8">
     {
       projects.map((project: ProjectItem) => (
         <Project
           title={project.title}
+          titleShort={project.titleShort}
           description={project.description}
           category={project.category}
           src={project.imgSrc}

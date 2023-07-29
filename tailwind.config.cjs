@@ -89,8 +89,12 @@ module.exports = {
           primary: "rgba(0,0,0, .25)",
         },
       },
+      spacing: {
+        96: "32rem",
+      },
       screens: {
         xs: "320px",
+        "2xl": "1724px",
       },
     },
   },

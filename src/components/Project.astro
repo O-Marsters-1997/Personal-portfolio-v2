@@ -7,6 +7,7 @@ import portfolio from "../assets/images/portfolio.jpg";
 
 type Props = {
   title: string;
+  titleShort: string;
   description: string;
   category: string;
   src: string;
@@ -14,7 +15,7 @@ type Props = {
   tech: string[];
 };
 
-const { title, category, src, alt } = Astro.props;
+const { title, titleShort, category, src, alt } = Astro.props;
 
 const imgMap: any = {
   python: flaskCricket,
@@ -24,17 +25,19 @@ const imgMap: any = {
 };
 ---
 
-<div class="flex flex-col max-w-full lg:flex-[0_0_31%]">
-  <div class="relative cursor-pointer md:h-[20rem] mb-4">
-    <div class="flex gap-6 absolute top-6 right-6">
-      <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
-      <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
+<a href=`/project/${titleShort}` class="w-96">
+  <div class="flex flex-col max-w-full lg:flex-[0_0_31%]">
+    <div class="relative cursor-pointer md:h-[20rem] mb-4">
+      <div class="flex gap-6 absolute top-6 right-6">
+        <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
+        <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
+      </div>
+      <div class="bg-overlay-primary absolute inset-0"></div>
+      <img src={imgMap[src]} class="rounded-sm w-full h-full" alt="project" />
     </div>
-    <div class="bg-overlay-primary absolute inset-0"></div>
-    <img src={imgMap[src]} class="rounded-sm w-full h-full" alt="project" />
+    <div class="project-title">
+      <h5 class="text-secondary-dark">{category}</h5>
+      <h3 class="pt-1">{title}</h3>
+    </div>
   </div>
-  <div class="project-title">
-    <h5 class="text-secondary-dark">{category}</h5>
-    <h3 class="pt-1">{title}</h3>
-  </div>
-</div>
+</a>
