@@ -20,9 +20,9 @@ module.exports = {
         h1Tablet: "4.75rem",
         h1Desktop: "5.75rem",
         // h2
-        h2Mobile: "1.05rem",
-        h2Tablet: "1.25rem",
-        h2Desktop: "1.4rem",
+        h2Mobile: "1.5rem",
+        h2Tablet: "2rem",
+        h2Desktop: "3rem",
         // h3
         h3Mobile: "1.25rem",
         h3Tablet: "1.5rem",
@@ -87,14 +87,15 @@ module.exports = {
 
         overlay: {
           primary: "rgba(0,0,0, .25)",
+          primaryMuted: "rgba(0,0,0, .125)",
         },
       },
       spacing: {
-        96: "32rem",
+        96: "28rem",
       },
       screens: {
         xs: "320px",
-        "2xl": "1724px",
+        "2xl": "1520px",
       },
     },
   },

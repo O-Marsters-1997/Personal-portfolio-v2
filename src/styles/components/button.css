@@ -1,5 +1,11 @@
 .button {
-  @apply px-8 py-2
-  bg-gradient-to-r from-button-gradientLight from-5% via-button-gradientMedium via-40% to-button-gradientDark to-80%
-  rounded-sm cursor-pointer;
+  @apply rounded-sm cursor-pointer  px-8 py-2;
+
+  &.primary {
+    @apply bg-gradient-to-r from-button-gradientLight from-5% via-button-gradientMedium via-40% to-button-gradientDark to-80%;
+  }
+
+  &.outlined {
+    @apply border border-secondary-dark rounded-sm;
+  }
 }
