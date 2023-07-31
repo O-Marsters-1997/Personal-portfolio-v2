@@ -1,9 +1,6 @@
 ---
 import Icon from "@components/base/Icon";
-import flaskCricket from "../assets/images/flask_cricket.jpg";
-import bbcSleighride from "../assets/images/bbc_sleighride.jpg";
-import clanhub from "../assets/images/clanhub.jpg";
-import portfolio from "../assets/images/portfolio.jpg";
+import { imgMap } from "@utils/constants";
 
 type Props = {
   title: string;
@@ -16,13 +13,6 @@ type Props = {
 };
 
 const { title, titleShort, category, src, alt } = Astro.props;
-
-const imgMap: any = {
-  python: flaskCricket,
-  bbcSleighride,
-  clanhub,
-  portfolio,
-};
 ---
 
 <a href=`/project/${titleShort}` class="w-96">
@@ -33,7 +23,7 @@ const imgMap: any = {
         <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
       </div>
       <div class="bg-overlay-primary absolute inset-0"></div>
-      <img src={imgMap[src]} class="rounded-sm w-full h-full" alt="project" />
+      <img src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />
     </div>
     <div class="project-title">
       <h5 class="text-secondary-dark">{category}</h5>

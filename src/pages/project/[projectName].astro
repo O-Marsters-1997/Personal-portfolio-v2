@@ -1,6 +1,7 @@
 ---
-import type { ProjectItem } from "@types";
+import type { ProjectItem, ProjectLinks } from "../../types";
 import Layout from "@layouts/Page.astro";
+import { imgMap, externalLinks } from "@utils/constants";
 import base from "@/data/projects.json";
 
 export const getStaticPaths = () => {
@@ -12,22 +13,41 @@ export const getStaticPaths = () => {
 };
 
 const { projectName } = Astro.params;
-const project: ProjectItem = base.projects.find(
+const project = base.projects.find(
   (project: ProjectItem) => project.titleShort == projectName
 );
-const { title, description, category, imgSrc, imgAlt } = project;
+const { title, titleShort, category, imgSrc, imgAlt, details, githubHref } =
+  project as ProjectItem;
 ---
 
 <Layout>
   <div class="flex w-screen h-screen items-center page-padding">
-    <div class="flex">
+    <div class="flex gap-8">
       <div class="left flex-col">
-        <div class="project-heading">
+        <div class="project-heading pb-2">
           <h5 class="text-secondary-dark">{category}</h5>
-          <h3 class="pt-1">{title}</h3>
+          <h2 class="pt-1">{title}</h2>
+        </div>
+        <ul class="project-details list-disc">
+          {details.map((detail) => <li class="body2 pb-1.5">{detail}</li>)}
+        </ul>
+        <div class="pt-4 flex gap-4">
+          <a href={githubHref} target="_blank">
+            <button class="button primary">See Github</button>
+          </a>
+          <a href="" target="_blank">
+            <button class="button outlined">View live version</button>
+          </a>
         </div>
       </div>
-      <div class="right flex-col"></div>
+      <div class="right flex-col relative">
+        <div class="bg-overlay-primaryMuted absolute inset-0"></div>
+        <img
+          src={imgMap[imgSrc]}
+          class="rounded-sm w-full h-full"
+          alt={imgAlt}
+        />
+      </div>
     </div>
   </div>
 </Layout>

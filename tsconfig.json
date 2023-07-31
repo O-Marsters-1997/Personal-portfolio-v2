@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@*": ["./src/*"],
-      "@screens": ["./src/screens"],
+      "@screens": ["./src/screens/*"],
       "@components": ["./src/components/*"],
       "@content": ["./src/content/*"],
       "@layouts": ["./src/layouts/*"],
@@ -13,7 +13,7 @@
       "@assets": ["./src/assets/*"],
       "@styles": ["./src/styles/*"],
       "@context": ["./src/context/*"],
-      "@types": ["./src/types/*"]
+      "@types": ["src/types/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",
@@ -22,5 +22,6 @@
         "name": "@astrojs/ts-plugin"
       }
     ]
-  }
+  },
+  "include": ["**/*.astro", "**/*.ts", "**/*.tsx"]
 }

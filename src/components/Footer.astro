@@ -1,17 +1,13 @@
 ---
 import Icon from "@components/base/Icon";
+import { externalLinks } from "@utils/constants";
 ---
 
 <div class="page-padding page-max-width justify-between py-8 flex">
   <div class="hidden gap-6 sm:flex">
-    <a href="https://github.com/O-Marsters-1997" target="_blank" class="link"
-      >Github</a
+    <a href={externalLinks.githubProfile} target="_blank" class="link">Github</a
     >
-    <a
-      href="https://www.linkedin.com/in/olly-marsters/"
-      target="_blank"
-      class="link">LinkedIn</a
-    >
+    <a href={externalLinks.linkedin} target="_blank" class="link">LinkedIn</a>
   </div>
   <span class="flex items-center gap-2">
     <Icon icon="copyright" width="w-4" />

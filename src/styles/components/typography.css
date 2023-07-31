@@ -3,19 +3,19 @@
 
   h1,
   .h1 {
-    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop tracking-narrower leading-snug;
+    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop;
   }
 
   /* h2 */
   h2,
   .h2 {
-    @apply font-headingBold font-semibold text-grey-lightest text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop tracking-narrow;
+    @apply font-headingBold font-normal text-grey-lightest text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop tracking-wider;
   }
 
   /* h3 */
   h3,
   .h3 {
-    @apply font-headingBold font-normal text-grey-lightest text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop tracking-wider;
+    @apply font-headingBold font-normal text-grey-lightest text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop tracking-wide;
   }
 
   /* h4 */
@@ -40,7 +40,7 @@
 
   /* body1 */
   .body1 {
-    @apply font-body font-light text-grey-lightest tracking-normal leading-8;
+    @apply font-body font-light text-grey-lightest tracking-normal leading-relaxed;
     font-size: clamp(
       theme(fontSize.body1Mobile),
       1.5vw,

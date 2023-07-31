@@ -5,36 +5,75 @@
       "titleShort": "flaskCricket",
       "description": "an application",
       "category": "Full-stack",
-      "technologiesUsed": ["python", "flask"],
+      "technologiesUsed": ["python", "flask", "postgresql", "jinja", "sass"],
       "imgSrc": "python",
-      "imgAlt": ""
+      "imgAlt": "Flask cricket app",
+      "githubHref": "https://github.com/O-Marsters-1997/Flask_cricket_app",
+      "details": [
+        "Created an application for keeping track of the 2021 Cricket World Cup.",
+        "Manipulated relavant data using Python, connecting it to the front-end using Flask and Jinja.",
+        "Managed relational databases using PostgreSQL."
+      ]
     },
     {
       "title": "BBC Sleighride",
       "titleShort": "bbcSleighRide",
       "description": "an application",
       "category": "Full-stack",
-      "technologiesUsed": ["python", "flask"],
+      "technologiesUsed": [
+        "typescript",
+        "react",
+        "redux",
+        "styledComponents",
+        "materialUi",
+        "node",
+        "express",
+        "mongoDb"
+      ],
       "imgSrc": "bbcSleighride",
-      "imgAlt": ""
+      "imgAlt": "BBC Sleighride",
+      "githubHref": "https://github.com/O-Marsters-1997/BBCSleighRide",
+      "details": [
+        "Developed an educational application about how Christmas is celebrated around the world.",
+        "API calls using non-relational databases and express server configuration.",
+        "Version 2; built with Typescript, Redux and styled components."
+      ]
     },
     {
       "title": "Clanhub",
       "titleShort": "clanhub",
       "description": "an application",
       "category": "Full-stack",
-      "technologiesUsed": ["python", "flask"],
+      "technologiesUsed": [
+        "react",
+        "sass",
+        "firebase",
+        "java",
+        "spring",
+        "heroku"
+      ],
       "imgSrc": "clanhub",
-      "imgAlt": ""
+      "imgAlt": "Clanhub",
+      "githubHref": "https://github.com/O-Marsters-1997/ClanHub",
+      "details": [
+        "An open source project for Code Clan alumni to maintain and strengthen their community",
+        "Authentication using firebase, allowing users to signup, login and contribute to posts on a filterable formum.",
+        "CRUD functionality managed through a Spring Boot API."
+      ]
     },
     {
       "title": "Personal Portfolio",
       "titleShort": "portfolio",
       "description": "an application",
       "category": "Design and Development",
-      "technologiesUsed": ["python", "flask"],
+      "technologiesUsed": ["astro", "react", "tailwind", "sanity"],
       "imgSrc": "portfolio",
-      "imgAlt": ""
+      "imgAlt": "Personal portfolio",
+      "githubHref": "https://github.com/O-Marsters-1997/Personal-portfolio-v2",
+      "details": [
+        "A personal portfoilo site built using Astro, Tailwind and Sanity.",
+        "This site can also handle email forwarding to my inbox, stay tuned for updates."
+      ]
     }
   ]
 }
