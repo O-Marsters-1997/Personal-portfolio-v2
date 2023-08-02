@@ -34,6 +34,9 @@ module.exports = {
         // Body1
         body1Mobile: ".88rem",
         body1Desktop: "1.15rem",
+        // Body2
+        body2Mobile: ".65rem",
+        body2Desktop: ".95rem",
         // Subtitle
         subtitleMobile: ".75rem",
         subtitleTablet: "1.13rem",
@@ -94,7 +97,8 @@ module.exports = {
         96: "28rem",
       },
       screens: {
-        xs: "320px",
+        xxs: "320px",
+        xs: "480px",
         "2xl": "1520px",
       },
     },

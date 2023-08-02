@@ -5,7 +5,7 @@
 }
 
 .page-padding {
-  @apply px-6 xs:px-14;
+  @apply px-6 xxs:px-14;
 }
 
 .page-max-width {

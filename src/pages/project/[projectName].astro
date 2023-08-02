@@ -1,7 +1,9 @@
 ---
-import type { ProjectItem, ProjectLinks } from "../../types";
+import type { ProjectItem } from "../../types";
+import type { IconDefinition } from "../../styles/theme/IconSvg";
 import Layout from "@layouts/Page.astro";
-import { imgMap, externalLinks } from "@utils/constants";
+import Icon from "@components/base/Icon";
+import { imgMap } from "@utils/constants";
 import base from "@/data/projects.json";
 
 export const getStaticPaths = () => {
@@ -9,27 +11,37 @@ export const getStaticPaths = () => {
     { params: { projectName: "flaskCricket" } },
     { params: { projectName: "bbcSleighRide" } },
     { params: { projectName: "clanhub" } },
+    { params: { projectName: "portfolio" } },
   ];
 };
 
 const { projectName } = Astro.params;
 const project = base.projects.find(
-  (project: ProjectItem) => project.titleShort == projectName
+  (project) => project.titleShort == projectName
 );
-const { title, titleShort, category, imgSrc, imgAlt, details, githubHref } =
-  project as ProjectItem;
+const {
+  title,
+  category,
+  imgSrc,
+  imgAlt,
+  details,
+  technologiesUsed,
+  githubHref,
+} = project as ProjectItem;
 ---
 
 <Layout>
   <div class="flex w-screen h-screen items-center page-padding">
-    <div class="flex gap-8">
-      <div class="left flex-col">
+    <div
+      class="flex flex-col-reverse sm:flex-row gap-8 w-full justify-between 2xl:mt-32"
+    >
+      <div class="left flex flex-col justify-center">
         <div class="project-heading pb-2">
           <h5 class="text-secondary-dark">{category}</h5>
           <h2 class="pt-1">{title}</h2>
         </div>
         <ul class="project-details list-disc">
-          {details.map((detail) => <li class="body2 pb-1.5">{detail}</li>)}
+          {details.map((detail) => <li class="body2 pb-1.5 ml-3">{detail}</li>)}
         </ul>
         <div class="pt-4 flex gap-4">
           <a href={githubHref} target="_blank">
@@ -39,8 +51,15 @@ const { title, titleShort, category, imgSrc, imgAlt, details, githubHref } =
             <button class="button outlined">View live version</button>
           </a>
         </div>
+        <div class="project-icons items-center flex gap-4 pt-6">
+          {
+            technologiesUsed.map((technology: IconDefinition) => (
+              <Icon icon={technology} width="w-7" />
+            ))
+          }
+        </div>
       </div>
-      <div class="right flex-col relative">
+      <div class="right flex-col relative w-auto lg:w-[40rem] 2xl:w-[50rem]">
         <div class="bg-overlay-primaryMuted absolute inset-0"></div>
         <img
           src={imgMap[imgSrc]}

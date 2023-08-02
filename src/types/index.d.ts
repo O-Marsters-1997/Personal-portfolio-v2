@@ -1,3 +1,5 @@
+import type { IconDefinition } from "../styles/theme/IconSvg";
+
 type ProjectLinks = {
   flaskCricket: string;
   bbcSleighRide: string;
@@ -15,7 +17,7 @@ export interface ProjectItem {
   titleShort: string;
   description: string;
   category: string;
-  technologiesUsed: string[];
+  technologiesUsed: IconDefinition[];
   imgSrc: string;
   imgAlt: string;
   details: string[];

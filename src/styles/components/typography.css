@@ -51,6 +51,11 @@
   /* body2 */
   .body2 {
     @apply font-body font-light text-grey-lightest;
+    font-size: clamp(
+      theme(fontSize.body2Mobile),
+      1.25vw,
+      theme(fontSize.body2Desktop)
+    );
   }
 
   /* link */
