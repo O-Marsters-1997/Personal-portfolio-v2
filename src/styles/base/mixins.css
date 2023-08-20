@@ -9,7 +9,7 @@
 }
 
 .page-max-width {
-  @apply max-w-[110rem] mx-auto;
+  @apply max-w-[110rem];
 }
 
 /* Reusable components */

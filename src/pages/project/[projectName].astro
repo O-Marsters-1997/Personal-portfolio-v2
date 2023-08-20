@@ -35,7 +35,7 @@ const {
     <div
       class="flex flex-col-reverse sm:flex-row gap-8 w-full justify-between 2xl:mt-32"
     >
-      <div class="left flex flex-col justify-center">
+      <div class="left flex flex-col justify-center gap-2">
         <div class="project-heading pb-2">
           <h5 class="text-secondary-dark">{category}</h5>
           <h2 class="pt-1">{title}</h2>
@@ -54,12 +54,12 @@ const {
         <div class="project-icons items-center flex gap-4 pt-6">
           {
             technologiesUsed.map((technology: IconDefinition) => (
-              <Icon icon={technology} width="w-7" />
+              <Icon icon={technology} width="w-5" class="md:w-6" />
             ))
           }
         </div>
       </div>
-      <div class="right flex-col relative w-auto lg:w-[40rem] 2xl:w-[50rem]">
+      <div class="right project-name-img">
         <div class="bg-overlay-primaryMuted absolute inset-0"></div>
         <img
           src={imgMap[imgSrc]}

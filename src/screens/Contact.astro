@@ -1,27 +1,18 @@
 ---
 import Heading from "@components/Heading.astro";
+import Form from "@components/Form";
 ---
 
 <div class="contact page-padding page-max-width screen">
   <Heading title="Contact" />
-  <div class="flex flex-col lg:flex-row gap-12">
-    <p class="body1 max-w-xl">
+  <div class="flex flex-col md:flex-row gap-12">
+    <p class="body1 max-w-xl flex-1">
       Whether you like my work and think I can help you with something, or you
       just want to start a conversation about tech, don’t hesitate to contact me
       at
       <span class="body1 text-secondary-dark"> hello@ollymarsters.com</span> or through
       the form.
     </p>
-    <form class="flex flex-col flex-auto">
-      <label for="username" class="h5"> Username *</label>
-      <input type="text" id="username" name="username" required class="input" />
-
-      <label for="email" class="h5"> Email *</label>
-      <input type="text" id="email" name="email" required class="input" />
-
-      <label for="message" class="h5"> Message</label>
-      <textarea id="message" name="message" class="input"></textarea>
-      <button class="button w-fit">Send message</button>
-    </form>
+    <Form client:visible />
   </div>
 </div>
