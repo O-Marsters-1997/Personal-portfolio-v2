@@ -8,7 +8,7 @@ type Props = {
 
 const Icon = ({ icon, class: className, width }: Props) => {
   return (
-    <div className={`${width ?? "w-5"} ${icon} ${className || ""}`}>
+    <div className={`${width ?? "w-7"} ${icon} ${className || ""}`}>
       {IconSvg[icon]}
     </div>
   );

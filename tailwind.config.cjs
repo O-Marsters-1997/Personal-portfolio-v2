@@ -96,10 +96,14 @@ module.exports = {
       spacing: {
         96: "28rem",
       },
+
       screens: {
         xxs: "320px",
         xs: "480px",
         "2xl": "1520px",
+      },
+      width: {
+        project: "clamp(15rem, 40vw, 40rem);",
       },
     },
   },
