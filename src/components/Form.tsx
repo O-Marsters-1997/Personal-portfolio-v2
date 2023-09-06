@@ -4,6 +4,7 @@ import { logger } from "@utils/logger";
 const Form = () => {
   const { PUBLIC_SERVICE_ID, PUBLIC_TEMPLATE_ID, PUBLIC_KEY } = import.meta.env;
 
+  // testing script
   const sendEmail = (e: any) => {
     e.preventDefault();
 
