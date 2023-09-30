@@ -299,6 +299,12 @@ export const colors: TailwindColors = {
   },
   secondary: { main: "rgba(236, 150, 51, 1)", dark: "rgba(183, 140, 90, 1)" },
   tertiary: "rgba(234, 99, 139, 1)",
+  stars: {
+    one: "rgba(240, 167, 81, 1)",
+    two: "rgba(89, 195, 195, 1)",
+    three: "rgba(218, 218, 218, 1)",
+    four: "rgba(255, 255, 255, 1)",
+  },
   button: {
     gradientLight: "rgba(236, 150, 51, 1)",
     gradientMedium: "rgba(184, 127, 42,1)",
@@ -310,6 +316,6 @@ export const colors: TailwindColors = {
     lightest: "rgba(231, 231, 231, 1)",
     dark: "rgba(72, 72, 72, 1)",
   },
-  overlay: { primary: "rgba(0,0,0, .25)" },
+  overlay: { primary: "rgba(0,0,0, .25)", primaryMuted: "rgba(0,0,0, .125)" },
 };
 export default colors;

@@ -75,6 +75,12 @@ module.exports = {
           dark: "rgba(183, 140, 90, 1)",
         },
         tertiary: "rgba(234, 99, 139, 1)",
+        stars: {
+          one: "rgba(240, 167, 81, 1)",
+          two: "rgba(89, 195, 195, 1)",
+          three: "rgba(218, 218, 218, 1)",
+          four: "rgba(255, 255, 255, 1)",
+        },
 
         button: {
           gradientLight: "rgba(236, 150, 51, 1)",
