@@ -35,8 +35,9 @@ module.exports = {
         body1Mobile: ".88rem",
         body1Desktop: "1.15rem",
         // Body2
-        body2Mobile: ".65rem",
-        body2Desktop: ".95rem",
+        body2MobileSmall: ".7rem",
+        body2Mobile: ".85rem",
+        body2Desktop: "clamp(.75rem, 1.35vw ,.9rem)",
         // Subtitle
         subtitleMobile: ".75rem",
         subtitleTablet: "1.13rem",

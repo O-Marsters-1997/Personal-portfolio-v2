@@ -31,11 +31,11 @@ const {
 ---
 
 <Layout>
-  <div class="flex w-screen h-screen items-center page-padding">
+  <div class="flex w-screen h-full sm:h-screen items-center page-padding">
     <div
-      class="flex flex-col-reverse sm:flex-row gap-8 w-full justify-between 2xl:mt-32"
+      class="relative flex flex-col-reverse items-stretch justify-between sm:flex-row gap-8 w-full 2xl:mt-32"
     >
-      <div class="left flex flex-col justify-center gap-2">
+      <div class="flex flex-col justify-center gap-2">
         <div class="project-heading pb-2">
           <h5 class="text-secondary-dark">{category}</h5>
           <h2 class="pt-1">{title}</h2>
@@ -43,7 +43,9 @@ const {
         <ul class="project-details list-disc">
           {details.map((detail) => <li class="body2 pb-1.5 ml-3">{detail}</li>)}
         </ul>
-        <div class="pt-4 flex gap-4">
+        <div
+          class="flex gap-4 flex-col xs:flex-row sm:flex-col md:flex-row pt-4"
+        >
           <a href={githubHref} target="_blank">
             <button class="button primary">See Github</button>
           </a>
@@ -51,21 +53,23 @@ const {
             <button class="button outlined">View live version</button>
           </a>
         </div>
-        <div class="project-icons items-center flex gap-4 pt-6">
+        <div class="project-icons items-center flex gap-4 pt-6 pb-32 sm:pb-0">
           {
             technologiesUsed.map((technology: IconDefinition) => (
-              <Icon icon={technology} width="w-5" class="md:w-6" />
+              <Icon icon={technology} width="w-6" class="md:w-7" />
             ))
           }
         </div>
       </div>
-      <div class="right project-name-img">
-        <div class="bg-overlay-primaryMuted absolute inset-0"></div>
-        <img
-          src={imgMap[imgSrc]}
-          class="rounded-sm w-full h-full"
-          alt={imgAlt}
-        />
+      <div class="project-name-img sm:min-w-[18rem] pt-32 sm:pt-0">
+        <div class="relative flex flex-col h-full max-h-[24rem]">
+          <div class="bg-overlay-primaryMuted absolute inset-0"></div>
+          <img
+            src={imgMap[imgSrc]}
+            class="rounded-sm w-full h-full"
+            alt={imgAlt}
+          />
+        </div>
       </div>
     </div>
   </div>

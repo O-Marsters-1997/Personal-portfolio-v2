@@ -1,3 +1,3 @@
 .project-name-img {
-  @apply flex-col relative w-auto lg:w-[40rem] 2xl:w-[50rem] sm:w-project;
+  @apply relative flex flex-col justify-center w-auto lg:w-[40rem] 2xl:w-[50rem] sm:w-project;
 }

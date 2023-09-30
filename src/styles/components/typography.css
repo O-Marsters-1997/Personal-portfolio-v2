@@ -50,12 +50,7 @@
 
   /* body2 */
   .body2 {
-    @apply font-body font-light text-grey-lightest;
-    font-size: clamp(
-      theme(fontSize.body2Mobile),
-      1.25vw,
-      theme(fontSize.body2Desktop)
-    );
+    @apply font-body font-light text-grey-lightest text-body2MobileSmall xs:text-body2Mobile sm:text-body2Desktop;
   }
 
   /* link */
@@ -81,7 +76,7 @@
   /* button */
   button,
   .button {
-    @apply font-body font-semibold text-white   text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
+    @apply font-body font-semibold text-white text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
   }
 
   /* subtitle */
