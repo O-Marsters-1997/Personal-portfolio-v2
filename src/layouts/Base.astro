@@ -1,16 +1,18 @@
 ---
 import BaseHead from "../components/head/BaseHead.astro";
 import "../styles/main.css";
+import ThemeProvider from "@context/ThemeProvider";
 import ScrollProvider from "@context/ScrollProvider";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <BaseHead title="hello world" />
   </head>
 
   <body>
+    <ThemeProvider client:only />
     <ScrollProvider client:only />
     <div>
       <slot name="header" />
