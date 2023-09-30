@@ -1,5 +1,6 @@
 ---
 import Icon from "@components/base/Icon";
+import CVDownload from "@components/CVDownload";
 import myImage from "@assets/images/logo.png";
 ---
 
@@ -15,7 +16,9 @@ import myImage from "@assets/images/logo.png";
     <a href="/#contact">
       <li class="link">Contact</li>
     </a>
-    <Icon icon="download" width="w-5 md:w-6" />
+    <CVDownload client:only>
+      <Icon icon="download" width="w-5 md:w-6" />
+    </CVDownload>
     <Icon icon="light_mode" />
   </ul>
 </nav>
