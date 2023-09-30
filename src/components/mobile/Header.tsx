@@ -9,7 +9,7 @@ type Navlink = "about" | "projects" | "writing" | "contact";
 const Header = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
-  const navlinks: Navlink[] = ["about", "projects", "writing", "contact"];
+  const navlinks: Navlink[] = ["about", "projects", "contact"];
 
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
@@ -28,12 +28,13 @@ const Header = () => {
               const capitalised =
                 navlink.charAt(0).toUpperCase() + navlink.slice(1);
 
+              const handleNavigation = () => {
+                setSelectedLink(navlink);
+                setMobileNavOpen(false);
+              };
+
               return (
-                <a
-                  href={`#${navlink}`}
-                  key={index}
-                  onClick={() => setSelectedLink(navlink)}
-                >
+                <a href={`#${navlink}`} key={index} onClick={handleNavigation}>
                   <li
                     className={`mobile-link ${
                       selectedLink == navlink && "active"
