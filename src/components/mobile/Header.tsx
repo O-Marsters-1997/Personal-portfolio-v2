@@ -31,6 +31,10 @@ const Header = () => {
               const handleNavigation = () => {
                 setSelectedLink(navlink);
                 setMobileNavOpen(false);
+                storeMap.set({
+                  ...storeMap,
+                  mobileNavigationOpen: false,
+                });
               };
 
               return (
