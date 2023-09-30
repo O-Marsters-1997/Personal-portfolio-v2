@@ -29,7 +29,7 @@ export const spacing: TailwindColors = {
   64: "16rem",
   72: "18rem",
   80: "20rem",
-  96: "24rem",
+  96: "28rem",
   px: "1px",
   0.5: "0.125rem",
   1.5: "0.375rem",
