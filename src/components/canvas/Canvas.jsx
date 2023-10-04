@@ -1,16 +1,21 @@
 import { useEffect } from "react";
 import { colors } from "../../styles/theme/colors";
+import { useStore } from "@nanostores/react";
+import { storeMap } from "@utils/nanostore";
 
 const Canvas = () => {
+  const { darkMode } = useStore(storeMap);
+  const themeVariant = darkMode ? "dark" : "light";
+
   useEffect(() => {
     renderCanvas();
-  }, []);
+  }, [darkMode]);
 
   const myColors = {
-    first: colors.stars.one,
-    second: colors.stars.two,
-    third: colors.stars.three,
-    fourth: colors.stars.four,
+    first: colors[themeVariant].stars.one,
+    second: colors[themeVariant].stars.two,
+    third: colors[themeVariant].stars.three,
+    fourth: colors[themeVariant].stars.four,
   };
 
   const renderCanvas = () => {
@@ -88,7 +93,7 @@ const Canvas = () => {
     let radians = 0;
     function animate() {
       requestAnimationFrame(animate);
-      c.fillStyle = colors.base.main;
+      c.fillStyle = colors[themeVariant].base.main;
       c.fillRect(0, 0, canvas.width, canvas.height);
       c.fillText("HTML CANVAS BOILERPLATE", mouse.x, mouse.y);
       c.save();

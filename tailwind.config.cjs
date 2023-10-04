@@ -62,31 +62,70 @@ module.exports = {
         headingLight: ["Lato"],
       },
       colors: {
-        base: {
-          main: "rgba(16, 23, 42, 1)",
-          dark: " rgba(14, 20, 36, 1)",
-        },
-        primary: {
-          main: "rgba(60, 68, 92, 1)",
-          transparent: "rgba(60, 68, 92, .85)",
-          dark: "rgba(29, 34, 47, 1)",
-        },
-        secondary: {
-          main: "rgba(236, 150, 51, 1)",
-          dark: "rgba(183, 140, 90, 1)",
-        },
-        tertiary: "rgba(234, 99, 139, 1)",
-        stars: {
-          one: "rgba(240, 167, 81, 1)",
-          two: "rgba(89, 195, 195, 1)",
-          three: "rgba(218, 218, 218, 1)",
-          four: "rgba(255, 255, 255, 1)",
-        },
+        dark: {
+          base: {
+            main: "rgba(16, 23, 42, 1)",
+            dark: " rgba(14, 20, 36, 1)",
+          },
+          primary: {
+            main: "rgba(60, 68, 92, 1)",
+            transparent: "rgba(60, 68, 92, .85)",
+            dark: "rgba(29, 34, 47, 1)",
+          },
+          secondary: {
+            main: "rgba(236, 150, 51, 1)",
+            dark: "rgba(183, 140, 90, 1)",
+          },
+          tertiary: "rgba(234, 99, 139, 1)",
+          stars: {
+            one: "rgba(240, 167, 81, 1)",
+            two: "rgba(89, 195, 195, 1)",
+            three: "rgba(218, 218, 218, 1)",
+            four: "rgba(255, 255, 255, 1)",
+          },
 
-        button: {
-          gradientLight: "rgba(236, 150, 51, 1)",
-          gradientMedium: "rgba(184, 127, 42,1)",
-          gradientDark: "rgba(154, 106, 34, 1)",
+          button: {
+            gradientLight: "rgba(236, 150, 51, 1)",
+            gradientMedium: "rgba(184, 127, 42,1)",
+            gradientDark: "rgba(154, 106, 34, 1)",
+          },
+          overlay: {
+            primary: "rgba(0,0,0, .25)",
+            primaryMuted: "rgba(0,0,0, .125)",
+          },
+        },
+        // TODO: make sure all the colours are there in each variant
+        light: {
+          base: {
+            main: "rgba(237, 237, 237, 1)",
+            dark: " rgba(14, 20, 36, 1)",
+          },
+          primary: {
+            main: "rgba(60, 68, 92, 1)",
+            transparent: "rgba(60, 68, 92, .85)",
+            dark: "rgba(29, 34, 47, 1)",
+          },
+          secondary: {
+            main: "rgba(236, 150, 51, 1)",
+            dark: "rgba(183, 140, 90, 1)",
+          },
+          tertiary: "rgba(234, 99, 139, 1)",
+          stars: {
+            one: "rgba(240, 167, 81, 1)",
+            two: "rgba(89, 195, 195, 1)",
+            three: "rgba(218, 218, 218, 1)",
+            four: "rgba(255, 255, 255, 1)",
+          },
+
+          button: {
+            gradientLight: "rgba(236, 150, 51, 1)",
+            gradientMedium: "rgba(184, 127, 42,1)",
+            gradientDark: "rgba(154, 106, 34, 1)",
+          },
+          overlay: {
+            primary: "rgba(0,0,0, .25)",
+            primaryMuted: "rgba(0,0,0, .125)",
+          },
         },
 
         grey: {
@@ -94,11 +133,7 @@ module.exports = {
           lighter: "rgba(198, 198, 198, 0.773)",
           lightest: "rgba(231, 231, 231, 1)",
           dark: "rgba(72, 72, 72, 1)",
-        },
-
-        overlay: {
-          primary: "rgba(0,0,0, .25)",
-          primaryMuted: "rgba(0,0,0, .125)",
+          darkest: "rgba(23, 23, 23, 1)",
         },
       },
       spacing: {

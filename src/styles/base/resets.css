@@ -5,5 +5,5 @@
 }
 
 body {
-  @apply bg-base-main;
+  @apply dark:bg-dark-base-main bg-light-base-main;
 }

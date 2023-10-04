@@ -3,44 +3,65 @@
 
   h1,
   .h1 {
-    @apply font-headingBold font-normal text-white text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop;
+    @apply font-headingBold 
+    font-normal 
+    dark:text-white text-black
+    text-h1Mobile md:text-h1Tablet 2xl:text-h1Desktop;
   }
 
   /* h2 */
   h2,
   .h2 {
-    @apply font-headingBold font-normal text-grey-lightest text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop tracking-wider;
+    @apply font-headingBold 
+    font-normal 
+    dark:text-grey-lightest text-grey-darkest
+    text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop 
+    tracking-wider;
   }
 
   /* h3 */
   h3,
   .h3 {
-    @apply font-headingBold font-normal text-grey-lightest text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop tracking-wide;
+    @apply font-headingBold 
+    font-normal 
+    dark:text-grey-lightest text-grey-darkest
+    text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop 
+    tracking-wide;
   }
 
   /* h4 */
   h4,
   .h4 {
-    @apply font-headingLight font-normal text-secondary-dark tracking-wider;
+    @apply font-headingLight 
+    font-normal 
+    dark:text-dark-secondary-dark 
+    tracking-wider;
   }
 
   /* h5 */
   h5,
   .h5 {
-    @apply font-headingLight font-semibold text-grey-lightest;
+    @apply font-headingLight 
+    font-semibold 
+    dark:text-grey-lightest text-grey-darkest;
   }
 
   /* h6 */
   h6,
   .h6 {
-    @apply font-headingLight font-light;
+    @apply font-headingLight 
+    font-light;
   }
 
   /*  */
 
   /* body1 */
   .body1 {
-    @apply font-body font-light text-grey-lightest tracking-normal leading-relaxed;
+    @apply font-body 
+    font-light 
+    dark:text-grey-lightest text-grey-darkest
+    tracking-normal 
+    leading-relaxed;
     font-size: clamp(
       theme(fontSize.body1Mobile),
       1.5vw,
@@ -50,38 +71,58 @@
 
   /* body2 */
   .body2 {
-    @apply font-body font-light text-grey-lightest text-body2MobileSmall xs:text-body2Mobile sm:text-body2Desktop;
+    @apply font-body 
+    font-light 
+    dark:text-grey-lightest text-grey-darkest 
+    text-body2MobileSmall xs:text-body2Mobile sm:text-body2Desktop;
   }
 
   /* link */
   a,
   .link {
-    @apply font-body font-light text-grey-lightest text-linkMobile md:text-linkTablet 2xl:text-linkDesktop tracking-normal cursor-pointer;
+    @apply font-body 
+    font-light 
+    dark:text-grey-lightest text-grey-darkest
+    text-linkMobile md:text-linkTablet 2xl:text-linkDesktop 
+    tracking-normal 
+    cursor-pointer;
   }
 
   /* moile link */
   .mobile-link {
-    @apply link text-2xl tracking-wide;
+    @apply link 
+    text-2xl 
+    tracking-wide;
 
     &.active {
-      @apply text-secondary-dark;
+      @apply dark:text-dark-secondary-dark text-light-secondary-dark;
     }
   }
 
   /* action */
   .action {
-    @apply font-body font-light text-grey-main uppercase text-actionMobile md:text-actionTablet 2xl:text-actionDesktop;
+    @apply font-body font-light 
+    dark:text-grey-main text-grey-dark
+    uppercase 
+    text-actionMobile md:text-actionTablet 2xl:text-actionDesktop;
   }
 
   /* button */
   button,
   .button {
-    @apply font-body font-semibold text-white text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
+    @apply font-body 
+    font-semibold 
+    dark:text-white text-black
+    text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
   }
 
   /* subtitle */
   .subtitle {
-    @apply font-body font-medium italic text-grey-lightest tracking-normal text-subtitleMobile md:text-subtitleTablet 2xl:text-subtitleDesktop;
+    @apply font-body 
+    font-medium italic 
+    dark:text-grey-lightest text-grey-darkest  
+    text-subtitleMobile md:text-subtitleTablet 2xl:text-subtitleDesktop
+    tracking-normal;
   }
 }
 
