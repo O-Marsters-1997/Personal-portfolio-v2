@@ -115,5 +115,11 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      color: ["light"],
+      backgroundColor: ["light"],
+    },
+  },
   plugins: ["postcss-nesting"],
 };

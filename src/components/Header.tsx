@@ -1,20 +1,13 @@
+import _ from "lodash";
 import Icon from "@components/base/Icon";
+import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
+
 import myImage from "@assets/images/logo.png";
 
 const Header = () => {
   const { darkMode } = useStore(storeMap);
-
-  const downloadPdf = async () => {
-    const response = await fetch("src/assets/ollyMarstersCv.pdf");
-    const blob = await response.blob();
-    const fileURL = window.URL.createObjectURL(blob);
-    let alink = document.createElement("a");
-    alink.href = fileURL;
-    alink.download = "Olly_Marsters.pdf";
-    alink.click();
-  };
 
   const toggleDarkTheme = () => {
     storeMap.set({
@@ -36,7 +29,9 @@ const Header = () => {
         <a href="/#contact">
           <li className="link">Contact</li>
         </a>
-        <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
+        <DownloadCvWrapper>
+          <Icon icon="download" width="w-5 md:w-6" />
+        </DownloadCvWrapper>
         <Icon
           icon={darkMode ? "light_mode" : "dark_mode"}
           class="w-1"

@@ -1,6 +1,6 @@
 import { map } from "nanostores";
 
-export const storeMap = map<Record<string, any>>({
+export const storeMap = map<Record<any, any>>({
   mobileNavigationOpen: false,
   darkMode: true,
 });

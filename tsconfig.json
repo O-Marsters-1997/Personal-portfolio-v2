@@ -13,7 +13,8 @@
       "@assets": ["./src/assets/*"],
       "@styles": ["./src/styles/*"],
       "@context": ["./src/context/*"],
-      "@types": ["src/types/*"]
+      "@types": ["src/types/*"],
+      "@theme": ["src/styles/theme/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

@@ -2,6 +2,8 @@
 import Heading from "@components/Heading.astro";
 import type { IconDefinition } from "@styles/theme/IconSvg";
 import Icon from "@components/base/Icon";
+import DownloadCvWrapper from "@components/DownloadCvWrapper";
+
 import Profile from "@assets/images/personal_profile.jpg";
 
 const myDescriptionParas = [
@@ -29,7 +31,9 @@ const technologies: IconDefinition[] = [
   <div class="about-content">
     <div class="about-profile">
       <img src={Profile} alt="personal profile" class="rounded-sm pb-2" />
-      <a class="action">Download CV</a>
+      <DownloadCvWrapper>
+        <p class="action">Download CV</p>
+      </DownloadCvWrapper>
     </div>
     <div class="about-description">
       {myDescriptionParas.map((para) => <p class="body1 pb-6">{para}</p>)}
