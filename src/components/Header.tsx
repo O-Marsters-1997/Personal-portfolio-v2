@@ -3,18 +3,12 @@ import Icon from "@components/base/Icon";
 import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
+import { toggleDarkTheme } from "@utils/common";
 
 import myImage from "@assets/images/logo.png";
 
 const Header = () => {
   const { darkMode } = useStore(storeMap);
-
-  const toggleDarkTheme = () => {
-    storeMap.set({
-      ...storeMap,
-      darkMode: !darkMode,
-    });
-  };
 
   return (
     <nav className="navigation">

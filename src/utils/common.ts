@@ -1,4 +1,5 @@
 import type { MapStore } from "nanostores";
+import { storeMap } from "@utils/nanostore";
 
 export const downloadPdf = async () => {
   const response = await fetch("src/assets/ollyMarstersCv.pdf");
@@ -20,5 +21,12 @@ export const toggleStoreValue = (
   store.set({
     ...store,
     storeValue,
+  });
+};
+
+export const toggleDarkTheme = () => {
+  storeMap.set({
+    ...storeMap,
+    darkMode: !storeMap.get().darkMode,
   });
 };
