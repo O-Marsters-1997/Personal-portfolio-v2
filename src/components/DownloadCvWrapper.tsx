@@ -6,7 +6,7 @@ type Props = {
 };
 
 const DownloadCvWrapper = ({ children }: Props) => {
-  return <a onClick={downloadPdf}>{children}</a>;
+  return <div onClick={downloadPdf}>{children}</div>;
 };
 
 export default DownloadCvWrapper;

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
-import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
-import { toggleDarkTheme } from "@utils/common";
+import { downloadPdf, toggleDarkTheme } from "@utils/common";
 import myImage from "@assets/images/logo.png";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
@@ -17,9 +16,9 @@ const Header = () => {
 
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
+    console.log(storeMap.get().mobileNavigationOpen);
     storeMap.set({
-      ...storeMap,
-      darkMode: storeMap.get().darkMode,
+      ...storeMap.get(),
       mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
     });
   };
@@ -34,10 +33,11 @@ const Header = () => {
                 navlink.charAt(0).toUpperCase() + navlink.slice(1);
 
               const handleNavigation = () => {
+                console.log("hello");
                 setSelectedLink(navlink);
                 setMobileNavOpen(false);
                 storeMap.set({
-                  ...storeMap,
+                  ...storeMap.get(),
                   mobileNavigationOpen: false,
                 });
               };
@@ -61,19 +61,23 @@ const Header = () => {
                 class="cursor-pointer w-7"
                 onClick={toggleDarkTheme}
               />
-              <DownloadCvWrapper>
-                <Icon icon="download" class="cursor-pointer w-7" />
-              </DownloadCvWrapper>
+              <Icon
+                icon="download"
+                class="cursor-pointer w-7"
+                onClick={downloadPdf}
+              />
             </div>
           </ul>
         </div>
       )}
       <div className="navigation z-40">
-        <img
-          src={myImage}
-          alt="logo"
-          className={clsx("logo", { "opacity-0": mobileNavOpen })}
-        />
+        <a href="/" className="w-full">
+          <img
+            src={myImage}
+            alt="logo"
+            className={clsx("logo", { "opacity-0": mobileNavOpen })}
+          />
+        </a>
         <div>
           {mobileNavOpen ? (
             <div

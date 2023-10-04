@@ -1,9 +1,8 @@
 import _ from "lodash";
 import Icon from "@components/base/Icon";
-import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
-import { toggleDarkTheme } from "@utils/common";
+import { downloadPdf, toggleDarkTheme } from "@utils/common";
 
 import myImage from "@assets/images/logo.png";
 
@@ -23,9 +22,7 @@ const Header = () => {
         <a href="/#contact">
           <li className="link">Contact</li>
         </a>
-        <DownloadCvWrapper>
-          <Icon icon="download" width="w-5 md:w-6" />
-        </DownloadCvWrapper>
+        <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
         <Icon
           icon={darkMode ? "light_mode" : "dark_mode"}
           class="w-1"

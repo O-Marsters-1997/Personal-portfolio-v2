@@ -26,7 +26,7 @@ export const toggleStoreValue = (
 
 export const toggleDarkTheme = () => {
   storeMap.set({
-    ...storeMap,
+    ...storeMap.get(),
     darkMode: !storeMap.get().darkMode,
   });
 };
