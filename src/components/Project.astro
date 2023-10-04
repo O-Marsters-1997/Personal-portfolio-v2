@@ -22,11 +22,11 @@ const { title, titleShort, category, src, alt } = Astro.props;
         <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
         <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
       </div>
-      <div class="bg-overlay-primary absolute inset-0"></div>
+      <div class="dark:bg-dark-overlay-primary absolute inset-0"></div>
       <img src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />
     </div>
     <div class="project-title">
-      <h5 class="text-secondary-dark">{category}</h5>
+      <h5 class="dark:text-dark-secondary-dark">{category}</h5>
       <h3 class="pt-1">{title}</h3>
     </div>
   </div>

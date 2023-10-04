@@ -1,6 +1,6 @@
 input,
 textarea {
-  @apply rounded-sm bg-base-dark;
+  @apply rounded-sm dark:bg-dark-base-dark;
 }
 
 textarea {
@@ -8,7 +8,7 @@ textarea {
 }
 
 input:focus {
-  @apply outline outline-[0.5px] outline-secondary-dark;
+  @apply outline outline-[0.5px] dark:outline-dark-secondary-dark;
 }
 
 .input {
