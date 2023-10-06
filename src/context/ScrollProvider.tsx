@@ -12,12 +12,12 @@ const ScrollProvider = () => {
     const classArray =
       htmlElementClassList != null ? Array.from(htmlElementClassList) : [];
 
-    if (classArray.length === 0 && !isMobileNavOpen) {
+    if (classArray?.length && !isMobileNavOpen) {
       htmlElementClassList?.remove("disable-scroll");
     }
 
-    if (classArray.length !== 0 && isMobileNavOpen) {
-      htmlElementClassList?.add("disable-scroll");
+    if (htmlElementClassList != null && isMobileNavOpen) {
+      htmlElementClassList.add("disable-scroll");
     }
   }, [isMobileNavOpen]);
 

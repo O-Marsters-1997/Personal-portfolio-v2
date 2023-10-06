@@ -97,7 +97,7 @@ module.exports = {
         // TODO: make sure all the colours are there in each variant
         light: {
           base: {
-            main: "rgba(237, 237, 237, 1)",
+            main: "rgba(237, 237, 237, calc(1 / var(--opacity-bg)))",
             dark: " rgba(33, 124, 54, 1)",
           },
           primary: {

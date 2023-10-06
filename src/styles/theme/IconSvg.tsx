@@ -20,6 +20,8 @@ export type IconDefinition =
   | "heroku"
   | "java"
   | "jinja"
+  | "light_download"
+  | "light_light_mode"
   | "light_mode"
   | "linux"
   | "materialUi"
@@ -52,6 +54,8 @@ export const availableIcons: IconDefinition[] = [
   "heroku",
   "java",
   "jinja",
+  "light_download",
+  "light_light_mode",
   "light_mode",
   "linux",
   "materialUi",
@@ -101,9 +105,11 @@ export const IconSvg = {
     </svg>
   ),
   dark_mode: (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30">
       <path
         fill="#C6C6C6"
+        stroke="#F5F5F5"
+        strokeOpacity=".83"
         d="M9 18c-2.5 0-4.625-.875-6.375-2.625S0 11.5 0 9s.875-4.625 2.625-6.375S6.5 0 9 0c.233 0 .463.008.688.025.225.017.446.042.662.075a5.296 5.296 0 0 0-1.638 1.888A5.297 5.297 0 0 0 8.1 4.5c0 1.5.525 2.775 1.575 3.825C10.725 9.375 12 9.9 13.5 9.9c.917 0 1.758-.204 2.525-.613A5.33 5.33 0 0 0 17.9 7.65 8.509 8.509 0 0 1 18 9c0 2.5-.875 4.625-2.625 6.375S11.5 18 9 18Zm0-2c1.467 0 2.783-.404 3.95-1.213a7.017 7.017 0 0 0 2.55-3.162c-.333.083-.667.15-1 .2-.333.05-.667.075-1 .075-2.05 0-3.796-.721-5.238-2.163C6.82 8.295 6.099 6.549 6.1 4.5c0-.333.025-.667.075-1 .05-.333.117-.667.2-1a7.016 7.016 0 0 0-3.163 2.55C2.403 6.217 1.999 7.533 2 9c0 1.933.683 3.583 2.05 4.95C5.417 15.317 7.067 16 9 16Z"
       />
     </svg>
@@ -228,6 +234,29 @@ export const IconSvg = {
           <path fill="#fff" d="M0 0h24v24H0z" />
         </clipPath>
       </defs>
+    </svg>
+  ),
+  light_download: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30">
+      <path
+        fill="#484848"
+        d="M5.938 21.563a.938.938 0 0 1 .937.937v2.813c0 .172.14.312.313.312h15.625a.313.313 0 0 0 .312-.313V22.5a.938.938 0 0 1 1.875 0v2.813a2.188 2.188 0 0 1-2.188 2.187H7.188A2.188 2.188 0 0 1 5 25.312V22.5a.937.937 0 0 1 .938-.938Z"
+      />
+      <path
+        fill="#484848"
+        d="M6.525 12.463a.935.935 0 0 1 1.325 0l6.213 6.21V3.439a.938.938 0 0 1 1.875 0v15.236l6.212-6.211a.937.937 0 0 1 1.325 1.325L15.663 21.6a.936.936 0 0 1-1.325 0l-7.813-7.813a.937.937 0 0 1 0-1.325Z"
+      />
+    </svg>
+  ),
+  light_light_mode: (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+      <path
+        stroke="#484848"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M14 4.625V1.812M7.37 7.372 5.384 5.382M4.625 14H1.812M14 26.188v-2.813m8.617-.758L20.63 20.63M26.187 14h-2.812M7.371 20.63l-1.989 1.988M22.619 5.383 20.63 7.37M19.625 14a5.625 5.625 0 1 1-11.25 0 5.625 5.625 0 0 1 11.25 0Z"
+      />
     </svg>
   ),
   light_mode: (
