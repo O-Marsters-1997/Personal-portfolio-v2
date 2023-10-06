@@ -292,7 +292,11 @@ export const colors: TailwindColors = {
     950: "#4c0519",
   },
   dark: {
-    base: { main: "rgba(16, 23, 42, 1)", dark: " rgba(14, 20, 36, 1)" },
+    base: {
+      main: "rgba(16, 23, 42, calc(1 / var(--opacity-bg)))",
+      extra: " rgba(14, 20, 36, 1)",
+      canvas: " rgba(16, 23, 42, 1)",
+    },
     primary: {
       main: "rgba(60, 68, 92, 1)",
       transparent: "rgba(60, 68, 92, .85)",
@@ -314,7 +318,11 @@ export const colors: TailwindColors = {
     overlay: { primary: "rgba(0,0,0, .25)", primaryMuted: "rgba(0,0,0, .125)" },
   },
   light: {
-    base: { main: "rgba(237, 237, 237, 1)", dark: " rgba(33, 124, 54, 1)" },
+    base: {
+      main: "rgba(237, 237, 237, calc(1 / var(--opacity-bg)))",
+      extra: " rgba(242, 242, 242, 1)",
+      canvas: " rgba(242, 242, 242, 1)",
+    },
     primary: {
       main: "rgba(60, 68, 92, 1)",
       transparent: "rgba(60, 68, 92, .85)",

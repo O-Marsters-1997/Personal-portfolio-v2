@@ -6,6 +6,6 @@
   }
 
   &.outlined {
-    @apply border rounded-sm;
+    @apply border-[.75px] rounded-sm dark:border-dark-secondary-dark border-dark-secondary-dark;
   }
 }

@@ -1,6 +1,6 @@
 input,
 textarea {
-  @apply rounded-sm dark:bg-dark-base-dark;
+  @apply rounded-sm dark:bg-dark-base-extra bg-light-base-extra;
 }
 
 textarea {

@@ -93,7 +93,7 @@ const Canvas = () => {
     let radians = 0;
     function animate() {
       requestAnimationFrame(animate);
-      c.fillStyle = colors[themeVariant].base.main;
+      c.fillStyle = colors[themeVariant].base.canvas;
       c.fillRect(0, 0, canvas.width, canvas.height);
       c.fillText("HTML CANVAS BOILERPLATE", mouse.x, mouse.y);
       c.save();

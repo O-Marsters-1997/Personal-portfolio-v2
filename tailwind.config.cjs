@@ -65,7 +65,8 @@ module.exports = {
         dark: {
           base: {
             main: "rgba(16, 23, 42, 1)",
-            dark: " rgba(14, 20, 36, 1)",
+            extra: " rgba(14, 20, 36, 1)",
+            canvas: " rgba(16, 23, 42, 1)",
           },
           primary: {
             main: "rgba(60, 68, 92, 1)",
@@ -98,7 +99,8 @@ module.exports = {
         light: {
           base: {
             main: "rgba(237, 237, 237, calc(1 / var(--opacity-bg)))",
-            dark: " rgba(33, 124, 54, 1)",
+            extra: " rgba(242, 242, 242, 1)",
+            canvas: " rgba(239, 239, 239, 1)",
           },
           primary: {
             main: "rgba(60, 68, 92, 1)",
@@ -106,8 +108,8 @@ module.exports = {
             dark: "rgba(44, 139, 59, 1)",
           },
           secondary: {
-            main: "rgba(236, 150, 51, 1)",
-            dark: "rgba(183, 140, 90, 1)",
+            main: "rgba(19, 176, 185, 1)",
+            dark: "rgba(44, 38, 84, 1)",
           },
           tertiary: "rgba(234, 99, 139, 1)",
           stars: {

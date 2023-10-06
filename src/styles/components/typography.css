@@ -34,7 +34,7 @@
   .h4 {
     @apply font-headingLight 
     font-normal 
-    dark:text-dark-secondary-dark 
+    dark:text-dark-secondary-dark text-light-secondary-dark 
     tracking-wider;
   }
 
@@ -44,6 +44,10 @@
     @apply font-headingLight 
     font-semibold 
     dark:text-grey-lightest text-grey-darkest;
+
+    &.secondary {
+      @apply dark:text-dark-secondary-dark text-dark-secondary-dark;
+    }
   }
 
   /* h6 */
