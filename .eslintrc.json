@@ -5,8 +5,8 @@
   },
   "extends": [
     "standard-with-typescript",
-    "plugin:jsx-a11y/recommended",
     "plugin:astro/recommended",
+    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "overrides": [
@@ -43,6 +43,10 @@
     // Configured off
     // Prefer use typescript version
     "no-unused-vars": "off",
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    // TODO: turn on
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

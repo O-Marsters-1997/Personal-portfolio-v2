@@ -1,4 +1,3 @@
-import _ from "lodash";
 import Icon from "@components/base/Icon";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";

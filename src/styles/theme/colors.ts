@@ -314,11 +314,11 @@ export const colors: TailwindColors = {
     overlay: { primary: "rgba(0,0,0, .25)", primaryMuted: "rgba(0,0,0, .125)" },
   },
   light: {
-    base: { main: "rgba(237, 237, 237, 1)", dark: " rgba(14, 20, 36, 1)" },
+    base: { main: "rgba(237, 237, 237, 1)", dark: " rgba(33, 124, 54, 1)" },
     primary: {
       main: "rgba(60, 68, 92, 1)",
       transparent: "rgba(60, 68, 92, .85)",
-      dark: "rgba(29, 34, 47, 1)",
+      dark: "rgba(44, 139, 59, 1)",
     },
     secondary: { main: "rgba(236, 150, 51, 1)", dark: "rgba(183, 140, 90, 1)" },
     tertiary: "rgba(234, 99, 139, 1)",

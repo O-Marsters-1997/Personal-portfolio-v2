@@ -9,14 +9,15 @@ const ScrollProvider = () => {
   useEffect(() => {
     const htmlElement = document.querySelector("html");
     const htmlElementClassList = htmlElement?.classList;
-    const classArray = htmlElementClassList && Array.from(htmlElementClassList);
+    const classArray =
+      htmlElementClassList != null ? Array.from(htmlElementClassList) : [];
 
-    if (classArray?.length && !isMobileNavOpen) {
+    if (classArray.length === 0 && !isMobileNavOpen) {
       htmlElementClassList?.remove("disable-scroll");
     }
 
-    if (htmlElementClassList && isMobileNavOpen) {
-      htmlElementClassList.add("disable-scroll");
+    if (classArray.length !== 0 && isMobileNavOpen) {
+      htmlElementClassList?.add("disable-scroll");
     }
   }, [isMobileNavOpen]);
 

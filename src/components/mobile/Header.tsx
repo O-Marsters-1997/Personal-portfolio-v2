@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
-import { downloadPdf, toggleDarkTheme } from "@utils/common";
+import { downloadPdf, toggleDarkTheme, accessibleOnClick } from "@utils/common";
 import myImage from "@assets/images/logo.png";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
@@ -16,7 +16,6 @@ const Header = () => {
 
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
-    console.log(storeMap.get().mobileNavigationOpen);
     storeMap.set({
       ...storeMap.get(),
       mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
@@ -33,7 +32,6 @@ const Header = () => {
                 navlink.charAt(0).toUpperCase() + navlink.slice(1);
 
               const handleNavigation = () => {
-                console.log("hello");
                 setSelectedLink(navlink);
                 setMobileNavOpen(false);
                 storeMap.set({
@@ -46,7 +44,7 @@ const Header = () => {
                 <a href={`#${navlink}`} key={index} onClick={handleNavigation}>
                   <li
                     className={`mobile-link ${
-                      selectedLink == navlink && "active"
+                      selectedLink === navlink ? "active" : ""
                     }`}
                   >
                     {capitalised}
@@ -59,12 +57,12 @@ const Header = () => {
               <Icon
                 icon={darkMode ? "light_mode" : "dark_mode"}
                 class="cursor-pointer w-7"
-                onClick={toggleDarkTheme}
+                {...accessibleOnClick(toggleDarkTheme)}
               />
               <Icon
                 icon="download"
                 class="cursor-pointer w-7"
-                onClick={downloadPdf}
+                {...accessibleOnClick(downloadPdf)}
               />
             </div>
           </ul>
@@ -82,7 +80,7 @@ const Header = () => {
           {mobileNavOpen ? (
             <div
               className="cross-nav cursor-pointer"
-              onClick={handleOpenMobileNavigation}
+              {...accessibleOnClick(handleOpenMobileNavigation)}
             >
               <span className="cross-nav-line top-left"></span>
               <span className="cross-nav-line top-right"></span>
@@ -90,7 +88,7 @@ const Header = () => {
           ) : (
             <div
               className="flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
-              onClick={handleOpenMobileNavigation}
+              {...accessibleOnClick(handleOpenMobileNavigation)}
             >
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>

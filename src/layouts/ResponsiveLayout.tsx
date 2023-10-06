@@ -1,11 +1,11 @@
-import { useState, useEffect, FC, ReactNode } from "react";
+import { useState, useEffect, type FC, type ReactNode } from "react";
 
-type Props = {
+interface Props {
   breakpoints?: [number, number?];
   children: ReactNode;
   matchSlot?: ReactNode;
   fallbackSlot?: ReactNode;
-};
+}
 
 export const breakpointsMap = {
   mobile: 0,

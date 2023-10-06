@@ -4,6 +4,7 @@ const resolveConfig = require("tailwindcss/resolveConfig");
 const prettier = require("prettier");
 const path = require("path");
 const tailwindConfig = require("../../tailwind.config.cjs");
+const logger = "../utils.logger.ts";
 
 const { theme } = resolveConfig(tailwindConfig);
 const argument = process.argv[2];
@@ -61,5 +62,5 @@ try {
     "utf-8"
   );
 } catch (error) {
-  console.error(error.message);
+  logger.error(error.message);
 }

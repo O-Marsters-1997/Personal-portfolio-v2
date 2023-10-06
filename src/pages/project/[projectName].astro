@@ -17,7 +17,7 @@ export const getStaticPaths = () => {
 
 const { projectName } = Astro.params;
 const project = base.projects.find(
-  (project) => project.titleShort == projectName
+  (project) => project.titleShort === projectName
 );
 const {
   title,

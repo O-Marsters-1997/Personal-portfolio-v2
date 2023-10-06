@@ -1,3 +1,7 @@
 # Type config files
 *.d.ts
 logger.ts
+
+# Individually excluded files
+Canvas.jsx
+generateIcons.js

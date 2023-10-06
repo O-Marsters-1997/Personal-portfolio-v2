@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
-import { downloadPdf } from "@utils/common";
+import { downloadPdf, accessibleOnClick } from "@utils/common";
 
-type Props = {
+interface Props {
   children: ReactNode;
-};
+}
 
 const DownloadCvWrapper = ({ children }: Props) => {
-  return <div onClick={downloadPdf}>{children}</div>;
+  return <div {...accessibleOnClick(downloadPdf)}>{children}</div>;
 };
 
 export default DownloadCvWrapper;
