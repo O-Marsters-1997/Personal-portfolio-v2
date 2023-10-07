@@ -1,6 +1,6 @@
 ---
 import Icon from "@components/base/Icon";
-import { imgMap } from "@utils/constants";
+import ImgOverlay from "@components/ImgOverlay.astro";
 
 type Props = {
   title: string;
@@ -20,11 +20,21 @@ const link = `/project/${titleShort}`;
   <div class="flex flex-col max-w-full lg:flex-[0_0_31%]">
     <div class="relative cursor-pointer md:h-[20rem] mb-4">
       <div class="flex gap-6 absolute top-6 right-6">
-        <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" client:only />
-        <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" client:only />
+        <Icon
+          icon="github"
+          width="w-4 sm:w-5 cursor-pointer"
+          projectName={titleShort}
+          client:only
+        />
+        <Icon
+          icon="external"
+          width="w-4 sm:w-5 cursor-pointer"
+          projectName={titleShort}
+          client:only
+        />
       </div>
       <div class="dark:bg-dark-overlay-primary absolute inset-0"></div>
-      <img src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />
+      <ImgOverlay titleShort={titleShort} src={src} alt={alt} />
     </div>
     <div class="project-title">
       <h5 class="secondary">{category}</h5>

@@ -1,0 +1,15 @@
+---
+import PortfolioImage from "@components/PortfolioImage";
+import { imgMap } from "@utils/constants";
+
+const { titleShort, src, alt } = Astro.props;
+---
+
+<div class="dark:bg-dark-overlay-primary absolute inset-0"></div>
+{
+  titleShort !== "portfolio" ? (
+    <img src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />
+  ) : (
+    <PortfolioImage alt={alt} client:load />
+  )
+}

@@ -8,16 +8,26 @@ interface Props {
   class?: string;
   width?: string;
   onClick?: () => void;
+  projectName?: string;
 }
 
-const Icon = ({ icon, class: className, width, onClick }: Props) => {
+const Icon = ({
+  icon,
+  width,
+  projectName,
+  class: className,
+  onClick,
+}: Props) => {
   const { darkMode } = useStore(storeMap);
+  const isLinkIcon = icon === "external" || icon === "github";
 
   const getIcon = () => {
-    if (icon.includes("light_")) {
+    if (isLinkIcon && projectName === "portfolio") {
+      return darkMode ? (`light_${icon}` as IconDefinition) : icon;
+    }
+    if (icon.includes("light_") || isLinkIcon) {
       return icon;
     }
-
     return !darkMode ? (`light_${icon}` as IconDefinition) : icon;
   };
 

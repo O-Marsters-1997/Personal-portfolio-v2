@@ -3,7 +3,7 @@ import type { ProjectItem } from "../../types";
 import type { IconDefinition } from "../../styles/theme/IconSvg";
 import Layout from "@layouts/Page.astro";
 import Icon from "@components/base/Icon";
-import { imgMap } from "@utils/constants";
+import ImgOverlay from "@components/ImgOverlay.astro";
 import base from "@/data/projects.json";
 
 export const getStaticPaths = () => {
@@ -21,6 +21,7 @@ const project = base.projects.find(
 );
 const {
   title,
+  titleShort,
   category,
   imgSrc,
   imgAlt,
@@ -63,15 +64,7 @@ const {
       </div>
       <div class="project-name-img sm:min-w-[18rem] pt-32 sm:pt-0">
         <div class="relative flex flex-col h-full max-h-[24rem]">
-          <div
-            class="dark:bg-dark-overlay-primaryMuted bg-light-overlay-primaryMuted absolute inset-0"
-          >
-          </div>
-          <img
-            src={imgMap[imgSrc]}
-            class="rounded-sm w-full h-full"
-            alt={imgAlt}
-          />
+          <ImgOverlay titleShort={titleShort} src={imgSrc} alt={imgAlt} />
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import Icon from "@components/base/Icon";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
 import { downloadPdf, toggleDarkTheme } from "@utils/common";
-
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
 

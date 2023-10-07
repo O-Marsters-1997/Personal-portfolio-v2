@@ -124,7 +124,7 @@ module.exports = {
             gradientDark: "rgba(44, 38, 84, 1)",
           },
           overlay: {
-            primary: "rgba(242,242,242, .25)",
+            primary: "rgba(242,242,242, .15)",
             primaryMuted: "rgba(242,242,242, .125)",
           },
         },
