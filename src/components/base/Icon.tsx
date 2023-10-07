@@ -9,6 +9,7 @@ interface Props {
   width?: string;
   onClick?: () => void;
   projectName?: string;
+  githubHref?: string;
 }
 
 const Icon = ({

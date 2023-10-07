@@ -107,7 +107,7 @@ module.exports = {
             transparent: "rgba(218,218,218, .85)",
           },
           secondary: {
-            main: "#794151ff",
+            main: "rgba(121, 65, 81, 1)",
             dark: "rgba(58, 48, 118, 1)",
           },
           tertiary: "rgba(190, 116, 137, 1)",
@@ -134,7 +134,7 @@ module.exports = {
           lighter: "rgba(198, 198, 198, 0.773)",
           lightest: "rgba(231, 231, 231, 1)",
           dark: "rgba(72, 72, 72, 1)",
-          darker: "#212121ff",
+          darker: "rgba(33, 33, 33, 1)",
           darkest: "rgba(13, 13, 13, 1)",
         },
       },

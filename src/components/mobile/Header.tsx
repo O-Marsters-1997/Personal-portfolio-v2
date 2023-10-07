@@ -92,7 +92,7 @@ const Header = () => {
             </div>
           ) : (
             <div
-              className="flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
+              className="hamburger flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
               {...accessibleOnClick(handleOpenMobileNavigation)}
             >
               <span className="hamburger-line"></span>
