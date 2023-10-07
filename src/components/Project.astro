@@ -20,8 +20,8 @@ const link = `/project/${titleShort}`;
   <div class="flex flex-col max-w-full lg:flex-[0_0_31%]">
     <div class="relative cursor-pointer md:h-[20rem] mb-4">
       <div class="flex gap-6 absolute top-6 right-6">
-        <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" />
-        <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" />
+        <Icon icon="github" width="w-4 sm:w-5 cursor-pointer" client:only />
+        <Icon icon="external" width="w-4 sm:w-5 cursor-pointer" client:only />
       </div>
       <div class="dark:bg-dark-overlay-primary absolute inset-0"></div>
       <img src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />

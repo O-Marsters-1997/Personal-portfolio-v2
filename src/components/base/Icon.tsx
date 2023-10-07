@@ -12,14 +12,21 @@ interface Props {
 
 const Icon = ({ icon, class: className, width, onClick }: Props) => {
   const { darkMode } = useStore(storeMap);
-  // TODO: add all icons
-  const iconName: any = !darkMode ? `light_${icon}` : icon;
+
+  const getIcon = () => {
+    if (icon.includes("light_")) {
+      return icon;
+    }
+
+    return !darkMode ? (`light_${icon}` as IconDefinition) : icon;
+  };
+
   return (
     <div
       className={`theme-icon ${width ?? "w-7"} ${icon} ${className ?? ""}`}
       {...accessibleOnClick(onClick)}
     >
-      {IconSvg[icon]}
+      {IconSvg[getIcon()]}
     </div>
   );
 };

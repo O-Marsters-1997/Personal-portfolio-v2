@@ -103,12 +103,12 @@ module.exports = {
             canvas: " rgba(239, 239, 239, 1)",
           },
           primary: {
-            main: "rgba(60, 68, 92, 1)",
-            transparent: "rgba(60, 68, 92, .85)",
+            main: "rgba(218,218,218, 1)",
+            transparent: "rgba(218,218,218, .85)",
             dark: "rgba(44, 139, 59, 1)",
           },
           secondary: {
-            main: "rgba(121, 65, 81, 1)",
+            main: "#794151ff",
             dark: "rgba(58, 48, 118, 1)",
           },
           tertiary: "rgba(190, 116, 137, 1)",
@@ -125,8 +125,8 @@ module.exports = {
             gradientDark: "rgba(44, 38, 84, 1)",
           },
           overlay: {
-            primary: "rgba(0,0,0, .25)",
-            primaryMuted: "rgba(0,0,0, .125)",
+            primary: "rgba(242,242,242, .25)",
+            primaryMuted: "rgba(242,242,242, .125)",
           },
         },
 
@@ -135,7 +135,7 @@ module.exports = {
           lighter: "rgba(198, 198, 198, 0.773)",
           lightest: "rgba(231, 231, 231, 1)",
           dark: "rgba(72, 72, 72, 1)",
-          darker: "rgba(33, 33, 33, 1)",
+          darker: "#212121ff",
           darkest: "rgba(13, 13, 13, 1)",
         },
       },

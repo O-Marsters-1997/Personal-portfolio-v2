@@ -23,8 +23,7 @@ const Header = () => {
         </a>
         <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
         <Icon
-          icon={darkMode ? "light_mode" : "dark_mode"}
-          class="w-1"
+          icon={darkMode ? "light_mode" : "light_dark_mode"}
           onClick={toggleDarkTheme}
         />
       </ul>

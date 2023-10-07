@@ -41,7 +41,11 @@ const technologies: IconDefinition[] = [
       <div
         class="flex justify-start items-center flex-wrap gap-5 max-w-md pt-4"
       >
-        {technologies.map((tech) => <Icon icon={tech} width="w-5 md:w-7" />)}
+        {
+          technologies.map((tech) => (
+            <Icon icon={tech} width="w-5 md:w-7" client:only />
+          ))
+        }
       </div>
     </div>
   </div>

@@ -34,7 +34,7 @@
   .h4 {
     @apply font-headingLight 
     font-normal 
-    dark:text-dark-secondary-dark text-light-secondary-dark 
+    dark:text-dark-secondary-dark text-light-secondary-main 
     tracking-wider;
   }
 
