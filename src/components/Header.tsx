@@ -3,14 +3,15 @@ import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
 import { downloadPdf, toggleDarkTheme } from "@utils/common";
 
-import myImage from "@assets/images/logo.png";
+import logo from "@assets/images/logo.png";
+import lightLogo from "@assets/images/light_logo.png";
 
 const Header = () => {
   const { darkMode } = useStore(storeMap);
 
   return (
     <nav className="navigation">
-      <img src={myImage} alt="logo" className="logo" />
+      <img src={darkMode ? logo : lightLogo} alt="logo" className="logo" />
       <ul className="flex justify-center items-center gap-12 link">
         <a href="/#about">
           <li className="link">About</li>

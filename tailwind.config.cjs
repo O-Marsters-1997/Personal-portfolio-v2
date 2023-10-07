@@ -105,7 +105,6 @@ module.exports = {
           primary: {
             main: "rgba(218,218,218, 1)",
             transparent: "rgba(218,218,218, .85)",
-            dark: "rgba(44, 139, 59, 1)",
           },
           secondary: {
             main: "#794151ff",

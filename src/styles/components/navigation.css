@@ -10,7 +10,9 @@
 
 /* hamburger icon */
 .hamburger-line {
-  @apply bg-grey-lightest h-[.165rem] w-6 rounded-sm;
+  @apply dark:bg-grey-lightest 
+  bg-grey-dark
+  h-[.165rem] w-6 rounded-sm;
 
   &:last-of-type {
     height: 0.17rem;
@@ -24,7 +26,7 @@
   @apply flex flex-col justify-center;
 
   &-line {
-    @apply bg-grey-lightest h-[.165rem] w-7 rounded-sm;
+    @apply dark:bg-grey-lightest bg-grey-dark h-[.165rem] w-7 rounded-sm;
 
     &.top-left {
       transform: rotate(45deg) translate(3px, 1px);

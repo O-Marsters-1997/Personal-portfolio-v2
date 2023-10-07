@@ -4,7 +4,8 @@ import Icon from "@components/base/Icon";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
 import { downloadPdf, toggleDarkTheme, accessibleOnClick } from "@utils/common";
-import myImage from "@assets/images/logo.png";
+import logo from "@assets/images/logo.png";
+import lightLogo from "@assets/images/light_logo.png";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
 
@@ -25,7 +26,11 @@ const Header = () => {
   return (
     <>
       {mobileNavOpen && (
-        <div className="dark:bg-dark-primary-dark bg-light-primary-dark h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20">
+        <div
+          className="dark:bg-dark-primary-dark 
+        
+        bg-light-primary-main h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20"
+        >
           <ul className="flex flex-col items-start justify-between ml-14 h-80 last:mt-4">
             {navlinks.map((navlink, index) => {
               const capitalised =
@@ -71,7 +76,7 @@ const Header = () => {
       <div className="navigation z-40">
         <a href="/" className="w-full">
           <img
-            src={myImage}
+            src={darkMode ? logo : lightLogo}
             alt="logo"
             className={clsx("logo", { "opacity-0": mobileNavOpen })}
           />
