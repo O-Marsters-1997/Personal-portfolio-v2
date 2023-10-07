@@ -2,10 +2,12 @@
   @apply rounded-sm cursor-pointer  px-8 py-2;
 
   &.primary {
-    @apply bg-red-500 dark:bg-gradient-to-r from-dark-button-gradientLight from-5% via-dark-button-gradientMedium via-40% to-dark-button-gradientDark to-80%;
+    @apply dark:bg-gradient-to-r from-dark-button-gradientLight from-5% via-dark-button-gradientMedium via-40% to-dark-button-gradientDark to-80%;
+    @apply bg-light-tertiary;
   }
 
   &.outlined {
-    @apply border-[.75px] rounded-sm dark:border-dark-secondary-dark border-dark-secondary-dark;
+    @apply border-[.75px] rounded-sm dark:border-dark-secondary-dark border-light-secondary-dark
+    text-grey-dark;
   }
 }

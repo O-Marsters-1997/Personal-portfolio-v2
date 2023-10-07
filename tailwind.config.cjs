@@ -108,21 +108,21 @@ module.exports = {
             dark: "rgba(44, 139, 59, 1)",
           },
           secondary: {
-            main: "rgba(19, 176, 185, 1)",
-            dark: "rgba(44, 38, 84, 1)",
+            main: "rgba(121, 65, 81, 1)",
+            dark: "rgba(58, 48, 118, 1)",
           },
-          tertiary: "rgba(234, 99, 139, 1)",
+          tertiary: "rgba(190, 116, 137, 1)",
           stars: {
-            one: "rgba(240, 167, 81, 1)",
-            two: "rgba(89, 195, 195, 1)",
-            three: "rgba(218, 218, 218, 1)",
-            four: "rgba(255, 255, 255, 1)",
+            one: "rgba(42, 141, 88, 1)",
+            two: "rgba(167, 17, 87, 1)",
+            three: "rgba(41, 43, 39, 1)",
+            four: "rgba(12, 112, 151, 1)",
           },
 
           button: {
-            gradientLight: "rgba(236, 150, 51, 1)",
-            gradientMedium: "rgba(184, 127, 42,1)",
-            gradientDark: "rgba(154, 106, 34, 1)",
+            gradientLight: "rgba(112, 100, 185, 1)",
+            gradientMedium: "rgba(74, 63, 141,1)",
+            gradientDark: "rgba(44, 38, 84, 1)",
           },
           overlay: {
             primary: "rgba(0,0,0, .25)",
@@ -135,7 +135,8 @@ module.exports = {
           lighter: "rgba(198, 198, 198, 0.773)",
           lightest: "rgba(231, 231, 231, 1)",
           dark: "rgba(72, 72, 72, 1)",
-          darkest: "rgba(23, 23, 23, 1)",
+          darker: "rgba(33, 33, 33, 1)",
+          darkest: "rgba(13, 13, 13, 1)",
         },
       },
       spacing: {

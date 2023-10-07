@@ -13,7 +13,9 @@
 
 /* Reusable components */
 .horizontal-line {
-  @apply border-grey-dark border-[.1px] flex-auto ml-4 xl:ml-8;
+  @apply dark:border-grey-dark
+  border-grey-lighter
+   border-[.1px] flex-auto ml-4 xl:ml-8;
 
   &.line-pb {
     @apply mx-0 my-4;

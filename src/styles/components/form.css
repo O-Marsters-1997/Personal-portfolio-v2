@@ -1,14 +1,16 @@
 input,
 textarea {
-  @apply rounded-sm dark:bg-dark-base-extra bg-light-base-extra;
+  @apply body2 rounded-sm dark:bg-dark-base-extra bg-light-base-extra;
 }
 
 textarea {
   @apply h-72;
 }
 
-input:focus {
-  @apply outline outline-[0.5px] dark:outline-dark-secondary-dark;
+input:focus,
+textarea:focus {
+  @apply outline outline-[0.5px] 
+  dark:outline-dark-secondary-dark outline-light-secondary-main;
 }
 
 .input {

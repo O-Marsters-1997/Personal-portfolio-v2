@@ -14,7 +14,7 @@
   .h2 {
     @apply font-headingBold 
     font-normal 
-    dark:text-grey-lightest text-grey-darkest
+    dark:text-grey-lightest text-grey-darker
     text-h2Mobile md:text-h2Tablet 2xl:text-h2Desktop 
     tracking-wider;
   }
@@ -24,7 +24,7 @@
   .h3 {
     @apply font-headingBold 
     font-normal 
-    dark:text-grey-lightest text-grey-darkest
+    dark:text-grey-lightest text-grey-darker
     text-h3Mobile md:text-h3Tablet 2xl:text-h3Desktop 
     tracking-wide;
   }
@@ -43,10 +43,10 @@
   .h5 {
     @apply font-headingLight 
     font-semibold 
-    dark:text-grey-lightest text-grey-darkest;
+    dark:text-grey-lightest text-grey-darker;
 
     &.secondary {
-      @apply dark:text-dark-secondary-dark text-dark-secondary-dark;
+      @apply dark:text-dark-secondary-dark text-light-secondary-main;
     }
   }
 
@@ -85,7 +85,7 @@
   a,
   .link {
     @apply font-body 
-    font-light 
+    font-light
     dark:text-grey-lightest text-grey-darkest
     text-linkMobile md:text-linkTablet 2xl:text-linkDesktop 
     tracking-normal 
@@ -106,7 +106,7 @@
   /* action */
   .action {
     @apply font-body font-light 
-    dark:text-grey-main text-grey-dark
+    dark:text-grey-main text-grey-darker
     uppercase 
     text-actionMobile md:text-actionTablet 2xl:text-actionDesktop;
   }
@@ -116,7 +116,7 @@
   .button {
     @apply font-body 
     font-semibold 
-    dark:text-white text-black
+    dark:text-white text-grey-lightest
     text-buttonMobile md:text-buttonTablet 2xl:text-buttonDesktop;
   }
 
@@ -124,7 +124,7 @@
   .subtitle {
     @apply font-body 
     font-medium italic 
-    dark:text-grey-lightest text-grey-darkest  
+    dark:text-grey-lightest text-grey-darker  
     text-subtitleMobile md:text-subtitleTablet 2xl:text-subtitleDesktop
     tracking-normal;
   }

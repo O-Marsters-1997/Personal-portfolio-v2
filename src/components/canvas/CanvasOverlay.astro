@@ -1,5 +1,9 @@
 ---
+import clsx from "clsx";
 import Icon from "@components/base/Icon";
+import { storeMap } from "@utils/nanostore";
+
+const { darkMode } = storeMap.get();
 ---
 
 <div class="flex z-10 page-padding">
@@ -14,7 +18,10 @@ import Icon from "@components/base/Icon";
       impactful digital experiences
     </p>
     <a href="/#contact">
-      <button class="button primary" onclick="">Get in touch</button>
+      <button
+        class={clsx("button", darkMode ? "primary" : "primary_dark")}
+        onclick="">Get in touch</button
+      >
     </a>
   </div>
 </div>
