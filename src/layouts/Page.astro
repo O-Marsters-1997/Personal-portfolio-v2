@@ -6,7 +6,7 @@ import Footer from "@components/Footer.astro";
 ---
 
 <Layout class="relative">
-  <Header className="hidden md:flex" />
+  <Header className="hidden md:flex" client:load />
   <MobileHeader className="flex md:hidden" client:load />
   <slot />
   <Footer />

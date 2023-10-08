@@ -1,7 +1,7 @@
 /* Headings use epilogue */
 /* epilogue regular normal */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: normal;
   font-weight: 400;
@@ -11,7 +11,7 @@
 
 /* epilogue regular italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: italic;
   font-weight: 400;
@@ -21,7 +21,7 @@
 
 /* epilogue-medium normal */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: normal;
   font-weight: 500;
@@ -31,7 +31,7 @@
 
 /* epilogue medium italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: italic;
   font-weight: 500;
@@ -41,7 +41,7 @@
 
 /* epilogue-medium normal */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: normal;
   font-weight: 500;
@@ -51,7 +51,7 @@
 
 /* epilogue medium italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: italic;
   font-weight: 500;
@@ -61,7 +61,7 @@
 
 /* epilogue semi-bold regular */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: normal;
   font-weight: 600;
@@ -71,7 +71,7 @@
 
 /* epilogue semi-bold italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Epilogue";
   font-style: italic;
   font-weight: 600;
@@ -82,7 +82,7 @@
 /*  body uses Lato */
 /* lato light regular */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: normal;
   font-weight: 100;
@@ -92,7 +92,7 @@
 
 /* lato light italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: italic;
   font-weight: 100;
@@ -102,7 +102,7 @@
 
 /* lato light regular */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
@@ -112,7 +112,7 @@
 
 /* lato light italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: italic;
   font-weight: 300;
@@ -122,7 +122,7 @@
 
 /* lato regular regular */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
@@ -132,7 +132,7 @@
 
 /* lato regular italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: italic;
   font-weight: 400;
@@ -142,7 +142,7 @@
 
 /* lato light italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
@@ -152,7 +152,7 @@
 
 /* lato light italic */
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: "Lato";
   font-style: italic;
   font-weight: 700;

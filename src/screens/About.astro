@@ -3,8 +3,8 @@ import Heading from "@components/Heading.astro";
 import type { IconDefinition } from "@styles/theme/IconSvg";
 import { Image } from "astro:assets";
 import Icon from "@components/base/Icon";
-import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import Profile from "@assets/images/personal_profile.jpg";
+import CV from "@assets/ollyMarstersCv.pdf";
 
 const myDescriptionParas = [
   "My name is Olly, I’m a full-stack developer, based in Edinburgh.",
@@ -31,9 +31,9 @@ const technologies: IconDefinition[] = [
   <div class="about-content">
     <div class="about-profile">
       <Image src={Profile} alt="personal profile" class="rounded-sm pb-2" />
-      <DownloadCvWrapper client:only>
+      <a href={CV} target="_blank" rel="noopener" download="Olly_Marsters.pdf">
         <p class="action">Download CV</p>
-      </DownloadCvWrapper>
+      </a>
     </div>
     <div class="about-description">
       {myDescriptionParas.map((para) => <p class="body1 pb-6">{para}</p>)}
@@ -47,7 +47,7 @@ const technologies: IconDefinition[] = [
             <Icon
               icon={tech}
               width="w-5 md:w-7"
-              client:only
+              client:load
               aria-label={tech}
             />
           ))

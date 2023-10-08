@@ -26,7 +26,7 @@ const link = `/project/${titleShort}`;
           icon="github"
           width="w-4 sm:w-5 cursor-pointer"
           projectName={titleShort}
-          client:only
+          client:load
         />
       </a>
 
@@ -34,7 +34,7 @@ const link = `/project/${titleShort}`;
         icon="external"
         width="w-4 sm:w-5 cursor-pointer"
         projectName={titleShort}
-        client:only
+        client:load
       />
     </div>
     <a href={link}>

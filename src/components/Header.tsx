@@ -21,15 +21,21 @@ const Header = ({ className }: Props) => {
         className="logo"
       />
       <ul className="flex justify-center items-center gap-12 link">
-        <a href="/#about">
-          <li className="link">About</li>
-        </a>
-        <a href="/#projects">
-          <li className="link">Projects</li>
-        </a>
-        <a href="/#contact">
-          <li className="link">Contact</li>
-        </a>
+        <li>
+          <a href="/#about">
+            <span className="link">About</span>
+          </a>
+        </li>
+        <li>
+          <a href="/#projects">
+            <span className="link">Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="/#contact">
+            <span className="link">Contact</span>
+          </a>
+        </li>
         <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
         <Icon
           icon={darkMode ? "light_mode" : "light_dark_mode"}
