@@ -33,12 +33,13 @@ const Icon = ({
   };
 
   return (
-    <div
+    <i
       className={`theme-icon ${width ?? "w-7"} ${icon} ${className ?? ""}`}
       {...accessibleOnClick(onClick)}
+      aria-label={icon}
     >
       {IconSvg[getIcon()]}
-    </div>
+    </i>
   );
 };
 

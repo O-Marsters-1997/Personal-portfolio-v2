@@ -38,13 +38,18 @@ const technologies: IconDefinition[] = [
     <div class="about-description">
       {myDescriptionParas.map((para) => <p class="body1 pb-6">{para}</p>)}
       <hr class="horizontal-line line-pb" />
-      <h5>Tech I like</h5>
+      <span class="h5">Tech I like</span>
       <div
         class="flex justify-start items-center flex-wrap gap-5 max-w-md pt-4"
       >
         {
           technologies.map((tech) => (
-            <Icon icon={tech} width="w-5 md:w-7" client:only />
+            <Icon
+              icon={tech}
+              width="w-5 md:w-7"
+              client:only
+              aria-label={tech}
+            />
           ))
         }
       </div>

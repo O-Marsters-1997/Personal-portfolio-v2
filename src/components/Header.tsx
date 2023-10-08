@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
@@ -5,11 +6,15 @@ import { downloadPdf, toggleDarkTheme } from "@utils/common";
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
 
-const Header = () => {
+type Props = {
+  className?: string;
+};
+
+const Header = ({ className }: Props) => {
   const { darkMode } = useStore(storeMap);
 
   return (
-    <nav className="navigation">
+    <nav className={clsx("navigation", className && className)}>
       <img
         src={darkMode ? logo.src : lightLogo.src}
         alt="logo"

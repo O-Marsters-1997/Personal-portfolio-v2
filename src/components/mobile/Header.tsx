@@ -9,7 +9,11 @@ import lightLogo from "@assets/images/light_logo.png";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
 
-const Header = () => {
+type Props = {
+  className: string;
+};
+
+const Header = ({ className }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
   const { darkMode } = useStore(storeMap);
@@ -27,9 +31,10 @@ const Header = () => {
     <>
       {mobileNavOpen && (
         <div
-          className="dark:bg-dark-primary-dark 
-        
-        bg-light-primary-main h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20"
+          className={clsx(
+            "dark:bg-dark-primary-dark bg-light-primary-main h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20",
+            className && className
+          )}
         >
           <ul className="flex flex-col items-start justify-between ml-14 h-80 last:mt-4">
             {navlinks.map((navlink, index) => {
@@ -73,10 +78,10 @@ const Header = () => {
           </ul>
         </div>
       )}
-      <div className="navigation z-40">
+      <div className={clsx("navigation z-40", className && className)}>
         <a href="/" className="w-full">
           <img
-            src={darkMode ? logo : lightLogo}
+            src={darkMode ? logo.src : lightLogo.src}
             alt="logo"
             className={clsx("logo", { "opacity-0": mobileNavOpen })}
           />
@@ -94,6 +99,7 @@ const Header = () => {
             <div
               className="hamburger flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
               {...accessibleOnClick(handleOpenMobileNavigation)}
+              aria-label="hamburger"
             >
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>

@@ -3,17 +3,11 @@ import Layout from "@layouts/Base.astro";
 import Header from "@components/Header";
 import MobileHeader from "@components/mobile/Header";
 import Footer from "@components/Footer.astro";
-import Responsive, { breakpointsMap } from "@layouts/ResponsiveLayout";
-import { responsiveSlotTypes } from "@utils/constants";
-
-const { matchSlot, fallbackSlot } = responsiveSlotTypes;
 ---
 
 <Layout class="relative">
-  <Responsive breakpoints={[breakpointsMap.tablet]} client:only>
-    <Header slot={matchSlot} client:load />
-    <MobileHeader slot={fallbackSlot} client:only />
-  </Responsive>
+  <Header className="hidden md:flex" />
+  <MobileHeader className="flex md:hidden" client:load />
   <slot />
   <Footer />
 </Layout>
