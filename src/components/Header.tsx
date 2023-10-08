@@ -10,7 +10,11 @@ const Header = () => {
 
   return (
     <nav className="navigation">
-      <img src={darkMode ? logo : lightLogo} alt="logo" className="logo" />
+      <img
+        src={darkMode ? logo.src : lightLogo.src}
+        alt="logo"
+        className="logo"
+      />
       <ul className="flex justify-center items-center gap-12 link">
         <a href="/#about">
           <li className="link">About</li>

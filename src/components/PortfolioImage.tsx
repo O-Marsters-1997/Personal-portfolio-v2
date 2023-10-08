@@ -15,7 +15,7 @@ const PortfolioImage = ({ alt }: Props) => {
     setSrc(!darkMode ? imgMap.portfolio : imgMap.light_portfolio);
   }, [darkMode]);
 
-  return <img src={src} alt={alt} className="rounded-sm w-full h-full" />;
+  return <img src={src.src} alt={alt} className="rounded-sm w-full h-full" />;
 };
 
 export default PortfolioImage;

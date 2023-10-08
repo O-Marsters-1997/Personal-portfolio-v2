@@ -10,7 +10,7 @@ export const responsiveSlotTypes = {
   fallbackSlot: "fallbackSlot",
 };
 
-export const imgMap: Record<string, string> = {
+export const imgMap: Record<string, ImageMetadata> = {
   python: flaskCricket,
   bbcSleighride,
   clanhub,
