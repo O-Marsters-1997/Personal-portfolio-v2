@@ -3,12 +3,14 @@ import BaseHead from "../components/head/BaseHead.astro";
 import "../styles/main.css";
 import ThemeProvider from "@context/ThemeProvider";
 import ScrollProvider from "@context/ScrollProvider";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
     <BaseHead title="Olly Marsters" />
+    <ViewTransitions />
   </head>
 
   <body>

@@ -1,6 +1,7 @@
 ---
 import Heading from "@components/Heading.astro";
 import type { IconDefinition } from "@styles/theme/IconSvg";
+import { Image } from "astro:assets";
 import Icon from "@components/base/Icon";
 import DownloadCvWrapper from "@components/DownloadCvWrapper";
 import Profile from "@assets/images/personal_profile.jpg";
@@ -29,7 +30,7 @@ const technologies: IconDefinition[] = [
   <Heading title="About Me" className="page-margin-top" />
   <div class="about-content">
     <div class="about-profile">
-      <img src={Profile.src} alt="personal profile" class="rounded-sm pb-2" />
+      <Image src={Profile} alt="personal profile" class="rounded-sm pb-2" />
       <DownloadCvWrapper client:only>
         <p class="action">Download CV</p>
       </DownloadCvWrapper>

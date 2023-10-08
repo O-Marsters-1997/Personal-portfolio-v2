@@ -6,8 +6,18 @@ const ThemeProvider = () => {
   const { darkMode } = useStore(storeMap);
   const documentClassList = document.documentElement.classList;
 
-  useEffect(() => {
+  const handleToggleTheme = () => {
     darkMode ? documentClassList.add("dark") : documentClassList.remove("dark");
+  };
+
+  useEffect(() => {
+    handleToggleTheme();
+
+    document.addEventListener("astro:beforeload", handleToggleTheme);
+
+    return () => {
+      document.removeEventListener("astro:beforeload", handleToggleTheme);
+    };
   }, [darkMode]);
 
   return <></>;
