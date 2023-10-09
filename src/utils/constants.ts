@@ -17,3 +17,5 @@ export const externalLinks: ExternalLinks = {
   githubProfile: "https://github.com/O-Marsters-1997",
   linkedin: "https://www.linkedin.com/in/olly-marsters/",
 };
+
+export const myName = "Olly Marsters";
