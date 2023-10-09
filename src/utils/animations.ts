@@ -11,12 +11,21 @@ const testAnimate = () => {
         `.name-word-${key} .text-animation-${index}`,
         {
           opacity: [0, 1],
-          transform: ["translateY(100px)", "translateY(0px)"],
+          transform: ["translateY(75px)", "none"],
         },
-        { duration: 0.05 },
+        { duration: 0.04, easing: "ease-out" },
       ]);
     })
-    .reduce((acc, currentValue) => acc.concat(currentValue), []) as any;
+    .reduce((acc, currentValue) => acc.concat(currentValue), [])
+    .concat([
+      [
+        ".hello-animation",
+        { opacity: [0, 1] },
+        { duration: 0.75, easing: "ease-out" },
+      ],
+    ] as any) as any;
+
+  console.log(sequence);
 
   timeline(sequence);
 };
