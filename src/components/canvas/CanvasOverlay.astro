@@ -2,22 +2,47 @@
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import { storeMap } from "@utils/nanostore";
-
 const { darkMode } = storeMap.get();
+
+const myName = "Olly Marsters";
 ---
 
 <div class="flex z-10 page-padding">
   <div class="flex flex-col justify-center items-start">
-    <h4 class="flex gap-1 items-center">
+    <h4 class="flex gap-1 items-center hello-animation">
       <Icon icon="hello" width="w-4" client:load />
       <span> Hello I'm</span>
     </h4>
-    <h1 class="pt-2">Olly Marsters</h1>
-    <p class="subtitle pb-8">
-      Interactive frontend developer passionate about creating meaningful and
-      impactful digital experiences
-    </p>
-    <a href="/#contact">
+    <div>
+      <h1 class="pt-2">
+        {
+          myName.split(" ").map((word, index) => (
+            <span
+              class={clsx(
+                "relative inline-block whitespace-nowrap pr-3",
+                `name-word-${index}`
+              )}
+            >
+              {word.split("").map((char, index) => {
+                return (
+                  <span
+                    class={clsx("h1 inline-block", `text-animation-${index}`)}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+            </span>
+          ))
+        }
+      </h1>
+      <p class="subtitle pb-8 pl-1">
+        Interactive frontend developer passionate about creating meaningful and
+        impactful digital experiences
+      </p>
+    </div>
+
+    <a href="/#contact" class="hello-animation">
       <button
         class={clsx("button", darkMode ? "primary" : "primary_dark")}
         onclick="">Get in touch</button

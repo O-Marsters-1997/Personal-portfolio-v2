@@ -1,6 +1,7 @@
 @import "./base";
 @import "./components";
 @import "./screens";
+@import "./utils";
 
 @tailwind base;
 @tailwind components;
