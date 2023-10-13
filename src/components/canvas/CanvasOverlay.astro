@@ -1,20 +1,21 @@
 ---
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
+import Link from "@components/base/Link";
+
 import { storeMap } from "@utils/nanostore";
 import { myName } from "@utils/constants";
-
 const { darkMode } = storeMap.get();
 ---
 
 <div class="flex z-10 page-padding">
   <div class="flex flex-col justify-center items-start">
-    <h4 class="flex gap-1 items-center hello-animation">
+    <h4 class="flex gap-1 items-center animate-appear">
       <Icon icon="hello" width="w-4" client:load />
       <span> Hello I'm</span>
     </h4>
     <div>
-      <h1 class="pt-2">
+      <h1 class="pt-2 exclude-animate-appear">
         {
           myName.split(" ").map((word, index) => (
             <span
@@ -26,7 +27,7 @@ const { darkMode } = storeMap.get();
               {word.split("").map((char, index) => {
                 return (
                   <span
-                    class={clsx("h1 inline-block", `text-animation-${index}`)}
+                    class={clsx("h1 inline-block", `animate-text-${index}`)}
                   >
                     {char}
                   </span>
@@ -36,17 +37,17 @@ const { darkMode } = storeMap.get();
           ))
         }
       </h1>
-      <p class="subtitle pb-8 pl-1 hello-animation">
+      <p class="subtitle pb-8 pl-1 animate-appear">
         Interactive frontend developer passionate about creating meaningful and
         impactful digital experiences
       </p>
     </div>
 
-    <a href="/#contact" class="hello-animation">
+    <Link to="contact" className="animate-appear opacity-0" client:load>
       <button
         class={clsx("button", darkMode ? "primary" : "primary_dark")}
         onclick="">Get in touch</button
       >
-    </a>
+    </Link>
   </div>
 </div>

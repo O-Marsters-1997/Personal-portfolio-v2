@@ -1,4 +1,4 @@
-import { timeline } from "motion";
+import { timeline, glide } from "motion";
 import { myName } from "@utils/constants";
 
 // TODO: wait for type definitons from motion one
@@ -8,20 +8,26 @@ const testAnimate = () => {
     .map((word: string, index) => {
       const key = index;
       return word.split("").map((_: string, index) => [
-        `.name-word-${key} .text-animation-${index}`,
+        `.name-word-${key} .animate-text-${index}`,
         {
           opacity: [0, 1],
-          transform: ["translateY(75px)", "none"],
+          transform: ["translateY(100px)", "none"],
         },
-        { duration: 0.04, easing: "ease-out" },
+        {
+          duration: 0.025,
+          opacity: {
+            duration: 0.04,
+            easing: "ease-in",
+          },
+        },
       ]);
     })
     .reduce((acc, currentValue) => acc.concat(currentValue), [])
     .concat([
       [
-        ".hello-animation",
+        ".animate-appear",
         { opacity: [0, 1] },
-        { duration: 0.75, easing: "ease-out" },
+        { duration: 0.35, easing: "ease-in" },
       ],
     ] as any) as any;
 

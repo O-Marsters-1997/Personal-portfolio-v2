@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
+import Link from "@components/base/Link";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
 import { downloadPdf, toggleDarkTheme } from "@utils/common";
@@ -18,23 +19,23 @@ const Header = ({ className }: Props) => {
       <img
         src={darkMode ? logo.src : lightLogo.src}
         alt="logo"
-        className="logo"
+        className="logo animate-appear"
       />
-      <ul className="flex justify-center items-center gap-12 link">
+      <ul className="flex justify-center items-center gap-12 link animate-appear">
         <li>
-          <a href="/#about">
+          <Link to="about">
             <span className="link">About</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/#projects">
+          <Link to="projects">
             <span className="link">Projects</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/#contact">
+          <Link to="contact">
             <span className="link">Contact</span>
-          </a>
+          </Link>
         </li>
         <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
         <Icon

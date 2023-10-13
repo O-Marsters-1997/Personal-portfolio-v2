@@ -1,6 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
+import Link from "@components/base/Link";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
 import { downloadPdf, toggleDarkTheme, accessibleOnClick } from "@utils/common";
@@ -51,7 +52,7 @@ const Header = ({ className }: Props) => {
               };
 
               return (
-                <a href={`#${navlink}`} key={index} onClick={handleNavigation}>
+                <Link to={`${navlink}`} key={index} onClick={handleNavigation}>
                   <li
                     className={`mobile-link ${
                       selectedLink === navlink ? "active" : ""
@@ -59,11 +60,11 @@ const Header = ({ className }: Props) => {
                   >
                     {capitalised}
                   </li>
-                </a>
+                </Link>
               );
             })}
 
-            <div className="flex gap-4">
+            <div className="flex gap-4" id="testing">
               <Icon
                 icon={darkMode ? "light_mode" : "dark_mode"}
                 class="cursor-pointer w-7"
