@@ -1,8 +1,21 @@
-import { timeline, glide } from "motion";
-import { myName } from "@utils/constants";
+import {
+  animate,
+  timeline,
+  glide,
+  inView,
+  type TimelineDefinition,
+} from "motion";
+import { myName, myDescriptionParas } from "@utils/constants";
+
+// To do sort out dealy
+const animationControls = {
+  fadeInAnimation: 0.5,
+};
 
 // TODO: wait for type definitons from motion one
 const testAnimate = () => {
+  const { fadeInAnimation } = animationControls;
+
   const sequence = myName
     .split(" ")
     .map((word: string, index) => {
@@ -14,11 +27,11 @@ const testAnimate = () => {
           transform: ["translateY(100px)", "none"],
         },
         {
-          duration: 0.025,
           opacity: {
             duration: 0.04,
             easing: "ease-in",
           },
+          transform: { duration: 0.02 },
         },
       ]);
     })
@@ -27,13 +40,48 @@ const testAnimate = () => {
       [
         ".animate-appear",
         { opacity: [0, 1] },
-        { duration: 0.35, easing: "ease-in" },
+        { duration: fadeInAnimation, easing: "ease-in" },
       ],
-    ] as any) as any;
+    ] as any);
 
-  console.log(sequence);
-
-  timeline(sequence);
+  timeline(sequence as TimelineDefinition);
 };
 
-testAnimate();
+const aboutTextAnimateInView = () => {
+  const sequence = myDescriptionParas
+    .map((para, index) => {
+      const paraKey = index;
+      return para
+        .split(" ")
+        .map((word, index) => {
+          const wordKey = index;
+          return word.split("").map((_, index) => {
+            return [
+              `.animate-text-para-${paraKey} .animate-text-word-${wordKey} .animate-text__scroll-${index}`,
+              {
+                opacity: [0, 1],
+                transform: ["translateY(100px)", "none"],
+              },
+              {
+                opacity: {
+                  duration: 0.04,
+                  easing: "ease-in",
+                },
+                transform: { duration: 0.02 },
+              },
+            ];
+          });
+        })
+        .reduce((acc, currentValue) => acc.concat(currentValue), []);
+    })
+    .flat();
+
+  timeline(sequence as TimelineDefinition);
+};
+
+aboutTextAnimateInView();
+// testAnimate();
+
+// <p class={clsx("body1 pb-6", `animate-text__scroll--${index}`)}>
+//   {para}
+// </p>

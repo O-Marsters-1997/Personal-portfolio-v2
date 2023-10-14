@@ -2,3 +2,8 @@
 /* .test-animation {
   transform: translateX(100vw);
 } */
+
+.animate-text,
+.animate-text__scroll {
+  @apply opacity-0;
+}

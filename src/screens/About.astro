@@ -1,17 +1,12 @@
 ---
+import { clsx } from "clsx";
 import Heading from "@components/Heading.astro";
 import type { IconDefinition } from "@styles/theme/IconSvg";
 import { Image } from "astro:assets";
 import Icon from "@components/base/Icon";
+import { myDescriptionParas } from "@utils/constants";
 import Profile from "@assets/images/personal_profile.jpg";
 import CV from "@assets/ollyMarstersCv.pdf";
-
-const myDescriptionParas = [
-  "My name is Olly, I’m a full-stack developer, based in Edinburgh.",
-  "I am always looking for any opportunities I can find to improve my skillset and learn new things. I am particularly focused on frontend development as I find the constantly evolving landscape of technologies used in this space to be incredibly exciting.",
-  "I passionately believe that making tech more diverse is essential for enabling development teams to create digital experiences for everyone.",
-  "Whether you would like to find out what I can help you with or just want to start a conversation about tech, don’t hesitate to get in touch via the form below.",
-];
 
 const technologies: IconDefinition[] = [
   "typescript",
@@ -39,7 +34,29 @@ const technologies: IconDefinition[] = [
       </a>
     </div>
     <div class="about-description">
-      {myDescriptionParas.map((para) => <p class="body1 pb-6">{para}</p>)}
+      {
+        myDescriptionParas.map((para, index) => {
+          const paraKey = index;
+          return (
+            <div class={`pb-6 animate-text-para-${paraKey}`}>
+              {para.split(" ").map((word, index) => {
+                const wordKey = index;
+                return (
+                  <div class={`  animate-text-word-${wordKey} `}>
+                    {word.split("").map((char, index) => (
+                      <div
+                        class={clsx("body1", `animate-text__scroll-${index}`)}
+                      >
+                        {char}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })
+      }
       <hr class="horizontal-line line-pb" />
       <span class="h5">Tech I like</span>
       <div
