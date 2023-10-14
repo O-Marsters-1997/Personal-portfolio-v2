@@ -42,10 +42,18 @@ const technologies: IconDefinition[] = [
               {para.split(" ").map((word, index) => {
                 const wordKey = index;
                 return (
-                  <div class={`  animate-text-word-${wordKey} `}>
+                  <div
+                    class={clsx(
+                      "inline-block whitespace-nowrap",
+                      `animate-text-word-${wordKey}`
+                    )}
+                  >
                     {word.split("").map((char, index) => (
                       <div
-                        class={clsx("body1", `animate-text__scroll-${index}`)}
+                        class={clsx(
+                          "inline-block whitespace-nowrap body1",
+                          `animate-text__scroll-${index}`
+                        )}
                       >
                         {char}
                       </div>

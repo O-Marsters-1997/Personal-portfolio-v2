@@ -48,6 +48,7 @@ const testAnimate = () => {
 };
 
 const aboutTextAnimateInView = () => {
+  const { fadeInAnimation } = animationControls;
   const sequence = myDescriptionParas
     .map((para, index) => {
       const paraKey = index;
@@ -56,32 +57,32 @@ const aboutTextAnimateInView = () => {
         .map((word, index) => {
           const wordKey = index;
           return word.split("").map((_, index) => {
+            const isFirst = paraKey == 0 && wordKey == 0 && index == 0;
+            let options: Record<string, any> = {
+              easing: "ease-in",
+              opacity: { duration: 0.0015 },
+              transform: { duration: 0.0015 },
+            };
+
+            if (isFirst) {
+              options = { ...options, delay: fadeInAnimation };
+            }
+
             return [
               `.animate-text-para-${paraKey} .animate-text-word-${wordKey} .animate-text__scroll-${index}`,
               {
                 opacity: [0, 1],
-                transform: ["translateY(100px)", "none"],
+                transform: ["translateY(-100px)", "none"],
               },
-              {
-                opacity: {
-                  duration: 0.04,
-                  easing: "ease-in",
-                },
-                transform: { duration: 0.02 },
-              },
+              options,
             ];
           });
         })
         .reduce((acc, currentValue) => acc.concat(currentValue), []);
     })
     .flat();
-
   timeline(sequence as TimelineDefinition);
 };
 
 aboutTextAnimateInView();
-// testAnimate();
-
-// <p class={clsx("body1 pb-6", `animate-text__scroll--${index}`)}>
-//   {para}
-// </p>
+testAnimate();
