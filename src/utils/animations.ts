@@ -1,19 +1,12 @@
-import {
-  animate,
-  timeline,
-  glide,
-  inView,
-  type TimelineDefinition,
-} from "motion";
+import { timeline, inView, type TimelineDefinition } from "motion";
 import { myName, myDescriptionParas } from "@utils/constants";
 
-// To do sort out dealy
 const animationControls = {
   fadeInAnimation: 0.5,
 };
 
 // TODO: wait for type definitons from motion one
-const testAnimate = () => {
+const annimateAppear = () => {
   const { fadeInAnimation } = animationControls;
 
   const sequence = myName
@@ -60,8 +53,8 @@ const aboutTextAnimateInView = () => {
             const isFirst = paraKey == 0 && wordKey == 0 && index == 0;
             let options: Record<string, any> = {
               easing: "ease-in",
-              opacity: { duration: 0.0015 },
-              transform: { duration: 0.0015 },
+              opacity: { duration: 0.001 },
+              transform: { duration: 0.001 },
             };
 
             if (isFirst) {
@@ -81,8 +74,10 @@ const aboutTextAnimateInView = () => {
         .reduce((acc, currentValue) => acc.concat(currentValue), []);
     })
     .flat();
-  timeline(sequence as TimelineDefinition);
+  inView(".about-description", () => {
+    timeline(sequence as TimelineDefinition);
+  });
 };
 
 aboutTextAnimateInView();
-testAnimate();
+annimateAppear();

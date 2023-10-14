@@ -9,3 +9,7 @@
 .about-description {
   @apply max-w-2xl;
 }
+
+.about-text:after {
+  content: "\00a0";
+}

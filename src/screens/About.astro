@@ -44,14 +44,14 @@ const technologies: IconDefinition[] = [
                 return (
                   <div
                     class={clsx(
-                      "inline-block whitespace-nowrap",
+                      "inline-block whitespace-nowrap about-text",
                       `animate-text-word-${wordKey}`
                     )}
                   >
                     {word.split("").map((char, index) => (
                       <div
                         class={clsx(
-                          "inline-block whitespace-nowrap body1",
+                          "inline-block whitespace-nowrap body1 opacity-0",
                           `animate-text__scroll-${index}`
                         )}
                       >
