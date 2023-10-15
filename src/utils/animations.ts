@@ -170,17 +170,26 @@ const animateProjectImage = () => {
   const { projects } = base;
 
   projects.forEach((_, index) => {
+    const projectItemElement = validateElement(
+      document.querySelector(`.project-item__${index}`)
+    );
+    const shouldDelayAnimation = delayElementIfInView(projectItemElement);
+
     inView(`.project-item__${index}`, () => {
+      let options: Record<string, any> = {
+        easing: spring({
+          stiffness: 150,
+          damping: 50,
+        }),
+      };
+
       timeline([
         [
           `.project-item__${index} .img-overlay`,
           { right: ["100%", "0%"] },
-          {
-            easing: spring({
-              stiffness: 150,
-              damping: 50,
-            }),
-          },
+          !shouldDelayAnimation
+            ? options
+            : { delay: fadeInAnimation, ...options },
         ],
         [
           `.project-item__${index} .animate-project-appear`,
