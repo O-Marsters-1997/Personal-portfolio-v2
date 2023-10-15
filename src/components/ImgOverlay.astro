@@ -1,9 +1,10 @@
 ---
+import clsx from "clsx";
 import PortfolioImage from "@components/PortfolioImage";
 import { Image } from "astro:assets";
 import { imgMap } from "@utils/constants";
 
-const { titleShort, src, alt } = Astro.props;
+const { titleShort, src, alt, className } = Astro.props;
 ---
 
 <div class="img-overlay"></div>
@@ -11,7 +12,7 @@ const { titleShort, src, alt } = Astro.props;
   titleShort !== "portfolio" ? (
     <Image
       src={imgMap[src]}
-      class="project-image animate-project-appear"
+      class={clsx("project-image animate-project-appear")}
       alt={alt}
     />
   ) : (

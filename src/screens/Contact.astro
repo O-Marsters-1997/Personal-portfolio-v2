@@ -1,11 +1,12 @@
 ---
 import Heading from "@components/Heading.astro";
 import Form from "@components/Form";
+import Section from "@components/base/Section";
 ---
 
-<div
-  id="contact"
-  class="contact page-padding page-max-width page-margin-top animate-appear"
+<Section
+  name="contact"
+  className="contact page-padding page-max-width page-margin-top animate-appear"
 >
   <Heading title="Contact" />
   <div class="flex flex-col md:flex-row gap-12">
@@ -19,4 +20,4 @@ import Form from "@components/Form";
     </p>
     <Form client:visible />
   </div>
-</div>
+</Section>

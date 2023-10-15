@@ -1,7 +1,3 @@
-.project-name-img {
-  @apply relative flex flex-col justify-center w-auto lg:w-[40rem] 2xl:w-[50rem] sm:w-project;
-}
-
 .img-overlay {
   @apply dark:bg-dark-overlay-primary bg-light-overlay-primary absolute top-0 right-full bottom-0 left-0 z-0;
 }
@@ -16,4 +12,17 @@
 
 .project-links {
   @apply flex gap-6 absolute top-6 right-6 z-10 animate-project-appear;
+}
+
+/*Project page*/
+.project-page-item {
+  @apply relative flex flex-col-reverse items-stretch justify-between sm:flex-row gap-8 w-full 2xl:mt-32;
+}
+
+/* Animation from right on project page*/
+.project-name-img {
+  @apply relative flex flex-col justify-center w-auto lg:w-[40rem] 2xl:w-[50rem] sm:w-project;
+  .img-overlay {
+    @apply right-0 left-full;
+  }
 }

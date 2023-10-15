@@ -1,32 +1,25 @@
 import { type ReactNode } from "react";
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 
 type Props = {
   to: string;
   children: ReactNode;
   duration?: number;
   className?: string;
-  onClick?: () => void;
 };
 
-const ReactScrollLink = ({
-  to,
-  children,
-  duration,
-  className,
-  onClick,
-}: Props) => {
+const ReactScrollLink = ({ to, children, duration, className }: Props) => {
+  const handleScroll = () => {
+    scroller.scrollTo(to, {
+      duration: duration ?? 1500,
+      smooth: "easeInOutCubic",
+    });
+  };
+
   return (
-    <Link
-      href={`/#${to}`}
-      to={to}
-      smooth={"easeInOutQuad"}
-      className={className}
-      duration={duration ?? 900}
-      onClick={onClick}
-    >
+    <a href={`/#${to}`} className={className} onClick={handleScroll}>
       {children}
-    </Link>
+    </a>
   );
 };
 

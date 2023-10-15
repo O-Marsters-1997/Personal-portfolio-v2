@@ -1,3 +1,4 @@
+import _ from "lodash";
 import {
   type TimelineDefinition,
   animate,
@@ -202,10 +203,37 @@ const animateAboutSection = async () => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+const animateProjectPage = () => {
+  inView(".project-page-item", () => {
+    const sequence: TimelineDefinition = [
+      [
+        ".project-name-img .img-overlay",
+        {
+          left: ["100%", "0%"],
+        },
+        {
+          easing: spring({
+            stiffness: 150,
+            damping: 30,
+          }),
+        },
+      ],
+      [
+        ".project-page-item .animate-project-appear",
+        { opacity: [0, 1] },
+        { duration: 0.35, easing: "ease-in" },
+      ],
+    ];
+
+    timeline(sequence);
+  });
+};
+
+export const runAnimations = () => {
   aboutTextAnimateInView();
   annimateAppear();
   animateProfileImage();
   animateProjectImage();
   animateAboutSection();
-});
+  animateProjectPage();
+};

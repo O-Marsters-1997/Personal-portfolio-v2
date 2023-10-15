@@ -1,11 +1,11 @@
 @layer utilities {
   .animate-text,
   .animate-text__scroll {
-    @apply opacity-0;
+    @apply opacity-preAnimated;
   }
 
   .animate-appear,
   .animate-project-appear {
-    @apply opacity-0;
+    @apply opacity-preAnimated;
   }
 }
