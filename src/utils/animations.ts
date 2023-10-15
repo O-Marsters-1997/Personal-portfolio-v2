@@ -1,10 +1,4 @@
-import {
-  type TimelineDefinition,
-  timeline,
-  animate,
-  inView,
-  spring,
-} from "motion";
+import { type TimelineDefinition, timeline, inView, spring } from "motion";
 import { myName, myDescriptionParas } from "@utils/constants";
 import { logger } from "@utils/logger";
 
@@ -42,7 +36,6 @@ const delayElementIfInView = async (element: Element) => {
 // Animations
 const annimateAppear = () => {
   const { fadeInAnimation } = animationControls;
-
   const sequence = myName
     .split(" ")
     .map((word: string, index) => {
@@ -126,14 +119,8 @@ const animateImage = async () => {
   let options: Record<string, any> = {
     left: {
       easing: spring({
-        stiffness: 100,
-        damping: 60,
-      }),
-    },
-    display: {
-      easing: spring({
-        stiffness: 100,
-        damping: 30,
+        stiffness: 150,
+        damping: 22,
       }),
     },
   };
@@ -148,14 +135,16 @@ const animateImage = async () => {
         ".about-image__underlay",
         {
           left: ["100%", "0%"],
-          display: ["block", null, "none"],
         },
         options,
       ],
       [
         ".about-image__image",
         { opacity: [0, 1] },
-        { duration: 0.5, easing: "ease-in-out" },
+        {
+          duration: 0.45,
+          easing: "linear",
+        },
       ],
     ]);
   });

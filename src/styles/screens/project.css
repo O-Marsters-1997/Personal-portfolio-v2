@@ -1,3 +1,11 @@
 .project-name-img {
   @apply relative flex flex-col justify-center w-auto lg:w-[40rem] 2xl:w-[50rem] sm:w-project;
 }
+
+.img-overlay {
+  @apply dark:bg-dark-overlay-primary bg-light-overlay-primary absolute inset-0 z-0;
+}
+
+.project-image {
+  @apply rounded-sm w-full h-full;
+}

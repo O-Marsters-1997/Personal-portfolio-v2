@@ -18,6 +18,7 @@ const ReactScrollLink = ({
 }: Props) => {
   return (
     <Link
+      href={`/#${to}`}
       to={to}
       smooth={"easeInOutQuad"}
       className={className}
