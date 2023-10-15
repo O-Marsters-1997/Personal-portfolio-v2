@@ -1,6 +1,13 @@
-import { type TimelineDefinition, timeline, inView, spring } from "motion";
+import {
+  type TimelineDefinition,
+  animate,
+  timeline,
+  inView,
+  spring,
+} from "motion";
 import { myName, myDescriptionParas } from "@utils/constants";
 import { logger } from "@utils/logger";
+import base from "@/data/projects.json";
 
 // Animation variables
 const animationControls = {
@@ -160,11 +167,34 @@ const animateProfileImage = async () => {
 
 const animateProjectImage = () => {
   const { fadeInAnimation } = animationControls;
-  const projectImages = validateElements(document.querySelectorAll(""));
+  const { projects } = base;
+
+  projects.forEach((_, index) => {
+    inView(`.project-item__${index}`, () => {
+      timeline([
+        [
+          `.project-item__${index} .img-overlay`,
+          { right: ["100%", "0%"] },
+          {
+            easing: spring({
+              stiffness: 150,
+              damping: 50,
+            }),
+          },
+        ],
+        [
+          `.project-item__${index} .animate-project-appear`,
+          { opacity: [0, 1] },
+          { duration: 0.45, easing: "linear" },
+        ],
+      ]);
+    });
+  });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   aboutTextAnimateInView();
   annimateAppear();
   animateProfileImage();
+  animateProjectImage();
 });

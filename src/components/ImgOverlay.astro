@@ -9,8 +9,16 @@ const { titleShort, src, alt } = Astro.props;
 <div class="img-overlay"></div>
 {
   titleShort !== "portfolio" ? (
-    <Image src={imgMap[src]} class="project-image" alt={alt} />
+    <Image
+      src={imgMap[src]}
+      class="project-image animate-project-appear"
+      alt={alt}
+    />
   ) : (
-    <PortfolioImage alt={alt} client:load />
+    <PortfolioImage
+      alt={alt}
+      className="project-image animate-project-appear"
+      client:load
+    />
   )
 }

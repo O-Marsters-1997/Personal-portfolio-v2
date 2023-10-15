@@ -11,13 +11,15 @@ type Props = {
   alt: string;
   tech: string[];
   githubHref: string;
+  index: number;
 };
 
-const { title, titleShort, category, src, alt, githubHref } = Astro.props;
+const { title, titleShort, category, src, alt, githubHref, index } =
+  Astro.props;
 const link = `/project/${titleShort}`;
 ---
 
-<div class="project-item">
+<div class=`project-item project-item__${index}`>
   <div class="relative cursor-pointer md:h-[20rem] mb-4">
     <div class="project-links">
       <a href={githubHref} target="_blank" rel="noopener" aria-label="Github">

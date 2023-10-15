@@ -17,7 +17,7 @@ const { projects } = base;
   </p>
   <div class="flex 2xl:justify-between flex-wrap gap-8">
     {
-      projects.map((project: any) => (
+      projects.map((project: any, index) => (
         <Project
           title={project.title}
           titleShort={project.titleShort}
@@ -27,6 +27,7 @@ const { projects } = base;
           alt={project.imgAlt}
           tech={project.technologiesUsed}
           githubHref={project.githubHref}
+          index={index}
         />
       ))
     }

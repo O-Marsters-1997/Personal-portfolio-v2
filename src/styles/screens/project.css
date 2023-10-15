@@ -3,7 +3,7 @@
 }
 
 .img-overlay {
-  @apply dark:bg-dark-overlay-primary bg-light-overlay-primary absolute inset-0 z-0;
+  @apply dark:bg-dark-overlay-primary bg-light-overlay-primary absolute top-0 right-full bottom-0 left-0 z-0;
 }
 
 .project-item {
