@@ -1,9 +1,10 @@
-/* Starts to the left */
-/* .test-animation {
-  transform: translateX(100vw);
-} */
+@layer utilities {
+  .animate-text,
+  .animate-text__scroll {
+    @apply opacity-0;
+  }
 
-.animate-text,
-.animate-text__scroll {
-  @apply opacity-0;
+  .animate-project-appear {
+    @apply opacity-0;
+  }
 }

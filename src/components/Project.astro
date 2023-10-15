@@ -17,9 +17,9 @@ const { title, titleShort, category, src, alt, githubHref } = Astro.props;
 const link = `/project/${titleShort}`;
 ---
 
-<div class="flex flex-col max-w-full lg:flex-[0_0_31%] w-96">
+<div class="project-item">
   <div class="relative cursor-pointer md:h-[20rem] mb-4">
-    <div class="flex gap-6 absolute top-6 right-6 z-10">
+    <div class="project-links">
       <a href={githubHref} target="_blank" rel="noopener" aria-label="Github">
         <Icon
           icon="github"

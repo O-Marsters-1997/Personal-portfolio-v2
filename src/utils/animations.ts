@@ -12,8 +12,16 @@ const validateElement = (element: Element | null) => {
   if (!element) {
     throw new Error("The element must exist and therefore not be null");
   }
-
   return element;
+};
+
+const validateElements = (elements: NodeListOf<Element> | null) => {
+  if (!elements) {
+    {
+      throw new Error("There should be at least some relevant elements");
+    }
+  }
+  return elements;
 };
 
 const delayElementIfInView = async (element: Element) => {
@@ -111,7 +119,7 @@ const aboutTextAnimateInView = async () => {
   });
 };
 
-const animateImage = async () => {
+const animateProfileImage = async () => {
   const { fadeInAnimation } = animationControls;
   const aboutImage = validateElement(document.querySelector(".about-image"));
   const imageDelayAnimation = await delayElementIfInView(aboutImage);
@@ -150,8 +158,13 @@ const animateImage = async () => {
   });
 };
 
+const animateProjectImage = () => {
+  const { fadeInAnimation } = animationControls;
+  const projectImages = validateElements(document.querySelectorAll(""));
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   aboutTextAnimateInView();
   annimateAppear();
-  animateImage();
+  animateProfileImage();
 });
