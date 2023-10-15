@@ -6,6 +6,18 @@
   @apply flex flex-col items-center max-w-md gap-4 md:ml-auto;
 }
 
+.about-image {
+  @apply relative rounded-sm;
+
+  &__underlay {
+    @apply absolute top-0 right-0 bottom-0 left-full bg-grey-lighter z-0;
+  }
+
+  &__image {
+    @apply opacity-0 z-10;
+  }
+}
+
 .about-description {
   @apply max-w-2xl;
 }

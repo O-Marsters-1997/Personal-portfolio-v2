@@ -6,7 +6,10 @@ import { imgMap } from "@utils/constants";
 const { titleShort, src, alt } = Astro.props;
 ---
 
-<div class="dark:bg-dark-overlay-primary absolute inset-0 z-0"></div>
+<div
+  class="dark:bg-dark-overlay-primary bg-light-overlay-primary absolute inset-0 z-0"
+>
+</div>
 {
   titleShort !== "portfolio" ? (
     <Image src={imgMap[src]} class="rounded-sm w-full h-full" alt={alt} />

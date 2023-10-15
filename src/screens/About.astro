@@ -28,7 +28,14 @@ const technologies: IconDefinition[] = [
   <Heading title="About Me" className="page-margin-top" />
   <div class="about-content">
     <div class="about-profile">
-      <Image src={Profile} alt="personal profile" class="rounded-sm pb-2" />
+      <div class="about-image">
+        <div class="about-image__underlay"></div>
+        <Image
+          src={Profile}
+          alt="personal profile"
+          class="about-image__image"
+        />
+      </div>
       <a href={CV} target="_blank" rel="noopener" download="Olly_Marsters.pdf">
         <p class="action">Download CV</p>
       </a>

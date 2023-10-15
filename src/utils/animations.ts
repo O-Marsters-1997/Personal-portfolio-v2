@@ -1,12 +1,45 @@
-import { timeline, inView, type TimelineDefinition } from "motion";
+import {
+  type TimelineDefinition,
+  timeline,
+  animate,
+  inView,
+  spring,
+} from "motion";
 import { myName, myDescriptionParas } from "@utils/constants";
-import { logger } from "./logger";
+import { logger } from "@utils/logger";
 
+// Animation variables
 const animationControls = {
   fadeInAnimation: 0.35,
 };
 
-// TODO: wait for type definitons from motion one
+// Animation utils
+const validateElement = (element: Element | null) => {
+  if (!element) {
+    throw new Error("The element must exist and therefore not be null");
+  }
+
+  return element;
+};
+
+const delayElementIfInView = async (element: Element) => {
+  const intersectionPromise = new Promise((resolve, reject) => {
+    const observer = new IntersectionObserver((entries) => {
+      try {
+        observer.disconnect();
+        resolve(entries[0].isIntersecting);
+      } catch (err) {
+        reject(err);
+        logger.error(err);
+      }
+    });
+
+    observer.observe(element);
+  });
+  return await intersectionPromise;
+};
+
+// Animations
 const annimateAppear = () => {
   const { fadeInAnimation } = animationControls;
 
@@ -43,31 +76,11 @@ const annimateAppear = () => {
 
 const aboutTextAnimateInView = async () => {
   const { fadeInAnimation } = animationControls;
-  const aboutText = document.querySelector(".about-description");
+  const aboutText = validateElement(
+    document.querySelector(".about-description")
+  );
 
-  if (!aboutText) {
-    throw new Error("The about description element must be defined");
-  }
-
-  const shouldDelayAboutDescription = async () => {
-    const intersectionPromise = new Promise((resolve, reject) => {
-      const observer = new IntersectionObserver((entries) => {
-        try {
-          observer.disconnect();
-          resolve(entries[0].isIntersecting);
-        } catch (err) {
-          reject(err);
-          logger.error(err);
-        }
-      });
-
-      observer.observe(aboutText);
-    });
-
-    return await intersectionPromise;
-  };
-
-  const textDelayAnimation = await shouldDelayAboutDescription();
+  const textDelayAnimation = await delayElementIfInView(aboutText);
   const sequence = myDescriptionParas
     .map((para, index) => {
       const paraKey = index;
@@ -79,8 +92,8 @@ const aboutTextAnimateInView = async () => {
             const isFirst = paraKey == 0 && wordKey == 0 && index == 0;
             let options: Record<string, any> = {
               easing: "ease-in",
-              opacity: { duration: 0.001 },
-              transform: { duration: 0.001 },
+              transform: { duration: 0.0008 },
+              opacity: { duration: 0.0015 },
             };
 
             if (isFirst && textDelayAnimation) {
@@ -105,7 +118,51 @@ const aboutTextAnimateInView = async () => {
   });
 };
 
+const animateImage = async () => {
+  const { fadeInAnimation } = animationControls;
+  const aboutImage = validateElement(document.querySelector(".about-image"));
+  const imageDelayAnimation = await delayElementIfInView(aboutImage);
+
+  let options: Record<string, any> = {
+    left: {
+      easing: spring({
+        stiffness: 100,
+        damping: 60,
+      }),
+    },
+    display: {
+      easing: spring({
+        stiffness: 100,
+        damping: 30,
+      }),
+    },
+  };
+
+  if (imageDelayAnimation) {
+    options = { delay: fadeInAnimation, ...options };
+  }
+
+  inView(".about-image", () => {
+    timeline([
+      [
+        ".about-image__underlay",
+        {
+          left: ["100%", "0%"],
+          display: ["block", null, "none"],
+        },
+        options,
+      ],
+      [
+        ".about-image__image",
+        { opacity: [0, 1] },
+        { duration: 0.5, easing: "ease-in-out" },
+      ],
+    ]);
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   aboutTextAnimateInView();
   annimateAppear();
+  animateImage();
 });
