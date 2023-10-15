@@ -23,8 +23,8 @@ const Header = ({ className }: Props) => {
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
     storeMap.set({
-      ...storeMap.get(),
       mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
+      ...storeMap.get(),
     });
   };
 

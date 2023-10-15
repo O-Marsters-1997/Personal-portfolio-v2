@@ -1,8 +1,9 @@
 import { timeline, inView, type TimelineDefinition } from "motion";
 import { myName, myDescriptionParas } from "@utils/constants";
+import { logger } from "./logger";
 
 const animationControls = {
-  fadeInAnimation: 0.5,
+  fadeInAnimation: 0.35,
 };
 
 // TODO: wait for type definitons from motion one
@@ -40,8 +41,33 @@ const annimateAppear = () => {
   timeline(sequence as TimelineDefinition);
 };
 
-const aboutTextAnimateInView = () => {
+const aboutTextAnimateInView = async () => {
   const { fadeInAnimation } = animationControls;
+  const aboutText = document.querySelector(".about-description");
+
+  if (!aboutText) {
+    throw new Error("The about description element must be defined");
+  }
+
+  const shouldDelayAboutDescription = async () => {
+    const intersectionPromise = new Promise((resolve, reject) => {
+      const observer = new IntersectionObserver((entries) => {
+        try {
+          observer.disconnect();
+          resolve(entries[0].isIntersecting);
+        } catch (err) {
+          reject(err);
+          logger.error(err);
+        }
+      });
+
+      observer.observe(aboutText);
+    });
+
+    return await intersectionPromise;
+  };
+
+  const textDelayAnimation = await shouldDelayAboutDescription();
   const sequence = myDescriptionParas
     .map((para, index) => {
       const paraKey = index;
@@ -57,7 +83,7 @@ const aboutTextAnimateInView = () => {
               transform: { duration: 0.001 },
             };
 
-            if (isFirst) {
+            if (isFirst && textDelayAnimation) {
               options = { ...options, delay: fadeInAnimation };
             }
 
@@ -79,5 +105,7 @@ const aboutTextAnimateInView = () => {
   });
 };
 
-aboutTextAnimateInView();
-annimateAppear();
+document.addEventListener("DOMContentLoaded", () => {
+  aboutTextAnimateInView();
+  annimateAppear();
+});
