@@ -4,6 +4,7 @@
     @apply opacity-0;
   }
 
+  .animate-appear,
   .animate-project-appear {
     @apply opacity-0;
   }

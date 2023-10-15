@@ -22,15 +22,6 @@ const validateElement = (element: Element | null) => {
   return element;
 };
 
-const validateElements = (elements: NodeListOf<Element> | null) => {
-  if (!elements) {
-    {
-      throw new Error("There should be at least some relevant elements");
-    }
-  }
-  return elements;
-};
-
 const delayElementIfInView = async (element: Element) => {
   const intersectionPromise = new Promise((resolve, reject) => {
     const observer = new IntersectionObserver((entries) => {
@@ -196,9 +187,25 @@ const animateProjectImage = () => {
   });
 };
 
+const animateAboutSection = async () => {
+  const { fadeInAnimation } = animationControls;
+  const aboutSection = validateElement(document.querySelector(".contact"));
+  const shouldDelayAnimation = await delayElementIfInView(aboutSection);
+
+  inView(".contact", () => {
+    const options = { duration: 2.5 };
+    animate(
+      ".contact",
+      { opacity: [0, 1] },
+      shouldDelayAnimation ? { delay: fadeInAnimation, ...options } : options
+    );
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   aboutTextAnimateInView();
   annimateAppear();
   animateProfileImage();
   animateProjectImage();
+  animateAboutSection();
 });
