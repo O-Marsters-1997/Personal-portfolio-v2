@@ -88,7 +88,7 @@ const aboutTextAnimateInView = async () => {
     document.querySelector(".about-description")
   );
 
-  const textDelayAnimation = await delayElementIfInView(aboutText);
+  const shouldDelayAnimation = await delayElementIfInView(aboutText);
   const sequence = myDescriptionParas
     .map((para, index) => {
       const paraKey = index;
@@ -98,15 +98,11 @@ const aboutTextAnimateInView = async () => {
           const wordKey = index;
           return word.split("").map((_, index) => {
             const isFirst = paraKey == 0 && wordKey == 0 && index == 0;
-            let options: Record<string, any> = {
+            const options: Record<string, any> = {
               easing: "ease-in",
               transform: { duration: 0.0008 },
               opacity: { duration: 0.0015 },
             };
-
-            if (isFirst && textDelayAnimation) {
-              options = { ...options, delay: fadeInAnimation };
-            }
 
             return [
               `.animate-text-para-${paraKey} .animate-text-word-${wordKey} .animate-text__scroll-${index}`,
@@ -114,7 +110,10 @@ const aboutTextAnimateInView = async () => {
                 opacity: [0, 1],
                 transform: ["translateY(-100px)", "none"],
               },
-              options,
+              isFirst && shouldDelayAnimation
+                ? { delay: fadeInAnimation, ...options }
+                : options,
+              ,
             ];
           });
         })
@@ -131,27 +130,23 @@ const animateProfileImage = async () => {
   const aboutImage = validateElement(document.querySelector(".about-image"));
   const imageDelayAnimation = await delayElementIfInView(aboutImage);
 
-  let options: Record<string, any> = {
-    left: {
-      easing: spring({
-        stiffness: 150,
-        damping: 22,
-      }),
-    },
-  };
-
-  if (imageDelayAnimation) {
-    options = { delay: fadeInAnimation, ...options };
-  }
-
   inView(".about-image", () => {
+    const options: Record<string, any> = {
+      left: {
+        easing: spring({
+          stiffness: 150,
+          damping: 22,
+        }),
+      },
+    };
+
     timeline([
       [
         ".about-image__underlay",
         {
           left: ["100%", "0%"],
         },
-        options,
+        imageDelayAnimation ? { delay: fadeInAnimation, ...options } : options,
       ],
       [
         ".about-image__image",
@@ -169,14 +164,14 @@ const animateProjectImage = () => {
   const { fadeInAnimation } = animationControls;
   const { projects } = base;
 
-  projects.forEach((_, index) => {
+  projects.forEach(async (_, index) => {
     const projectItemElement = validateElement(
       document.querySelector(`.project-item__${index}`)
     );
-    const shouldDelayAnimation = delayElementIfInView(projectItemElement);
+    const shouldDelayAnimation = await delayElementIfInView(projectItemElement);
 
     inView(`.project-item__${index}`, () => {
-      let options: Record<string, any> = {
+      const options: Record<string, any> = {
         easing: spring({
           stiffness: 150,
           damping: 50,
@@ -187,9 +182,9 @@ const animateProjectImage = () => {
         [
           `.project-item__${index} .img-overlay`,
           { right: ["100%", "0%"] },
-          !shouldDelayAnimation
-            ? options
-            : { delay: fadeInAnimation, ...options },
+          shouldDelayAnimation
+            ? { delay: fadeInAnimation, ...options }
+            : options,
         ],
         [
           `.project-item__${index} .animate-project-appear`,
