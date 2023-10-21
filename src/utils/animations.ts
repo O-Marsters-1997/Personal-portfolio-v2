@@ -228,10 +228,10 @@ const animateProjectPage = () => {
 };
 
 export const runAnimations = async () => {
-  await aboutTextAnimateInView();
+  aboutTextAnimateInView();
   annimateAppear();
-  await animateProfileImage();
+  animateProfileImage();
   animateProjectImage();
-  await animateAboutSection();
+  animateAboutSection();
   animateProjectPage();
 };
