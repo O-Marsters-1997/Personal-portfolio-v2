@@ -6,7 +6,6 @@
   "extends": [
     "standard-with-typescript",
     "plugin:astro/recommended",
-    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "overrides": [

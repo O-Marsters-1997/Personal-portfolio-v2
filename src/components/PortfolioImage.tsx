@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import clsx from "clsx";
 import { useStore } from "@nanostores/react";
 import { imgMap } from "@utils/constants";
 import { storeMap } from "@utils/nanostore";

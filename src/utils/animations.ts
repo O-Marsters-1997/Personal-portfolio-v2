@@ -1,4 +1,3 @@
-import _ from "lodash";
 import {
   type TimelineDefinition,
   animate,
@@ -89,7 +88,7 @@ const aboutTextAnimateInView = async () => {
         .map((word, index) => {
           const wordKey = index;
           return word.split("").map((_, index) => {
-            const isFirst = paraKey == 0 && wordKey == 0 && index == 0;
+            const isFirst = paraKey === 0 && wordKey === 0 && index === 0;
             const options: Record<string, any> = {
               easing: "ease-in",
               transform: { duration: 0.0008 },
@@ -105,7 +104,6 @@ const aboutTextAnimateInView = async () => {
               isFirst && shouldDelayAnimation
                 ? { delay: fadeInAnimation, ...options }
                 : options,
-              ,
             ];
           });
         })
@@ -229,11 +227,11 @@ const animateProjectPage = () => {
   });
 };
 
-export const runAnimations = () => {
-  aboutTextAnimateInView();
+export const runAnimations = async () => {
+  await aboutTextAnimateInView();
   annimateAppear();
-  animateProfileImage();
+  await animateProfileImage();
   animateProjectImage();
-  animateAboutSection();
+  await animateAboutSection();
   animateProjectPage();
 };

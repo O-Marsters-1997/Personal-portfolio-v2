@@ -10,9 +10,9 @@ import lightLogo from "@assets/images/light_logo.png";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
 
-type Props = {
+interface Props {
   className: string;
-};
+}
 
 const Header = ({ className }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);

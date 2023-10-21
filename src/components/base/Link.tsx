@@ -1,12 +1,12 @@
 import { type ReactNode } from "react";
-import { Link, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 
-type Props = {
+interface Props {
   to: string;
   children: ReactNode;
   duration?: number;
   className?: string;
-};
+}
 
 const ReactScrollLink = ({ to, children, duration, className }: Props) => {
   const handleScroll = () => {

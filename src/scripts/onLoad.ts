@@ -1,9 +1,9 @@
 import { runAnimations } from "@utils/animations";
 
-document.addEventListener("DOMContentLoaded", () => {
-  runAnimations();
+document.addEventListener("DOMContentLoaded", async () => {
+  await runAnimations();
 });
 
-document.addEventListener("astro:after-swap", () => {
-  runAnimations();
+document.addEventListener("astro:after-swap", async () => {
+  await runAnimations();
 });

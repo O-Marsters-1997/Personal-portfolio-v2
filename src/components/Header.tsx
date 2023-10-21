@@ -7,9 +7,9 @@ import { downloadPdf, toggleDarkTheme } from "@utils/common";
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
 
-type Props = {
+interface Props {
   className?: string;
-};
+}
 
 const Header = ({ className }: Props) => {
   const { darkMode } = useStore(storeMap);
