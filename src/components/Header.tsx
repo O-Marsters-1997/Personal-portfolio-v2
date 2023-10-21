@@ -37,11 +37,16 @@ const Header = ({ className }: Props) => {
             <span className="link">Contact</span>
           </Link>
         </li>
-        <Icon icon="download" width="w-5 md:w-6" onClick={downloadPdf} />
-        <Icon
-          icon={darkMode ? "light_mode" : "light_dark_mode"}
-          onClick={toggleDarkTheme}
-        />
+        <li className="w-5 md:w-6">
+          <Icon icon="download" width="w-full" onClick={downloadPdf} />
+        </li>
+        <li className="w-5 md:w-6">
+          <Icon
+            icon={darkMode ? "light_mode" : "light_dark_mode"}
+            onClick={toggleDarkTheme}
+            width="w-full"
+          />
+        </li>
       </ul>
     </nav>
   );
