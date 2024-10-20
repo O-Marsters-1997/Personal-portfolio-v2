@@ -8,8 +8,11 @@ services:
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
+    working_dir: /home/node/app/cms
     command: sh -c "yarn install && yarn dev"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/portfolio_cms
     depends_on:
       - mongo
       - postgres
@@ -45,3 +48,4 @@ services:
 volumes:
   data:
   node_modules:
+  pg_data:
