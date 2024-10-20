@@ -5,9 +5,9 @@ FROM base as builder
 WORKDIR /home/node/app/cms
 COPY cms/package*.json ./
 
-COPY . .
-RUN yarn install
-RUN yarn build
+COPY cms/. .
+RUN bun install
+RUN bun build
 
 FROM base as runtime
 
@@ -16,9 +16,9 @@ ENV PAYLOAD_CONFIG_PATH=dist/cms/payload.config.js
 
 WORKDIR /home/node/app/cms
 COPY cms/package*.json  ./
-COPY cms/yarn.lock ./
+COPY cms/bun.lock ./
 
-RUN yarn install --production
+RUN bun install --production
 COPY --from=builder /home/node/app/dist ./dist
 COPY --from=builder /home/node/app/build ./build
 
