@@ -5,7 +5,6 @@ import payload from "payload";
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const app = express();
 
-// Redirect root to Admin panel
 app.get("/", (_, res) => {
   res.redirect("/admin");
 });
@@ -20,6 +19,7 @@ const start = async () => {
   });
 
   app.listen(3000);
+  payload.logger.info("Server running at http://localhost:3000");
 };
 
 start();
