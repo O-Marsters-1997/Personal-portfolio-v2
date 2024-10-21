@@ -2,7 +2,12 @@ import express from "express";
 import path from "path";
 import payload from "payload";
 
-require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config({
+    path: path.resolve(__dirname, "../../.env"),
+  });
+}
+
 const app = express();
 
 app.get("/", (_, res) => {

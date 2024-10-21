@@ -2,21 +2,22 @@ import path from "path";
 
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { postgresAdapter } from "@payloadcms/db-postgres";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { viteBundler } from "@payloadcms/bundler-vite";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 
 import Users from "./collections/Users";
 import Test from "./collections/Test";
 import { getConnectionString } from "./db";
+import Hello from "./collections/Hello";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
-    bundler: webpackBundler(),
+    bundler: viteBundler(),
   },
   editor: slateEditor({}),
-  collections: [Users, Test],
+  collections: [Users, Test, Hello],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

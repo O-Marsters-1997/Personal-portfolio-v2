@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts NODE_ENV=development nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
     "build": "yarn copyfiles && yarn build:payload && yarn build:server",
@@ -14,7 +14,8 @@
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema",
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
-    "migrate:create": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload migrate:create"
+    "migrate:create": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload migrate:create",
+    "payload:migrate:prod": "dotenv -e ../.env.production -- cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts NODE_ENV=production payload migrate"
   },
   "dependencies": {
     "@payloadcms/bundler-vite": "^0.1.7",
