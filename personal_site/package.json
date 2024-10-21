@@ -15,7 +15,9 @@
     "generate:tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
     "generate:tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing",
     "generate:tailwind-screens": "node src/scripts/generateTailwindTheme.cjs screens",
-    "generate:icons": "node src/scripts/generateIcons.js"
+    "generate:icons": "node src/scripts/generateIcons.js",
+    "cms:dev": "cd ./cms && bun dev",
+    "cms:dev-docker": "cd ./cms && bun dev:docker"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.3",
