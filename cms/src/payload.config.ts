@@ -8,6 +8,7 @@ import { buildConfig } from "payload/config";
 
 import Users from "./collections/Users";
 import Test from "./collections/Test";
+import { getConnectionString } from "./db";
 
 export default buildConfig({
   admin: {
@@ -25,7 +26,7 @@ export default buildConfig({
   plugins: [payloadCloud()],
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: getConnectionString(),
     },
   }),
 });

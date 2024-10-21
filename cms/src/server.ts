@@ -11,10 +11,6 @@ app.get("/", (_, res) => {
 });
 
 const start = async () => {
-  // Initialize Payload
-  console.log(path.resolve(__dirname, "../../.env"));
-  console.log(process.env.DATABASE_URL);
-
   await payload.init({
     secret: process.env.PAYLOAD_SECRET,
     express: app,
@@ -22,8 +18,6 @@ const start = async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
   });
-
-  // Add your own express routes here
 
   app.listen(3000);
 };
