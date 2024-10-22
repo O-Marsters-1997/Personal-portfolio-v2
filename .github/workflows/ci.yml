@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configure Node 18
+      - name: Configure Node
         uses: oven-sh/setup-bun@v2
 
       - name: Installing dependencies for web
