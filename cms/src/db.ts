@@ -10,5 +10,7 @@ export const getConnectionString = () => {
     return `${connString}?sslmode=require`;
   }
 
+  //kdnfsl
+
   return connString;
 };
