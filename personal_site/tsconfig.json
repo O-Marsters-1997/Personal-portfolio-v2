@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -14,7 +14,8 @@
       "@styles": ["./src/styles/*"],
       "@context": ["./src/context/*"],
       "@types": ["src/types/*"],
-      "@theme": ["src/styles/theme/*"]
+      "@theme": ["src/styles/theme/*"],
+      "@/payload/*": ["../backend/src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

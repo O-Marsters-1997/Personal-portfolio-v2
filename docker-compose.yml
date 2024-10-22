@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  payload:
+    image: oven/bun:alpine
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/cms
+    command: sh -c "bun install && bun dev"
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=postgres
+      - DB_PORT=5434
+      - DB_NAME=portfolio_cms
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5434:5432"
+    environment:
+      PGUSER: postgres
+      POSTGRES_DB: portfolio_cms
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 1s
+      retries: 10
+    restart: always
+
+volumes:
+  node_modules:
+  pg_data:
