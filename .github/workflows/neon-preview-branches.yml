@@ -7,6 +7,9 @@ on:
       - reopened
       - synchronize
       - closed
+  workflow_call:
+    inputs:
+      database: "portfolio_site"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,6 +26,7 @@ jobs:
         id: branch_name
         uses: tj-actions/branch-names@v8
 
+  # making a note
   create_neon_branch:
     name: Create Neon Branch
     outputs:
