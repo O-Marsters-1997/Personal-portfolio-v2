@@ -37,8 +37,8 @@ jobs:
       || github.event.action == 'reopened')
     runs-on: ubuntu-latest
     steps:
-      - name: Printing something out
-        run: |
+      - name: Installing dependencies for web
+      - run: |
           echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url_with_pooler }}"
       - name: Create Neon Branch
         id: create_neon_branch
@@ -47,6 +47,7 @@ jobs:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
           api_key: ${{ secrets.NEON_API_KEY }}
+          database: "your_actual_database_name"
 
   # The step above creates a new Neon branch.
   # You may want to do something with the new branch, such as run migrations, run tests
