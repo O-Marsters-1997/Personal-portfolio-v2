@@ -4,8 +4,8 @@
 // Do not make manual changes to this file.
 //
 
-/**
- * A list of all available icons in the icon set.
+/*
+  A list of all available icons in the icon set.
  */
 export type IconDefinition =
   | "astro"
