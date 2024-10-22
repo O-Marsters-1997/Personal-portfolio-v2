@@ -5,7 +5,6 @@ on:
     types:
       - "**"
 
-# made change
 jobs:
   setup:
     name: Setup
@@ -17,7 +16,6 @@ jobs:
         id: branch_name
         uses: tj-actions/branch-names@v8
 
-  # making a note
   create_neon_branch:
     name: Create Neon Branch
     needs: setup
@@ -27,14 +25,10 @@ jobs:
         id: create-branch
         with:
           project_id: spring-resonance-62353058
-          # optional (defaults to neondb)
           database: portfolio_site
-          branch_name: from_action_reusable
-          username: db_user_for_url
+          branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+          username: neondb_owner
           api_key: ${{ secrets.NEON_API_KEY }}
-      - run: echo db_url ${{ steps.create-branch.outputs.db_url }}
-      - run: echo host ${{ steps.create-branch.outputs.host }}
-      - run: echo branch_id ${{ steps.create-branch.outputs.branch_id }}
 
   delete_neon_branch:
     name: Delete Neon Branch
