@@ -10,17 +10,17 @@ defaults:
     working-directory: personal_site
 
 jobs:
-validation:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Configure Node 18
-      uses: oven-sh/setup-bun@v2
+      - name: Configure Node 18
+        uses: oven-sh/setup-bun@v2
 
-    - name: Installing dependencies for web
-      run: bun install
+      - name: Installing dependencies for web
+        run: bun install
 
-    - name: Running linting
-      run: bun run lint
+      - name: Running linting
+        run: bun run lint
