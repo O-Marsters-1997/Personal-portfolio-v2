@@ -1,19 +1,56 @@
-name: Create Neon Branch with GitHub Actions Demo
-run-name: Create a Neon Branch 🚀
+name: Create/Delete Branch for Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+# made change
 jobs:
-  Create-Neon-Branch:
-  steps:
-    - uses: neondatabase/create-branch-action@v5
-      id: create-branch
-      with:
-        project_id: rapid-haze-373089
-        # optional (defaults to your project's default branch)
-        parent: dev
-        # optional (defaults to neondb)
-        database: my-database
-        branch_name: from_action_reusable
-        username: db_user_for_url
-        api_key: ${{ secrets.NEON_API_KEY }}
-    - run: echo db_url ${{ steps.create-branch.outputs.db_url }}
-    - run: echo host ${{ steps.create-branch.outputs.host }}
-    - run: echo branch_id ${{ steps.create-branch.outputs.branch_id }}
+  setup:
+    name: Setup
+    outputs:
+      branch: ${{ steps.branch_name.outputs.current_branch }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+  # making a note
+  create_neon_branch:
+    name: Create Neon Branch
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neondatabase/create-branch-action@v5
+        id: create-branch
+        with:
+          project_id: spring-resonance-62353058
+          # optional (defaults to neondb)
+          database: portfolio_site
+          branch_name: from_action_reusable
+          username: db_user_for_url
+          api_key: ${{ secrets.NEON_API_KEY }}
+      - run: echo db_url ${{ steps.create-branch.outputs.db_url }}
+      - run: echo host ${{ steps.create-branch.outputs.host }}
+      - run: echo branch_id ${{ steps.create-branch.outputs.branch_id }}
+
+  delete_neon_branch:
+    name: Delete Neon Branch
+    needs: setup
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    steps:
+      - name: Delete Neon Branch
+        uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+          api_key: ${{ secrets.NEON_API_KEY }}
