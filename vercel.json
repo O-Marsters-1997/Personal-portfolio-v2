@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "curl -fsSL https://bun.sh/install | bash && cd personal_site && ~/.bun/bin/bun install --frozen-lockfile",
-  "buildCommand": "cd ./personal_site && ~/.bun/bin/bun run build"
+  "buildCommand": "cd ./personal_site && ~/.bun/bin/bun run build",
+  "outputDirectory": "personal_site/dist"
 }
