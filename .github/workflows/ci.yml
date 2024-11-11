@@ -20,10 +20,10 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Installing dependencies for web
-        run: cd personal_site && bun install
+        run: bun install
 
       - name: Running linting
-        run: cd personal_site && bun lint
+        run: bun lint
 
       - name: Running build
-        run: cd personal_site && bun run build
+        run: bun run build
