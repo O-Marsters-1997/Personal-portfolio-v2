@@ -2,5 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "cd personal_site && bun install --frozen-lockfile",
   "buildCommand": "cd personal_site && bun run build",
-  "outputDirectory": "personal_site/.vercel/output/static"
+  "outputDirectory": "personal_site/.vercel/output/static",
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  }
 }
