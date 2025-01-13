@@ -11,14 +11,15 @@ services:
     working_dir: /home/node/app/cms
     command: sh -c "bun install && bun dev"
     environment:
+      - DB_HOST=localhost
+      - DB_PORT=5434
       - DB_USER=postgres
       - DB_PASSWORD=postgres
-      - DB_HOST=postgres
-      - DB_PORT=5434
       - DB_NAME=portfolio_cms
       - NODE_ENV=development
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     env_file:
       - .env
 
@@ -28,8 +29,8 @@ services:
       - "5434:5432"
     environment:
       PGUSER: postgres
-      POSTGRES_DB: portfolio_cms
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: portfolio_cms
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 1s
