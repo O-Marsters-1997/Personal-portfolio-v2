@@ -1,5 +1,5 @@
 {
-  "name": "interstellar-inclination",
+  "name": "@personal-portfolio/personal_site",
   "type": "module",
   "version": "1.0.2",
   "scripts": {
@@ -15,9 +15,7 @@
     "generate:tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
     "generate:tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing",
     "generate:tailwind-screens": "node src/scripts/generateTailwindTheme.cjs screens",
-    "generate:icons": "node src/scripts/generateIcons.js",
-    "cms:dev": "cd ./cms && bun dev",
-    "cms:dev-docker": "cd ./cms && bun dev:docker"
+    "generate:icons": "node src/scripts/generateIcons.js"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.3",

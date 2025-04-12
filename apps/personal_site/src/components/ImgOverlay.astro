@@ -7,11 +7,12 @@ import { imgMap } from "@utils/constants";
 const { titleShort, src, alt } = Astro.props;
 ---
 
+<!-- dddd -->
 <div class="img-overlay"></div>
 {
   titleShort !== "portfolio" ? (
     <Image
-      src={imgMap[src]}
+      src={imgMap[src]!}
       class={clsx("project-image animate-project-appear")}
       alt={alt}
     />
