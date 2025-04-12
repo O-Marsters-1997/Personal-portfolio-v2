@@ -168,5 +168,3 @@ export const variants = {
   },
 };
 export const plugins = ["postcss-nesting"];
-
-// rgba(16, 23, 42, 1)
