@@ -7,6 +7,8 @@ dist/
 
 # dependencies
 node_modules/
+.pnpm-debug.log*
+.pnpm-store/
 
 # logs
 npm-debug.log*
@@ -20,3 +22,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+**/.pnpm-debug.log*
+**/.pnpm-store/
+**/node_modules/.pnpm/
+**/pnpm-lock.yaml

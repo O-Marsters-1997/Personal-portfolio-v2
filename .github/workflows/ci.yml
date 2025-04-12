@@ -3,15 +3,14 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - "**"
-
-defaults:
-  run:
-    working-directory: personal_site
+      - "*"
 
 jobs:
   validation:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/personal_site
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
