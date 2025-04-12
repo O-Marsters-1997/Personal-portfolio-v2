@@ -2,7 +2,7 @@ name: Preview Deployment
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.PERSONAL_SITE_VERCEL_PROJECT_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PORTFOLIO_SITE }}
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ jobs:
       run:
         working-directory: apps/personal_site
     env:
-      VERCEL_PROJECT_ID: ${{ secrets.PERSONAL_SITE_VERCEL_PROJECT_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PORTFOLIO_SITE }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
