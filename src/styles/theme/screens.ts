@@ -7,4 +7,5 @@ export const screens: TailwindColors = {
   "2xl": "1536px",
   xs: "320px",
 };
+
 export default screens;
