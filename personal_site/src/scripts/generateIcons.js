@@ -12,7 +12,7 @@ const iconsGeneratedPath = path.join(__dirname, "../styles/theme/IconSvg.tsx");
 async function run() {
   const icons = [];
   const iconFiles = fs.readdirSync(iconsPath).filter((f) => f[0] !== ".");
-  let result = { processed: [], errors: [] };
+  const result = { processed: [], errors: [] };
 
   for (const i in iconFiles) {
     const iconFileName = iconFiles[i];
