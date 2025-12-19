@@ -3,6 +3,8 @@ import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import myImage from "@assets/images/logo.png";
 import { storeMap } from "@utils/nanostore";
+import { useStore } from "@nanostores/react";
+import type { Store } from "@types";
 
 type Navlink = "about" | "projects" | "writing" | "contact";
 
@@ -11,12 +13,11 @@ const Header = () => {
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
   const navlinks: Navlink[] = ["about", "projects", "writing", "contact"];
 
+  const $store = useStore(storeMap) as Store;
+
   const handleOpenMobileNavigation = () => {
-    setMobileNavOpen(!mobileNavOpen);
-    storeMap.set({
-      ...storeMap,
-      mobileNavigationOpen: !storeMap.get().mobileNavigationOpen,
-    });
+    setMobileNavOpen(!$store.mobileNavigationOpen);
+    $store.mobileNavigationOpen = !$store.mobileNavigationOpen;
   };
 
   return (
@@ -32,12 +33,14 @@ const Header = () => {
                 <a
                   href={`#${navlink}`}
                   key={index}
-                  onClick={() => setSelectedLink(navlink)}
+                  onClick={() => {
+                    setSelectedLink(navlink);
+                  }}
                 >
                   <li
-                    className={`mobile-link ${
-                      selectedLink == navlink && "active"
-                    }`}
+                    className={clsx("mobile-link", {
+                      active: selectedLink === navlink,
+                    })}
                   >
                     {capitalised}
                   </li>
@@ -60,22 +63,22 @@ const Header = () => {
         />
         <div>
           {mobileNavOpen ? (
-            <div
+            <button
               className="cross-nav cursor-pointer"
               onClick={handleOpenMobileNavigation}
             >
               <span className="cross-nav-line top-left"></span>
               <span className="cross-nav-line top-right"></span>
-            </div>
+            </button>
           ) : (
-            <div
+            <button
               className="flex flex-col justify-evenly items-end gap-[.525rem] cursor-pointer"
               onClick={handleOpenMobileNavigation}
             >
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>
               <span className="hamburger-line"></span>
-            </div>
+            </button>
           )}
         </div>
       </div>
