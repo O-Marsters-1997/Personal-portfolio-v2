@@ -3,6 +3,7 @@ import * as url from "url";
 import path from "path";
 import { optimize } from "svgo";
 import prettier from "prettier";
+import { logger } from "@utils/logger";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const iconsPath = path.join(__dirname, "../assets/icons/");
@@ -101,7 +102,7 @@ async function run() {
       "utf-8"
     );
   } catch (error) {
-    console.error(error);
+    logger.error("Error generating icons", { error });
   }
 }
 

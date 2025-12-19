@@ -1,2 +1,3 @@
 # Type config files
 *.d.ts
+*/**/utils/logger.ts

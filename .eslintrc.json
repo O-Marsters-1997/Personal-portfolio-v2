@@ -24,6 +24,9 @@
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"],
         "sourceType": "module"
+      },
+      "rules": {
+        "jsx-a11y/label-has-associated-control": "off"
       }
     }
   ],

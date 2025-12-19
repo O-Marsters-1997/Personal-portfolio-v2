@@ -19,11 +19,12 @@ const ResponsiveLayout: FC<Props> = ({
   matchSlot,
   fallbackSlot,
 }) => {
-  const mediaQuery = breakpoints[1]
-    ? window.matchMedia(
-        `(min-width: ${breakpoints[0]}px) and (max-width: ${breakpoints[1]}px)`
-      )
-    : window.matchMedia(`(min-width: ${breakpoints[0]}px)`);
+  const mediaQuery =
+    breakpoints[1] !== undefined
+      ? window.matchMedia(
+          `(min-width: ${breakpoints[0]}px) and (max-width: ${breakpoints[1]}px)`
+        )
+      : window.matchMedia(`(min-width: ${breakpoints[0]}px)`);
 
   const [isMatched, setIsMatched] = useState(mediaQuery.matches);
   const [isMounted, setIsMounted] = useState(false);
