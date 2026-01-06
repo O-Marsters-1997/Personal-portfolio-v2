@@ -10,7 +10,7 @@
     "astro": "astro",
     "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx,astro}'",
     "prettify": "npx prettier --write './src/**/*.{js,jsx,ts,tsx,astro,css,json}'",
-    "format": "npm run prettify && npm run format",
+    "format": "bun run prettify && bun run format",
     "generate:tailwind-colors": "node src/scripts/generateTailwindTheme.cjs colors",
     "generate:tailwind-typography": "node src/scripts/generateTailwindTheme.cjs fontFamily",
     "generate:tailwind-spacing": "node src/scripts/generateTailwindTheme.cjs spacing",

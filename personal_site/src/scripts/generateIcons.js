@@ -3,6 +3,7 @@ import * as url from "url";
 import path from "path";
 import { optimize } from "svgo";
 import prettier from "prettier";
+import { logger } from "@utils/logger";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const iconsPath = path.join(__dirname, "../assets/icons/");
@@ -12,7 +13,7 @@ const iconsGeneratedPath = path.join(__dirname, "../styles/theme/IconSvg.tsx");
 async function run() {
   const icons = [];
   const iconFiles = fs.readdirSync(iconsPath).filter((f) => f[0] !== ".");
-  let result = { processed: [], errors: [] };
+  const result = { processed: [], errors: [] };
 
   for (const i in iconFiles) {
     const iconFileName = iconFiles[i];
@@ -103,7 +104,7 @@ async function run() {
       "utf-8"
     );
   } catch (error) {
-    console.error(error);
+    logger.error("Error generating icons", { error });
   }
 }
 

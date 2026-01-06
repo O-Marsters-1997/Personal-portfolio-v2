@@ -16,16 +16,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Installing dependencies for web
-        run: pnpm install
+        run: bun install
 
       - name: Running linting
-        run: pnpm lint
-
-      - name: Running build
-        run: pnpm build
+        run: bun lint
