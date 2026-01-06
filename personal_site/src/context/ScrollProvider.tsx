@@ -10,8 +10,6 @@ const ScrollProvider = () => {
   useEffect(() => {
     const htmlElement = document.querySelector("html");
     const htmlElementClassList = htmlElement?.classList;
-    const classArray =
-      htmlElementClassList != null ? Array.from(htmlElementClassList) : [];
 
     if (isMobileNavOpen) {
       html.classList.add("disable-scroll");
