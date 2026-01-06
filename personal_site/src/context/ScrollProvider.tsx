@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
-import type { Store } from "@types";
+import type { Store } from "@/types";
 
 const ScrollProvider = () => {
-  const $storeMap = useStore(storeMap) as Store;
+  const $storeMap = useStore(storeMap) as unknown as Store;
   const isMobileNavOpen = $storeMap.mobileNavigationOpen;
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const ScrollProvider = () => {
     const htmlElementClassList = htmlElement?.classList;
 
     if (isMobileNavOpen) {
-      html.classList.add("disable-scroll");
+      htmlElementClassList?.add("disable-scroll");
     } else {
-      html.classList.remove("disable-scroll");
+      htmlElementClassList?.remove("disable-scroll");
     }
   }, [isMobileNavOpen]);
   return <></>;
