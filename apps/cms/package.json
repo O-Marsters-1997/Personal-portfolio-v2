@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "@portfolio/cms",
   "version": "1.0.2",
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
@@ -26,19 +26,29 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.32.6",
-    "@payloadcms/db-postgres": "latest"
+    "@payloadcms/db-postgres": "latest",
+    "@portfolio/utils": "workspace:*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
     "@types/node": "^22.5.4",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.1",
+    "@next/eslint-plugin-next": "15.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.1.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "prettier": "^3.4.2",
     "typescript": "5.7.2"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
+  },
+  "overrides": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0"
   }
 }

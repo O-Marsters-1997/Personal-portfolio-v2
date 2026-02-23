@@ -15,7 +15,7 @@
       "@context": ["./src/context/*"],
       "@types": ["./src/types/*"],
       "@theme": ["src/styles/theme/*"],
-      "@/payload/*": ["../backend/src/*"]
+      "@/payload/*": ["../cms/src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

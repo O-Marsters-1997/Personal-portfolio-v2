@@ -5,10 +5,6 @@ on:
     branches:
       - "**"
 
-defaults:
-  run:
-    working-directory: personal_site
-
 jobs:
   validation:
     runs-on: ubuntu-latest
@@ -19,8 +15,8 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Installing dependencies for web
+      - name: Install dependencies
         run: bun install
 
-      - name: Running linting
-        run: bun lint
+      - name: Run linting
+        run: bun turbo lint --filter='*'

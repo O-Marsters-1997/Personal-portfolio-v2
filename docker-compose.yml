@@ -8,8 +8,8 @@ services:
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/cms
-    command: sh -c "bun install && bun dev"
+    working_dir: /home/node/app
+    command: sh -c "bun install && bun run dev --filter=@portfolio/cms"
     environment:
       - DB_HOST=localhost
       - DB_PORT=5434
