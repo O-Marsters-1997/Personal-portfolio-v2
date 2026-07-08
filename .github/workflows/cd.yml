@@ -11,7 +11,7 @@ on:
 
 jobs:
   deploy_personal_site:
-    if: startsWith(github.ref, 'refs/tags/portfolio-')
+    if: ${{ !startsWith(github.ref, 'refs/tags/cms-') }}
     runs-on: ubuntu-latest
     env:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PORTFOLIO_SITE }}
@@ -41,7 +41,7 @@ jobs:
         working-directory: apps/web
 
   deploy_cms:
-    if: startsWith(github.ref, 'refs/tags/cms-')
+    if: ${{ !startsWith(github.ref, 'refs/tags/portfolio-') }}
     runs-on: ubuntu-latest
     env:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_CMS }}

@@ -1,0 +1,38 @@
+---
+import Layout from "@layouts/Page.astro";
+import { fetchPosts, mediaUrl, readingTime } from "@utils/cms";
+import type { Post, Media, Category } from "@/payload/payload-types";
+
+export async function getStaticPaths() {
+  const posts = await fetchPosts();
+  return posts
+    .filter((post) => post.slug)
+    .map((post) => ({ params: { slug: post.slug! }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: Post };
+const hero = post.hero as Media;
+const category = post.category as Category;
+const fmt = new Intl.DateTimeFormat("en-GB", { dateStyle: "long" });
+---
+
+<Layout>
+  <article
+    class="blog-article page-padding page-max-width page-margin-top animate-appear"
+  >
+    <img
+      src={mediaUrl(hero)}
+      alt={hero.alt}
+      width={hero.width ?? undefined}
+      height={hero.height ?? undefined}
+      class="blog-hero"
+    />
+    <span class="h5 secondary">{category.title}</span>
+    <h1 class="h2">{post.title}</h1>
+    <p class="body2 blog-meta-line">
+      {fmt.format(new Date(post.publishedDate))} ·{" "}
+      {readingTime(post.contentHtml ?? "")} min read
+    </p>
+    <div class="blog-content" set:html={post.contentHtml} />
+  </article>
+</Layout>

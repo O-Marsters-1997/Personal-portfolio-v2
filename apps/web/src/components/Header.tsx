@@ -36,6 +36,11 @@ const Header = ({ className }: Props) => {
             <span className="link">Contact</span>
           </Link>
         </li>
+        <li>
+          <a href="/blog">
+            <span className="link">Blog</span>
+          </a>
+        </li>
         <li className="w-5 md:w-6">
           <Icon icon="download" width="w-full" onClick={downloadPdf} />
         </li>

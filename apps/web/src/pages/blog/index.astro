@@ -1,0 +1,144 @@
+---
+import Layout from "@layouts/Page.astro";
+import Heading from "@components/Heading.astro";
+import { fetchPosts, mediaUrl, readingTime } from "@utils/cms";
+import type { Media, Category } from "@/payload/payload-types";
+
+const posts = await fetchPosts();
+const [featured, ...rest] = posts;
+const categories = [
+  ...new Set(posts.map((post) => (post.category as Category).title)),
+];
+const fmt = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+---
+
+<Layout>
+  <div
+    id="blog"
+    class="page-padding page-max-width page-margin-top animate-appear"
+  >
+    <Heading title="Writing" />
+    <p class="body1 projects-intro">
+      Notes on engineering, design and the odd career tangent.
+    </p>
+
+    {
+      featured && (
+        <a href={`/blog/${featured.slug}`} class="blog-featured">
+          <img
+            src={mediaUrl(featured.hero as Media)}
+            alt={(featured.hero as Media).alt}
+            width={(featured.hero as Media).width ?? undefined}
+            height={(featured.hero as Media).height ?? undefined}
+            class="blog-featured-image"
+          />
+          <div class="blog-featured-meta">
+            <span class="h5 secondary">
+              {(featured.category as Category).title} · Latest
+            </span>
+            <h3 class="h3">{featured.title}</h3>
+            <p class="body2">{featured.excerpt}</p>
+            <span class="body2 blog-meta-line">
+              {fmt.format(new Date(featured.publishedDate))} ·{" "}
+              {readingTime(featured.contentHtml ?? "")} min read
+            </span>
+          </div>
+        </a>
+      )
+    }
+
+    <div class="blog-filters" role="group" aria-label="Filter by category">
+      <button class="button outlined active" data-filter="all">All</button>
+      {
+        categories.map((category) => (
+          <button class="button outlined" data-filter={category}>
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="blog-grid flex flex-wrap gap-8">
+      {
+        rest.map((post, index) => {
+          const hero = post.hero as Media;
+          const category = post.category as Category;
+          return (
+            <a
+              href={`/blog/${post.slug}`}
+              class="blog-card"
+              data-category={category.title}
+            >
+              <div class="blog-card-media relative">
+                <span class="blog-card-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <img
+                  src={mediaUrl(hero)}
+                  alt={hero.alt}
+                  width={hero.width ?? undefined}
+                  height={hero.height ?? undefined}
+                  loading="lazy"
+                  class="blog-card-image"
+                />
+              </div>
+              <div class="blog-card-meta">
+                <span class="blog-card-category">{category.title}</span>
+                <h3 class="blog-card-title">{post.title}</h3>
+                <span class="body2 blog-meta-line">
+                  {fmt.format(new Date(post.publishedDate))} ·{" "}
+                  {readingTime(post.contentHtml ?? "")} min read
+                </span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const initBlogFilters = () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(
+      ".blog-filters [data-filter]"
+    );
+    if (!buttons.length) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const initial = params.get("category") ?? "all";
+
+    const applyFilter = (filter: string) => {
+      buttons.forEach((button) =>
+        button.classList.toggle("active", button.dataset.filter === filter)
+      );
+      document
+        .querySelectorAll<HTMLElement>(".blog-card")
+        .forEach((card) => {
+          card.hidden = filter !== "all" && card.dataset.category !== filter;
+        });
+    };
+
+    buttons.forEach((button) =>
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter ?? "all";
+        const url = new URL(window.location.href);
+        if (filter === "all") {
+          url.searchParams.delete("category");
+        } else {
+          url.searchParams.set("category", filter);
+        }
+        window.history.replaceState({}, "", url);
+        applyFilter(filter);
+      })
+    );
+
+    applyFilter(initial);
+  };
+
+  document.addEventListener("astro:page-load", initBlogFilters);
+</script>

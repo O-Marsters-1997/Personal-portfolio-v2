@@ -8,7 +8,7 @@ import { downloadPdf, toggleDarkTheme, accessibleOnClick } from "@utils/common";
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
 
-type Navlink = "about" | "projects" | "writing" | "contact";
+type Navlink = "about" | "projects" | "writing" | "contact" | "blog";
 
 interface Props {
   className: string;
@@ -18,7 +18,7 @@ const Header = ({ className }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
   const darkMode = useDarkMode();
-  const navlinks: Navlink[] = ["about", "projects", "contact"];
+  const navlinks: Navlink[] = ["about", "projects", "contact", "blog"];
 
   const handleOpenMobileNavigation = () => {
     setMobileNavOpen(!mobileNavOpen);
@@ -50,6 +50,14 @@ const Header = ({ className }: Props) => {
                   mobileNavigationOpen: false,
                 });
               };
+
+              if (navlink === "blog") {
+                return (
+                  <a href="/blog" key={index} onClick={handleNavigation}>
+                    <li className="mobile-link">{capitalised}</li>
+                  </a>
+                );
+              }
 
               return (
                 <Link to={`${navlink}`} key={index} onClick={handleNavigation}>
