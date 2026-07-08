@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import Link from "@components/base/Link";
-import { useStore } from "@nanostores/react";
-import { storeMap } from "@utils/nanostore";
+import { useDarkMode } from "@utils/useDarkMode";
 import { downloadPdf, toggleDarkTheme } from "@utils/common";
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const Header = ({ className }: Props) => {
-  const { darkMode } = useStore(storeMap);
+  const darkMode = useDarkMode();
 
   return (
     <nav className={clsx("navigation", className && className)}>
@@ -40,7 +39,7 @@ const Header = ({ className }: Props) => {
         <li className="w-5 md:w-6">
           <Icon icon="download" width="w-full" onClick={downloadPdf} />
         </li>
-        <li className="w-5 md:w-6">
+        <li className="w-5 md:w-6 theme-toggle">
           <Icon
             icon={darkMode ? "light_mode" : "light_dark_mode"}
             onClick={toggleDarkTheme}

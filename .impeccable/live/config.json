@@ -1,0 +1,9 @@
+{
+  "framework": "astro",
+  "files": ["apps/web/src/layouts/Base.astro"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "devServer": "bun run dev:web",
+  "url": "http://localhost:4321",
+  "cspChecked": true
+}

@@ -1,53 +1,44 @@
 ---
 import clsx from "clsx";
-import Icon from "@components/base/Icon";
 import Link from "@components/base/Link";
-import { storeMap } from "@utils/nanostore";
 import { myName } from "@utils/constants";
-
-const { darkMode } = storeMap.get();
 ---
 
-<div class="flex z-10 page-padding">
-  <div class="flex flex-col justify-center items-start">
-    <h4 class="flex gap-1 items-center animate-appear">
-      <Icon icon="hello" width="w-4" client:load />
-      <span> Hello I'm</span>
-    </h4>
-    <div>
-      <h1 class="pt-2 exclude-animate-appear">
-        {
-          myName.split(" ").map((word, index) => (
-            <span
-              class={clsx(
-                "relative inline-block whitespace-nowrap pr-3",
-                `name-word-${index}`
-              )}
-            >
-              {word.split("").map((char, index) => {
-                return (
-                  <span
-                    class={clsx("h1 inline-block", `animate-text-${index}`)}
-                  >
-                    {char}
-                  </span>
-                );
-              })}
-            </span>
-          ))
-        }
-      </h1>
-      <p class="subtitle pb-8 pl-1 animate-appear">
-        Interactive frontend developer passionate about creating meaningful and
-        impactful digital experiences
-      </p>
-    </div>
-
-    <Link to="contact" className="animate-appear opacity-0" client:load>
-      <button
-        class={clsx("button", darkMode ? "primary" : "primary_dark")}
-        onclick="">Get in touch</button
-      >
+<div class="hero-overlay">
+  <p class="hero-kicker animate-appear">Full-stack developer · Edinburgh</p>
+  <h1 class="hero-name exclude-animate-appear">
+    {
+      myName.split(" ").map((word, index) => (
+        <span
+          class={clsx(
+            "relative inline-block whitespace-nowrap",
+            `name-word-${index}`
+          )}
+        >
+          {word.split("").map((char, index) => {
+            return (
+              <span class={clsx("inline-block", `animate-text-${index}`)}>
+                {char}
+              </span>
+            );
+          })}
+        </span>
+      ))
+    }
+  </h1>
+  <p class="hero-tagline animate-appear">
+    I build interactive experiences for the web — fast, accessible, and a
+    little bit cosmic.
+  </p>
+  <p class="hero-hint animate-appear">
+    Your cursor has gravity — drag to spin the galaxy
+  </p>
+  <div class="hero-actions animate-appear">
+    <Link to="projects" className="inline-block" client:load>
+      <button class="button hero-cta">See my work</button>
+    </Link>
+    <Link to="contact" className="inline-block" client:load>
+      <button class="button hero-cta--secondary">Get in touch</button>
     </Link>
   </div>
 </div>

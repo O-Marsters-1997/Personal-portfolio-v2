@@ -11,11 +11,11 @@ const { projects } = base;
   class="page-padding page-max-width page-margin-top animate-appear"
 >
   <Heading title="Projects" />
-  <p class="body1 pb-10">
-    Click on the projects listed below to see information about each in further
-    detail
+  <p class="body1 projects-intro">
+    A few things I've designed, built and shipped — select any project for the
+    full story.
   </p>
-  <div class="flex 2xl:justify-between flex-wrap gap-8">
+  <div class="projects-grid flex 2xl:justify-between flex-wrap gap-8">
     {
       projects.map((project: any, index) => (
         <Project

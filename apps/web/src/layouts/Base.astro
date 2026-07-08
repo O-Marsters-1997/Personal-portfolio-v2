@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/head/BaseHead.astro";
+import "@fontsource/gloock";
 import "../styles/main.css";
 import ThemeProvider from "@context/ThemeProvider";
 import ScrollProvider from "@context/ScrollProvider";
@@ -7,12 +8,13 @@ import { ViewTransitions } from "astro:transitions";
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-variant="deep-field">
   <head>
     <BaseHead title="Olly Marsters" />
     <ViewTransitions />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <ThemeProvider client:only />
     <ScrollProvider client:only />
     <div>

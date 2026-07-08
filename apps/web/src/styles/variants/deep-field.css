@@ -1,0 +1,299 @@
+/*
+ * DEEP FIELD — a quiet observatory. Near-black charcoal ground, a cold
+ * monochrome Milky Way, one gold accent, Gloock display serif. Minimal
+ * backdrop so the copy always wins the contrast fight.
+ */
+
+html[data-variant="deep-field"] {
+  /* Near-black charcoal ground, cold monochrome sky, one gold star */
+  --bg: #06070b;
+  --bg-soft: #0d0f16;
+  --surface: rgba(20, 23, 34, 0.6);
+  --field-bg: rgba(20, 23, 34, 0.6);
+  --ink: #f4f2ea;
+  --ink-body: #bac0cd;
+  --ink-muted: #848c9e;
+  --accent: #e6b450;
+  --accent-ink: #edc478;
+  --accent-contrast: #201503;
+  --line: rgba(244, 242, 234, 0.14);
+  --line-strong: rgba(244, 242, 234, 0.32);
+  --radius: 12px;
+  --radius-pill: 999px;
+  --font-display: "Gloock", "Georgia", serif;
+
+  /* -------------------------------------------------- hero */
+
+  /* Single quiet vignette — the sky itself is the decoration */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 120% 90% at 50% 45%,
+      transparent 55%,
+      rgba(4, 5, 8, 0.55) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-overlay {
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Light scrim so the band never sits directly behind the copy */
+  .hero-overlay::before {
+    content: "";
+    position: absolute;
+    inset: -4rem -6rem;
+    background: radial-gradient(
+      ellipse 55% 52% at 50% 48%,
+      rgba(6, 7, 11, 0.55),
+      rgba(6, 7, 11, 0.26) 55%,
+      transparent 78%
+    );
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .hero-name {
+    font-size: clamp(3.2rem, 8.5vw, 5.6rem);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 1.08;
+    padding-top: 1rem;
+  }
+
+  .hero-name .name-word-0 {
+    margin-right: 0.28em;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.65;
+    padding-top: 1.4rem;
+  }
+
+  .hero-hint {
+    padding-top: 1.1rem;
+  }
+
+  .hero-hint::before {
+    content: "✦ ";
+    color: var(--accent-ink);
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-cta:hover {
+    box-shadow: 0 4px 8px rgba(230, 180, 80, 0.35);
+  }
+
+  /* -------------------------------------------------- nav */
+
+  .navigation {
+    z-index: var(--z-nav);
+  }
+
+  .navigation a > span {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-body);
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    padding-bottom: 3px;
+    transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+  }
+
+  .navigation a:hover > span {
+    color: var(--ink);
+    background-size: 100% 1px;
+  }
+
+  /* -------------------------------------------------- section headings */
+
+  h2,
+  .h2 {
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* -------------------------------------------------- about */
+
+  .about-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .about-image__image {
+    border-radius: var(--radius);
+  }
+
+  .about-image__underlay {
+    background: linear-gradient(135deg, rgba(230, 180, 80, 0.28), rgba(125, 143, 184, 0.3));
+    border-radius: var(--radius);
+  }
+
+  .about-text,
+  .about-description .body1 {
+    color: var(--ink-body);
+  }
+
+  /* A quiet orbit around the profile photo — three of the tech icons
+     drifting at different radii/speeds, echoing the hero's open clusters
+     at a domestic scale. Decorative only; the real tech list stays below,
+     accessible, in .about-description. */
+  .about-orbit__ring {
+    position: absolute;
+    inset: -1.75rem;
+    border: 1px dashed var(--line);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .about-orbit__moon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.9rem;
+    height: 1.9rem;
+    margin: -0.95rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    color: var(--ink-muted);
+    animation: about-orbit-spin var(--duration, 24s) linear infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .about-orbit__moon--1 {
+    --r: 8rem;
+    --duration: 22s;
+    --delay: 0s;
+  }
+
+  .about-orbit__moon--2 {
+    --r: 8.9rem;
+    --duration: 29s;
+    --delay: -9s;
+  }
+
+  .about-orbit__moon--3 {
+    --r: 9.7rem;
+    --duration: 34s;
+    --delay: -19s;
+  }
+
+  .about-local-time {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .action {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--accent-ink);
+    transition: color 0.2s;
+  }
+
+  .action:hover {
+    color: var(--accent);
+  }
+
+  /* -------------------------------------------------- projects: cinematic rows */
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 9.5;
+    border: 1px solid var(--line);
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .project-meta {
+    padding-top: 1.25rem;
+  }
+
+  .project-title {
+    font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  }
+
+  @media (min-width: 1024px) {
+    .project-item {
+      flex-direction: row;
+      align-items: center;
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .project-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-media {
+      flex: 0 0 58%;
+    }
+
+    .project-meta {
+      flex: 1;
+      padding-top: 0;
+    }
+  }
+
+  /* Translucent tint that slides across images on reveal */
+  .img-overlay {
+    background: rgba(6, 7, 11, 0.22);
+  }
+
+  /* -------------------------------------------------- contact */
+
+  input,
+  textarea {
+    backdrop-filter: none;
+  }
+}
+
+@keyframes about-orbit-spin {
+  from {
+    transform: rotate(0deg) translateX(var(--r, 8rem)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--r, 8rem)) rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-variant="deep-field"] .about-orbit__moon {
+    animation: none;
+    transform: rotate(45deg) translateX(var(--r, 8rem)) rotate(-45deg);
+  }
+}

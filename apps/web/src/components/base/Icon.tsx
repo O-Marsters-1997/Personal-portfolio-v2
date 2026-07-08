@@ -1,6 +1,5 @@
 import { type IconDefinition, IconSvg } from "../../styles/theme/IconSvg";
-import { useStore } from "@nanostores/react";
-import { storeMap } from "@utils/nanostore";
+import { useDarkMode } from "@utils/useDarkMode";
 import { accessibleOnClick } from "@utils/common";
 
 interface Props {
@@ -19,7 +18,7 @@ const Icon = ({
   class: className,
   onClick,
 }: Props) => {
-  const { darkMode } = useStore(storeMap);
+  const darkMode = useDarkMode();
   const isLinkIcon = icon === "external" || icon === "github";
 
   const getIcon = () => {

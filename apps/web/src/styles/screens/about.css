@@ -6,8 +6,15 @@
   @apply flex flex-col items-center max-w-md gap-4 md:ml-auto;
 }
 
+.about-orbit {
+  @apply relative;
+  margin: 1.75rem;
+}
+
 .about-image {
-  @apply relative rounded-sm;
+  @apply relative rounded-sm overflow-hidden;
+  width: clamp(9rem, 22vw, 13rem);
+  aspect-ratio: 1;
 
   &__underlay {
     @apply absolute top-0 right-0 bottom-0 left-full bg-grey-lighter z-[-10];
@@ -15,6 +22,9 @@
 
   &__image {
     @apply opacity-0 z-10;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

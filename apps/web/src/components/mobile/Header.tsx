@@ -2,8 +2,8 @@ import { useState } from "react";
 import clsx from "clsx";
 import Icon from "@components/base/Icon";
 import Link from "@components/base/Link";
-import { useStore } from "@nanostores/react";
 import { storeMap } from "@utils/nanostore";
+import { useDarkMode } from "@utils/useDarkMode";
 import { downloadPdf, toggleDarkTheme, accessibleOnClick } from "@utils/common";
 import logo from "@assets/images/logo.png";
 import lightLogo from "@assets/images/light_logo.png";
@@ -17,7 +17,7 @@ interface Props {
 const Header = ({ className }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState<null | Navlink>(null);
-  const { darkMode } = useStore(storeMap);
+  const darkMode = useDarkMode();
   const navlinks: Navlink[] = ["about", "projects", "contact"];
 
   const handleOpenMobileNavigation = () => {
@@ -33,7 +33,7 @@ const Header = ({ className }: Props) => {
       {mobileNavOpen && (
         <div
           className={clsx(
-            "dark:bg-dark-primary-dark bg-light-primary-main h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20",
+            "mobile-nav-panel dark:bg-dark-primary-dark bg-light-primary-main h-[100vh] flex flex-col justify-center w-4/5 fixed right-0 z-20",
             className && className
           )}
         >
@@ -65,11 +65,13 @@ const Header = ({ className }: Props) => {
             })}
 
             <div className="flex gap-4" id="testing">
-              <Icon
-                icon={darkMode ? "light_mode" : "dark_mode"}
-                class="cursor-pointer w-7"
-                {...accessibleOnClick(toggleDarkTheme)}
-              />
+              <span className="theme-toggle">
+                <Icon
+                  icon={darkMode ? "light_mode" : "dark_mode"}
+                  class="cursor-pointer w-7"
+                  {...accessibleOnClick(toggleDarkTheme)}
+                />
+              </span>
               <Icon
                 icon="download"
                 class="cursor-pointer w-7"

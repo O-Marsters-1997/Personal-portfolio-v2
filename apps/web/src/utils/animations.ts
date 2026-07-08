@@ -15,12 +15,8 @@ const animationControls = {
 };
 
 // Animation utils
-const validateElement = (element: Element | null) => {
-  if (!element) {
-    throw new Error("The element must exist and therefore not be null");
-  }
-  return element;
-};
+// Sections are route-dependent (the project detail pages have no about /
+// projects / contact), so a missing element means "skip this animation".
 
 const delayElementIfInView = async (element: Element) => {
   const intersectionPromise = new Promise((resolve, reject) => {
@@ -75,9 +71,8 @@ const annimateAppear = () => {
 
 const aboutTextAnimateInView = async () => {
   const { fadeInAnimation } = animationControls;
-  const aboutText = validateElement(
-    document.querySelector(".about-description")
-  );
+  const aboutText = document.querySelector(".about-description");
+  if (!aboutText) return;
 
   const shouldDelayAnimation = await delayElementIfInView(aboutText);
   const sequence = myDescriptionParas
@@ -117,7 +112,8 @@ const aboutTextAnimateInView = async () => {
 
 const animateProfileImage = async () => {
   const { fadeInAnimation } = animationControls;
-  const aboutImage = validateElement(document.querySelector(".about-image"));
+  const aboutImage = document.querySelector(".about-image");
+  if (!aboutImage) return;
   const imageDelayAnimation = await delayElementIfInView(aboutImage);
 
   inView(".about-image", () => {
@@ -155,9 +151,8 @@ const animateProjectImage = () => {
   const { projects } = base;
 
   projects.forEach(async (_, index) => {
-    const projectItemElement = validateElement(
-      document.querySelector(`.project-item__${index}`)
-    );
+    const projectItemElement = document.querySelector(`.project-item__${index}`);
+    if (!projectItemElement) return;
     const shouldDelayAnimation = await delayElementIfInView(projectItemElement);
 
     inView(`.project-item__${index}`, () => {
@@ -188,7 +183,8 @@ const animateProjectImage = () => {
 
 const animateAboutSection = async () => {
   const { fadeInAnimation } = animationControls;
-  const aboutSection = validateElement(document.querySelector(".contact"));
+  const aboutSection = document.querySelector(".contact");
+  if (!aboutSection) return;
   const shouldDelayAnimation = await delayElementIfInView(aboutSection);
 
   inView(".contact", () => {

@@ -9,13 +9,14 @@ import Section from "@components/base/Section";
   className="contact page-padding page-max-width page-margin-top animate-appear"
 >
   <Heading title="Contact" />
-  <div class="flex flex-col md:flex-row gap-12">
+  <div class="contact-layout flex flex-col md:flex-row gap-12">
     <p class="body1 max-w-xl flex-1">
       Whether you like my work and think I can help you with something, or you
       just want to start a conversation about tech, don’t hesitate to contact me
       at
-      <span class="body1 dark:text-dark-secondary-dark">
-        hello@ollymarsters.com</span
+      <span class="contact-beacon" aria-hidden="true"></span><a
+        href="mailto:hello@ollymarsters.com"
+        class="contact-email">hello@ollymarsters.com</a
       > or through the form.
     </p>
     <Form client:visible />

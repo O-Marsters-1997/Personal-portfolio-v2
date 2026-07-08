@@ -1,27 +1,21 @@
 ---
-import Icon from "@components/base/Icon";
 import { externalLinks } from "@utils/constants";
 ---
 
-<div class="page-padding page-max-width justify-between py-8 flex">
-  <div class="hidden gap-6 sm:flex">
+<footer class="site-footer page-padding page-max-width">
+  <div class="flex gap-6">
     <a
       href={externalLinks.githubProfile}
       target="_blank"
       rel="noopener"
-      aria-label="Github"
       class="link">Github</a
     >
-    <a
-      href={externalLinks.linkedin}
-      target="_blank"
-      rel="noopener"
-      aria-label="Linkedin"
-      class="link">LinkedIn</a
+    <a href={externalLinks.linkedin} target="_blank" rel="noopener" class="link"
+      >LinkedIn</a
     >
   </div>
-  <span class="flex items-center gap-2">
-    <Icon icon="copyright" width="w-4" client:load />
-    <p class="link">Olly Marsters 2023</p>
-  </span>
-</div>
+  <p class="site-footer__signal">
+    <span data-local-time>--:--</span> in Edinburgh
+  </p>
+  <p class="link">© Olly Marsters {new Date().getFullYear()}</p>
+</footer>

@@ -1,9 +1,15 @@
 import { runAnimations } from "@utils/animations";
+import { initLocalTime } from "@utils/localTime";
+import { initProjectTilt } from "@utils/projectTilt";
 
-document.addEventListener("DOMContentLoaded", async () => {
-  runAnimations();
-});
+let stopLocalTime: (() => void) | undefined;
 
-document.addEventListener("astro:after-swap", async () => {
+const boot = () => {
   runAnimations();
-});
+  stopLocalTime?.();
+  stopLocalTime = initLocalTime();
+  initProjectTilt();
+};
+
+document.addEventListener("DOMContentLoaded", boot);
+document.addEventListener("astro:after-swap", boot);

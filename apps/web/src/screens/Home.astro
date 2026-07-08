@@ -1,11 +1,14 @@
 ---
-import Canvas from "@components/canvas/Canvas";
+import HeroScene from "@components/hero/HeroScene";
 import CanvasOverlay from "@components/canvas/CanvasOverlay.astro";
 ---
 
-<div class="w-screen h-screen relative">
-  <Canvas client:load />
-  <div class="w-full h-full flex justify-center items-center px-4 md:px-14">
+<div id="home" class="hero">
+  <HeroScene client:only="react" />
+  <div class="hero-content">
     <CanvasOverlay />
+  </div>
+  <div class="hero-scroll-cue animate-appear" aria-hidden="true">
+    <span class="hero-scroll-cue__line"></span>
   </div>
 </div>

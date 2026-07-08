@@ -1,0 +1,566 @@
+/*
+ * Deep Field design system. Rules are scoped to html[data-variant] so
+ * specificity beats the legacy theme utilities.
+ */
+@import "./deep-field.css";
+
+:root {
+  /* Semantic z-scale: content < nav < mobile-nav */
+  --z-nav: 40;
+  --z-mobile-nav: 50;
+}
+
+/* ------------------------------------------------------------------ */
+/* Token plumbing shared by all variants                               */
+/* ------------------------------------------------------------------ */
+
+html[data-variant] {
+  body {
+    background: var(--bg);
+    color: var(--ink-body);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3 {
+    font-family: var(--font-display);
+    /* Gloock ships one weight; stop legacy bold utilities faux-bolding it */
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  h5,
+  .h5 {
+    color: var(--ink);
+
+    &.secondary {
+      color: var(--accent-ink);
+    }
+  }
+
+  /* NOTE: .link / .subtitle / .body2 are @apply'ed elsewhere; Tailwind
+     forbids re-declaring them under compound selectors, so target
+     elements + the remaining classes instead. */
+  .body1,
+  a,
+  .action {
+    color: var(--ink-body);
+  }
+
+  a:hover {
+    color: var(--ink);
+  }
+
+  .horizontal-line {
+    border-color: var(--line);
+  }
+
+  .logo {
+    width: 3.5rem;
+  }
+
+  input,
+  textarea {
+    background: var(--field-bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+    border-color: transparent;
+  }
+
+  textarea {
+    height: 12rem;
+  }
+
+  .hamburger-line,
+  .cross-nav-line {
+    background: var(--ink);
+  }
+
+  .mobile-nav-panel {
+    background: var(--bg-soft);
+  }
+
+  /* The variant preview owns theming; hide the old dark-mode toggle */
+  .theme-toggle {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Scroll progress — a thin gold hairline, read straight off scroll     */
+/* position. Pure CSS scroll-driven animation; @supports means browsers */
+/* without it just never see the bar rather than getting a broken one.  */
+/* ------------------------------------------------------------------ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent, transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 50;
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress-grow linear;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scroll-progress-grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero scaffolding                                                    */
+/* ------------------------------------------------------------------ */
+
+html[data-variant] {
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    padding: clamp(1.5rem, 5vw, 4.5rem);
+  }
+
+  .hero-overlay {
+    display: flex;
+    flex-direction: column;
+    max-width: 68rem;
+  }
+
+  .hero-kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  .hero-name {
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  /* The global reset pins every element to 17px; the animated per-char
+     spans must inherit the display size instead. */
+  .hero-name span {
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+  }
+
+  .hero-tagline {
+    max-width: 44ch;
+    color: var(--ink-body);
+    text-wrap: pretty;
+  }
+
+  .hero-hint {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2.25rem;
+  }
+
+  .hero-cta,
+  .hero-cta--secondary {
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 1.9rem;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .hero-cta {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border: none;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-cta--secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+
+  .hero-cta--secondary:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* Interaction hints only make sense with a hovering pointer */
+  @media (hover: none) {
+    .hero-hint {
+      display: none;
+    }
+  }
+
+  .hero-scroll-cue {
+    position: absolute;
+    z-index: 1;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3.5rem;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  .hero-scroll-cue__line {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, var(--ink));
+    animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes contact-beacon-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(230, 180, 80, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(230, 180, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(230, 180, 80, 0);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Sections shared across variants                                     */
+/* ------------------------------------------------------------------ */
+
+html[data-variant] {
+  .projects-intro {
+    max-width: 62ch;
+    padding-bottom: 3rem;
+  }
+
+  .project-item {
+    position: relative;
+  }
+
+  .project-media {
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .project-media img,
+  .project-media canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.6s ease;
+  }
+
+  .project-item:hover .project-media img {
+    transform: scale(1.035);
+  }
+
+  /* Cursor-gravity echo: pointer position drives a soft gold contact-glow
+     and a faint tilt, set via --mx/--my from projectTilt.ts. */
+  .project-media {
+    --mx: 50%;
+    --my: 50%;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-media.is-hovering {
+    transform: perspective(1000px)
+      rotateX(calc((50% - var(--my)) / 10))
+      rotateY(calc((var(--mx) - 50%) / 10));
+  }
+
+  .project-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mx) var(--my),
+      rgba(230, 180, 80, 0.22),
+      transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .project-media.is-hovering::after {
+    opacity: 1;
+  }
+
+  .project-index {
+    position: absolute;
+    z-index: 1;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: rgba(6, 7, 11, 0.45);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 0.28rem 0.65rem;
+  }
+
+  .project-category {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  .project-title {
+    padding-top: 0.35rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.8rem;
+    list-style: none;
+    margin: 0;
+  }
+
+  .project-tech li {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 0.22rem 0.65rem;
+  }
+
+  .project-links {
+    top: 1.25rem;
+    right: 1.25rem;
+    opacity: 1;
+  }
+
+  .contact-layout {
+    padding-top: 0.5rem;
+  }
+
+  .contact-beacon {
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin: 0 0.5em -0.05em 0.15em;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: contact-beacon-pulse 2.6s ease-out infinite;
+  }
+
+  .contact-email {
+    color: var(--accent-ink);
+    font-weight: 600;
+    font-size: inherit;
+    white-space: nowrap;
+  }
+
+  .form-submit {
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 2.2rem;
+    border-radius: var(--radius-pill);
+    background: var(--accent);
+    color: var(--accent-contrast);
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: progress;
+    transform: none;
+  }
+
+  .form-status {
+    min-height: 1.5rem;
+    padding-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--ink-body);
+  }
+
+  .form-status[data-state="error"] {
+    color: var(--error, #e5484d);
+  }
+
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+
+  .site-footer a,
+  .site-footer p {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  .site-footer a:hover {
+    color: var(--ink);
+  }
+
+  .site-footer__signal {
+    font-variant-numeric: tabular-nums;
+    order: -1;
+  }
+
+  @media (min-width: 768px) {
+    .site-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .site-footer__signal {
+      order: 0;
+      text-align: center;
+    }
+
+    .site-footer p:last-child {
+      text-align: right;
+    }
+  }
+
+  /* Legacy buttons (project detail pages) re-themed per variant */
+  .button.primary {
+    background-image: none;
+    background-color: var(--cta-bg, var(--accent));
+    color: var(--cta-ink, var(--accent-contrast));
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+  }
+
+  .button.outlined {
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion                                                      */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-variant] .hero-scroll-cue__line {
+    animation: none;
+    transform: none;
+  }
+
+  html[data-variant] .hero-cta:hover,
+  html[data-variant] .hero-cta--secondary:hover,
+  html[data-variant] .form-submit:hover {
+    transform: none;
+  }
+
+  html[data-variant] .project-item:hover .project-media img {
+    transform: none;
+  }
+
+  html[data-variant] .project-media,
+  html[data-variant] .project-media.is-hovering {
+    transform: none;
+  }
+
+  .scroll-progress {
+    display: none;
+  }
+
+  .contact-beacon {
+    animation: none;
+  }
+}

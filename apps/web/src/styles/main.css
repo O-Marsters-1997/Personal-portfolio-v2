@@ -2,6 +2,7 @@
 @import "./components";
 @import "./screens";
 @import "./utils";
+@import "./variants";
 
 @tailwind base;
 @tailwind components;
